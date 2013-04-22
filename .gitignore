@@ -1,4 +1,2 @@
-obj/
-bin/
-*.suo
-App_Data/
+MiniFB/*.suo
+

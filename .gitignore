@@ -1,6 +1,5 @@
 *.suo
 
-MiniFB.Tests/obj/
-MiniFB.Tests/bin/
+
 MiniFB/obj/
 MiniFB/bin/

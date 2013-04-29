@@ -1,5 +1,9 @@
 ﻿<NUnitProject>
   <Settings activeconfig="Debug" />
-  <Config name="Debug" binpathtype="Auto" />
-  <Config name="Release" binpathtype="Auto" />
+  <Config name="Debug" binpathtype="Auto">
+    <assembly path="MiniFB.Tests\bin\Debug\MiniFB.Tests.dll" />
+  </Config>
+  <Config name="Release" binpathtype="Auto">
+    <assembly path="MiniFB.Tests\bin\Release\MiniFB.Tests.dll" />
+  </Config>
 </NUnitProject>

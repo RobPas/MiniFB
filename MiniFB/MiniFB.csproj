@@ -165,6 +165,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GoatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RandomChatController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />

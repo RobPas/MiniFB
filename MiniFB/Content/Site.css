@@ -6,7 +6,6 @@
 
 body {
     background-color: #fff;
-    border-top: solid 10px #000;
     color: #333;
     font-size: .85em;
     font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
@@ -93,6 +92,19 @@ h5, h6 {
 
 /* main layout
 ----------------------------------------------------------*/
+
+#topBorder {
+    width:100%;
+    margin: 0;
+    background-color:#3B5998;
+}
+
+#logoTopic {
+    margin: 5px;
+    line-height:normal;
+}
+
+
 .content-wrapper {
     margin: 0 auto;
     max-width: 960px;

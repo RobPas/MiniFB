@@ -9,6 +9,11 @@
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
+
+        <!--- Top Border --->
+        <div id="topBorder"><h1 id="logoTopic">MiniFB</h1></div>
+        <!--- Top Border --->
+
         <header>
             <div class="content-wrapper">
                 <div class="float-left">
@@ -23,6 +28,7 @@
                             <li>@Html.ActionLink("Home", "Index", "Home")</li>
                             <li>@Html.ActionLink("About", "About", "Home")</li>
                             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Random Chat", "Index", "RandomChat")</li>
                         </ul>
                     </nav>
                 </div>

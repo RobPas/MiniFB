@@ -4,3 +4,5 @@ MiniFB/App_Data/
 MiniFB/obj/
 MiniFB/bin/
 *.suo
+*.*.suo
+TestResult.xml

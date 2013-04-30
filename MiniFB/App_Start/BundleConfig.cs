@@ -39,10 +39,10 @@ namespace MiniFB
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
 
-            var lessBundle = new Bundle("~/less").IncludeDirectory("~/Content/less", "*.less");
-            lessBundle.Transforms.Add(new LessTransform());
-            lessBundle.Transforms.Add(new CssMinify());
-            bundles.Add(lessBundle);
+            //var lessBundle = new Bundle("~/less").IncludeDirectory("~/Content/less", "*.less");
+            //lessBundle.Transforms.Add(new LessTransform());
+            //lessBundle.Transforms.Add(new CssMinify());
+            //bundles.Add(lessBundle);
         }
     }
 }

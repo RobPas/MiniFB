@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MiniFB.Models;
 
 namespace MiniFB.Controllers
 {
@@ -11,9 +12,18 @@ namespace MiniFB.Controllers
         //
         // GET: /Goat/
 
+        private MiniFBContext db = new MiniFBContext();
+
         public ActionResult Index()
         {
-            return View();
+           return View();
+        }
+
+        public ActionResult List()
+        {
+            List<User> Users = db.Users.ToList();
+
+            return View(Users);
         }
 
     }

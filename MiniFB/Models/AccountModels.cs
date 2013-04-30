@@ -8,10 +8,9 @@ using System.Web.Security;
 
 namespace MiniFB.Models
 {
-    public class UsersContext : MiniFBContext
+    public class UsersContext : DbContext
     {
-        public UsersContext()
-            : base("DefaultConnection")
+        public UsersContext() : base("DefaultConnection")
         {
         }
 

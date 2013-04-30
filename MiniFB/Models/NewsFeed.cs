@@ -7,7 +7,7 @@ namespace MiniFB.Models
 {
     public class NewsFeed
     {
-        public Guid NewsFeedItemID { get; set; }
+        public Guid NewsFeedID { get; set; }
         public Guid UserID { get; set; }
         public virtual List<NewsFeedItem> Items { get; set; }
         public string OrderBy { get; set; }

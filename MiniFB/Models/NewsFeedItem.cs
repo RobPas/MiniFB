@@ -5,10 +5,11 @@ using System.Text;
 
 namespace MiniFB.Models
 {
-    class NewsFeedItem
+    public class NewsFeedItem
     {
         public Guid NewsFeedItemID { get; set; }
         public Guid UserID { get; set; }
+        public NewsFeed NewsFeed { get; set; }
         public string Type { get; set; }
         public string Content { get; set; }
         public DateTime Created { get; set; }

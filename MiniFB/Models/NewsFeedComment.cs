@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MiniFB.Models
 {
-    class NewsFeedComment
+    public class NewsFeedComment
     {
         public Guid NewsFeedCommentID { get; set; }
         public Guid UserID { get; set; }

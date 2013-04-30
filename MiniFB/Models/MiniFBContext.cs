@@ -10,7 +10,7 @@ namespace MiniFB.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<NewsFeed> NewsFeed { get; set; }
-        public DbSet<NewsFeedItem> NewsFeedItem { get; set; }
+        //public DbSet<NewsFeedItem> NewsFeedItem { get; set; }
     }
 
     public class MiniFBInitializer : DropCreateDatabaseAlways<MiniFBContext>

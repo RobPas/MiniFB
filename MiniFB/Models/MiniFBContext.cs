@@ -10,6 +10,7 @@ namespace MiniFB.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<NewsFeed> NewsFeed { get; set; }
+        public DbSet<NewsFeedItem> NewsFeedItem { get; set; }
     }
 
     public class MiniFBInitializer : DropCreateDatabaseAlways<MiniFBContext>
@@ -18,14 +19,11 @@ namespace MiniFB.Models
         {
             Guid UserID_1 = Guid.NewGuid();
             Guid UserID_2 = Guid.NewGuid();
+            Guid UserID_3 = Guid.NewGuid();
 
             context.Users.Add(new User { Id = UserID_1, UserName = "Goat" });
             context.Users.Add(new User { Id = UserID_2, UserName = "Arnold" });
-            context.Users.Add(new User { Id = Guid.NewGuid(), UserName = "Urban" });
-
-            NewsFeedComment 
-
-            context.NewsFeedItem.Add(new NewsFeedItem { NewsFeedItemID = Guid.NewGuid(), Content = "Min Status", UserID = UserID_1, Created = DateTime.Now, Modified = DateTime.Now, Type = "Status", Comments = NewsFeedComments_1 });
+            context.Users.Add(new User { Id = UserID_3, UserName = "Urban" });
 
             base.Seed(context);
         }

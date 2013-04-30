@@ -176,6 +176,9 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\MiniFBContext.cs" />
+    <Compile Include="Models\NewsFeed.cs" />
+    <Compile Include="Models\NewsFeedComment.cs" />
+    <Compile Include="Models\NewsFeedItem.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IEntity.cs" />

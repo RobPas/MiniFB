@@ -5,5 +5,7 @@ MiniFB/obj/
 MiniFB/bin/
 *.suo
 *.*.suo
+*.v11.suo
+
 TestResult.xml
 MiniFB.VisualState.xml

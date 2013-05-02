@@ -23,7 +23,7 @@ namespace MiniFB.Controllers
 
         public ActionResult Items()
         {
-            return View();
+            return View(db.NewsFeedItem.ToList());
         }
 
         protected override void Dispose(bool disposing)

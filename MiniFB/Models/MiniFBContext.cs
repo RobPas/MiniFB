@@ -30,8 +30,8 @@ namespace MiniFB.Models
             Guid NewsFeedID_3 = Guid.NewGuid();
 
             context.NewsFeed.Add(new NewsFeed { NewsFeedID = NewsFeedID_1, UserID = UserID_1 });
-            context.NewsFeed.Add(new NewsFeed { NewsFeedID = NewsFeedID_2, UserID = UserID_1 });
-            context.NewsFeed.Add(new NewsFeed { NewsFeedID = NewsFeedID_3, UserID = UserID_1 });
+            context.NewsFeed.Add(new NewsFeed { NewsFeedID = NewsFeedID_2, UserID = UserID_2 });
+            context.NewsFeed.Add(new NewsFeed { NewsFeedID = NewsFeedID_3, UserID = UserID_3 });
 
             context.NewsFeedItem.Add(new NewsFeedItem { NewsFeedItemID = Guid.NewGuid(), Content = "This is my status...", Type = "Status", UserID = UserID_1 });
 

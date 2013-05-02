@@ -10,7 +10,7 @@ namespace MiniFB.Models.Entities
     public class NewsFeedItem : IEntity
     {
         public Guid ID { get; set; }
-        public User User { get; set; }
+        public RegisterUser User { get; set; }
         public Guid UserID { get; set; }
         public string Type { get; set; }
         public string Content { get; set; }

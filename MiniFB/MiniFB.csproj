@@ -187,6 +187,7 @@
     <Compile Include="Models\Entities\NewsFeed.cs" />
     <Compile Include="Models\Entities\NewsFeedComment.cs" />
     <Compile Include="Models\Entities\NewsFeedItem.cs" />
+    <Compile Include="Models\Entities\RegisterUser.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\Repositories\FakeRepository.cs" />
     <Compile Include="Models\ProfileSettings\SettingsValidator.cs" />

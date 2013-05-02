@@ -34,7 +34,7 @@ namespace MiniFB.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(User model)
+        public ActionResult Index(RegisterUser model)
         {
             if (ModelState.IsValid)
             {

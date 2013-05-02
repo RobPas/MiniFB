@@ -1,4 +1,4 @@
-﻿@model MiniFB.Models.User
+﻿@model MiniFB.Models.Entities.User
 
 @{
     ViewBag.Title = "Edit";
@@ -13,7 +13,7 @@
     <fieldset>
         <legend>User</legend>
 
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.ID)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)
@@ -59,13 +59,11 @@
             @Html.LabelFor(model => model.Sex)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Sex)
+            <input type="radio" name="Sex" value="Kvinna">Kvinna<br>
+            <input type="radio" name="Sex" value="Man">Man<br>
             @Html.ValidationMessageFor(model => model.Sex)
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Password)
-        </div>
         <div class="editor-field">
             @Html.EditorFor(model => model.Password)
             @Html.ValidationMessageFor(model => model.Password)

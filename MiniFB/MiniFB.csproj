@@ -188,6 +188,7 @@
     <Compile Include="Models\Entities\NewsFeedItem.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\Repositories\FakeRepository.cs" />
+    <Compile Include="Models\ProfileSettings\SettingsValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Entities\Abstract\IEntity.cs" />
     <Compile Include="Models\Repositories\Abstract\IRepository.cs" />

@@ -21,9 +21,11 @@ namespace MiniFB.Models
             Guid UserID_2 = Guid.NewGuid();
             Guid UserID_3 = Guid.NewGuid();
 
-            context.Users.Add(new User { Id = UserID_1, UserName = "Goat" });
-            context.Users.Add(new User { Id = UserID_2, UserName = "Arnold" });
-            context.Users.Add(new User { Id = UserID_3, UserName = "Urban" });
+            context.Users.Add(new User { Id = UserID_1, UserName = "Goat", BirthDate = DateTime.Now });
+            context.Users.Add(new User { Id = UserID_2, UserName = "Arnold", BirthDate = DateTime.Now });
+            context.Users.Add(new User { Id = UserID_3, UserName = "Urban", BirthDate = DateTime.Now });
+
+            context.SaveChanges();
 
             base.Seed(context);
         }

@@ -1,4 +1,4 @@
-﻿@model MiniFB.Models.User
+﻿@model MiniFB.Models.Entities.User
 
 @{
     ViewBag.Title = Model.UserName + " - MiniFB";
@@ -18,7 +18,7 @@
 
     @if (Model.UserName == loggedInUser)
     {
-        <p>@Html.ActionLink("Inställningar", "Edit", Model.Id)</p>
+        <p>@Html.ActionLink("Inställningar", "Edit", new { id = Model.ID} )</p>
     }
     
 

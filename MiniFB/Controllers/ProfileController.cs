@@ -23,20 +23,19 @@ namespace MiniFB.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            User user = _userRepo.FindAll().Where(u => u.UserName == "Goat").FirstOrDefault();
+            return View(user);
         }
 
-
-        public ActionResult Edit()
+        public ActionResult Edit(Guid id)
         {
-            //User user = db.Users.First();
-            /*if (user == null)
+            User user = _userRepo.FindByID(id);
+            if (user == null)
             {
                 return HttpNotFound();
-            }*/
-            return View();
+            }
+            return View(user);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -51,7 +50,9 @@ namespace MiniFB.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }*/
-            return View();
+
+            
+            return View(user);
         }
     }
 }

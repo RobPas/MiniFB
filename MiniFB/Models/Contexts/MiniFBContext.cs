@@ -30,17 +30,17 @@ namespace MiniFB.Models.Contexts
 
             // Hej Carl, den här gör ERROR på profil sidan!
 
-            //Guid NFID_1 = Guid.NewGuid();
-            //Guid NFID_2 = Guid.NewGuid();
-            //Guid NFID_3 = Guid.NewGuid();
+            Guid NFID_1 = Guid.NewGuid();
+            Guid NFID_2 = Guid.NewGuid();
+            Guid NFID_3 = Guid.NewGuid();
 
-            //context.NewsFeed.Add(new NewsFeed { ID = NFID_1, UserID = ID_1 });
-            //context.NewsFeed.Add(new NewsFeed { ID = NFID_2, UserID = ID_2 });
-            //context.NewsFeed.Add(new NewsFeed { ID = NFID_3, UserID = ID_3 });
+            context.NewsFeed.Add(new NewsFeed { ID = NFID_1, UserID = ID_1 });
+            context.NewsFeed.Add(new NewsFeed { ID = NFID_2, UserID = ID_2 });
+            context.NewsFeed.Add(new NewsFeed { ID = NFID_3, UserID = ID_3 });
 
-            //context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "This is my status...", Type = "Status", UserID = ID_1, Created = DateTime.Now, Modified = DateTime.Now });
+            context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "This is my status...", Type = "Status", UserID = ID_1, Created = DateTime.Now, Modified = DateTime.Now });
 
-            //context.SaveChanges();
+            context.SaveChanges();
 
             base.Seed(context);
         }

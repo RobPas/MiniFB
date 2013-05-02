@@ -36,8 +36,9 @@ namespace MiniFB.Models.Entities
         [Display(Name = "Lösenord")]
         public string Password { get; set; }
 
-
         public Guid NewsFeedID { get; set; }
+
+        public virtual List<NewsFeedItem> NewsFeedItems { get; set; }
 
         public int Age {
             get {

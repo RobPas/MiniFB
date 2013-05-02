@@ -56,15 +56,11 @@ namespace MiniFB.Controllers
         {
             if (ModelState.IsValid)
             {
-                //newsfeeditem.UserID = Session['UserID'];
                 newsfeeditem.ID = Guid.NewGuid();
-                //newsfeeditem.NewsFeedID = Session["NewsFeedID"];
                 newsfeeditem.Created = DateTime.Now;
-                newsfeeditem.Modified = DateTime.Now;
-                //db.NewsFeedItem.Add(newsfeeditem);
-                //db.SaveChanges();
+                newsfeeditem.Modified = DateTime.Now;                
                 _newsFeedItemRepo.Add(newsfeeditem);
-                return RedirectToAction("Index");
+                return RedirectToAction("Items", "NewsFeed");
             }
 
             return View(newsfeeditem);

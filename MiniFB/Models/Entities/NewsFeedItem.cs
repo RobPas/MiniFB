@@ -11,7 +11,7 @@ namespace MiniFB.Models.Entities
     {
         public Guid ID { get; set; }
         public User User { get; set; }
-        public Guid UserID { get; set; }
+        //public Guid UserID { get; set; }
         public string Type { get; set; }
         public string Content { get; set; }
 

@@ -2,28 +2,94 @@
 
 @{
     ViewBag.Title = Model.UserName + " - MiniFB";
-    
+
     string loggedInUser = "Goat";
 }
 
-<h2>@Html.DisplayFor(model => model.UserName)'s profil sida</h2>
+<h2>@Html.DisplayFor(model => model.UserName)'s profilsida</h2>
+
+<div class="wrapper-left" style="float:left;">
+    <div style="background-color: #E2E2E2; padding: 10px;">
+        <img style="display:block;" src="http://blog.ramboll.com/urbanenergysolutions/wp-content/themes/ramboll2/images/profile-img.jpg" alt="Profile picture" />
+    </div>
+
+    <br />
+    <div style="background-color: #E2E2E2; padding: 10px;">
+        <h3>Om @Html.DisplayFor(model => model.UserName)</h3>
+        <br />
+        <span><strong>Namn:</strong> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span><br />
+        <span><strong>Kön:</strong> @Html.DisplayFor(model => model.Sex)</span><br />
+        <span><strong>Ålder:</strong> @Html.DisplayFor(model => model.BirthDate)</span><br />
+        <span><strong>Epost:</strong> @Html.DisplayFor(model => model.Email)</span><br />
 
 
-<div>
-    <h3>Information om @Html.DisplayFor(model => model.UserName)</h3>
-    <span>Namn: @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span>
-    <span>Kön: @Html.DisplayFor(model => model.Sex)</span>
-    <span>Ålder: @Html.DisplayFor(model => model.BirthDate)</span>
-    <span>Epost: @Html.DisplayFor(model => model.Email)</span>
+        @if (Model.UserName == loggedInUser)
+        {
+            <br />
+            @Html.ActionLink("Inställningar", "Edit", new { id = Model.ID }, new { @class = "btn" })
+        }
+    </div>
 
-    @if (Model.UserName == loggedInUser)
-    {
-        <p>@Html.ActionLink("Inställningar", "Edit", new { id = Model.ID} )</p>
-    }
-    
+    <div style=""></div>
 
-
+    <br />
+    <div style="background-color: #E2E2E2; padding: 10px;">
+        <h3>Foton</h3>
+        <div>
+            <div style="float:left;width:50px;">
+                <img width="100%" src="http://postmediawindsorstar.files.wordpress.com/2013/01/cat_shot_by_arrow-1.jpg" alt="Alternate Text" /></div>
+            <div style="margin-left:5px; float:left;width:50px;">
+                <img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwr7KmFDWDHOcfMFqfqYfc1onZM_xVrAYLdHmj9g-gA9U3tgwZ9A" alt="Alternate Text" /></div>
+            <div style="margin-left:5px; float:left;width:50px;">
+                <img width="100%" src="http://2.bp.blogspot.com/_wdqqn17WEKY/TRo1ECKFEFI/AAAAAAAAIKw/0AM5re0YPsM/s1600/goat.gif" alt="Alternate Text" /></div>
+            <div style="margin-left:5px; float:left;width:50px;">
+                <img width="100%" src="http://stringvisions.ovationpress.com/wp-content/uploads/2011/11/goat2a.bmp" alt="Alternate Text" /></div>
+        </div>
+        <div style="clear:both;"><a href="#">Visa fler</a></div>
+          
+        <div style="clear:both;"></div>
+    </div>
 </div>
 
 
+<div style="float: left; width: 60%; background-color: #E2E2E2; padding: 10px; margin-left:20px;">
+    <h3>@Html.DisplayFor(model => model.UserName)'s senaste aktiviteter</h3>
+    <br />
 
+    <div style="min-height:50px; margin-left: 20px; margin-right: 20px; background-color: #EFEFEF;">
+        <div class="statusProfileImage" style="float:left;width:50px;">
+            <img width="100%" src="http://blog.ramboll.com/urbanenergysolutions/wp-content/themes/ramboll2/images/profile-img.jpg" alt="Profil bild" /></div>
+        <div class="statusContent" style="float:left;min-height:50px;" >
+            <p style="padding-left:10px;" >
+                  Status text 1....
+            </p>
+            </div>
+    </div>
+
+    <br />
+
+    <div style="min-height:50px; margin-left: 20px; margin-right: 20px; background-color: #EFEFEF;">
+        <div class="statusProfileImage" style="float:left;width:50px;">
+            <img width="100%" src="http://blog.ramboll.com/urbanenergysolutions/wp-content/themes/ramboll2/images/profile-img.jpg" alt="Profil bild" /></div>
+        
+        <div class="statusContent" style="float:left;min-height:50px;" ><p style="padding-left:10px;">
+                  Bild exempel text 2....
+            </p>
+        </div>
+        <div class="statusContentImg" style="float:left;min-height:50px;padding:10px;" >
+            <img style="margin: 0 auto 0 auto;width:100%;" src="https://dl.dropboxusercontent.com/u/46936/lolpics/goat-serious.jpg" alt="Alternate Text" />
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+
+    <br />
+    <div style="min-height:50px; margin-left: 20px; margin-right: 20px; background-color: #EFEFEF;">
+        <div class="statusProfileImage" style="float:left;width:50px;">
+            <img width="100%" src="http://blog.ramboll.com/urbanenergysolutions/wp-content/themes/ramboll2/images/profile-img.jpg" alt="Profil bild" /></div>
+        <div class="statusContent" style="float:left;min-height:50px;" >
+            <p style="padding-left:10px;">Status text 3....</p>
+
+        </div>
+    </div>
+
+</div>

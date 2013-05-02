@@ -9,6 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MiniFB.Models.Contexts;
+using MiniFB.Models.ProfileSettings;
 
 namespace MiniFB.Controllers
 {
@@ -41,17 +42,13 @@ namespace MiniFB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(User user)
         {
-            //SettingsValidator sv = new SettingsValidator();&& sv.isValidSex(user.Sex)
+            SettingsValidator sv = new SettingsValidator();
 
-
-            /*if (ModelState.IsValid)
+            if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
+                _userRepo.Update(user);
                 return RedirectToAction("Index");
-            }*/
-
-            
+            }
             return View(user);
         }
     }

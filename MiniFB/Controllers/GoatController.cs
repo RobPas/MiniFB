@@ -31,9 +31,9 @@ namespace MiniFB.Controllers
 
         public ViewResult List()
         {
-            List<User> Users = _userRepo.FindAll().ToList();
+            List<User> Users = _userRepo.FindAll(u => u.BirthDate > DateTime.Parse("2010-01-01")).ToList();
 
-            return View();
+            return View(Users);
         }
 
     }

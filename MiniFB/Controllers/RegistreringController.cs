@@ -9,6 +9,7 @@ using MiniFB.Models;
 using WebMatrix.WebData;
 using System.Web.Security;
 using MiniFB.Filters;
+using MiniFB.Models.Entities;
 
 namespace MiniFB.Controllers
 {
@@ -33,7 +34,7 @@ namespace MiniFB.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(User model)
+        public ActionResult Index(RegisterUser model)
         {
             if (ModelState.IsValid)
             {

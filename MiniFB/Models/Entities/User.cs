@@ -28,6 +28,7 @@ namespace MiniFB.Models.Entities
         public DateTime BirthDate { get; set; }
 
         [DisplayName("Kön")]
+        public string Sex { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = " {0} måste vara minst {2} tecken lång.", MinimumLength = 6)]
@@ -35,16 +36,8 @@ namespace MiniFB.Models.Entities
         [Display(Name = "Lösenord")]
         public string Password { get; set; }
 
-        [DisplayName("Lösenord igen")]
-        public string PasswordRepeat { get; set; }
-
 
         public Guid NewsFeedID { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Bekräfta Lösenord")]
-        [Compare("Password", ErrorMessage = "Fel lösenord.")]
-        public string ConfirmPassword { get; set; }
 
         public int Age {
             get {
@@ -54,4 +47,5 @@ namespace MiniFB.Models.Entities
             
         }
     }
+    
 }

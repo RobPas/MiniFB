@@ -5,8 +5,13 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+<<<<<<< HEAD
 using MiniFB.Models.Contexts;
 using MiniFB.Models.Entities;
+=======
+using MiniFB.Models;
+using MiniFB.Models.ProfileSettings;
+>>>>>>> ProfileController
 
 namespace MiniFB.Controllers
 {
@@ -14,20 +19,16 @@ namespace MiniFB.Controllers
     {
         private MiniFBContext db = new MiniFBContext();
 
-        //
-        // GET: /Profile/
 
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.Users.First());
         }
 
-        //
-        // GET: /Profile/Details/5
 
-        public ActionResult Details(Guid id)
+        public ActionResult Edit()
         {
-            User user = db.Users.Find(id);
+            User user = db.Users.First();
             if (user == null)
             {
                 return HttpNotFound();
@@ -35,19 +36,10 @@ namespace MiniFB.Controllers
             return View(user);
         }
 
-        //
-        // GET: /Profile/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Profile/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+<<<<<<< HEAD
         public ActionResult Create(User user)
         {
             if (ModelState.IsValid)
@@ -65,23 +57,14 @@ namespace MiniFB.Controllers
         // GET: /Profile/Edit/5
 
         public ActionResult Edit(Guid id)
-        {
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
-
-        //
-        // POST: /Profile/Edit/5
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+=======
         public ActionResult Edit(User user)
+>>>>>>> ProfileController
         {
-            if (ModelState.IsValid)
+            SettingsValidator sv = new SettingsValidator();
+
+
+            if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
@@ -90,31 +73,6 @@ namespace MiniFB.Controllers
             return View(user);
         }
 
-        //
-        // GET: /Profile/Delete/5
-
-        public ActionResult Delete(Guid id)
-        {
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
-
-        //
-        // POST: /Profile/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
-        {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
 
         protected override void Dispose(bool disposing)
         {

@@ -9,6 +9,7 @@ using MiniFB.Models;
 using WebMatrix.WebData;
 using System.Web.Security;
 using MiniFB.Filters;
+using MiniFB.Models.Entities;
 
 namespace MiniFB.Controllers
 {

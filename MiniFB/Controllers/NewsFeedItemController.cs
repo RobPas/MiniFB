@@ -7,12 +7,24 @@ using System.Web;
 using System.Web.Mvc;
 using MiniFB.Models.Contexts;
 using MiniFB.Models.Entities;
+using MiniFB.Models.Repositories;
+using MiniFB.Models.Repositories.Abstract;
 
 namespace MiniFB.Controllers
 {
     public class NewsFeedItemController : Controller
     {
-        private MiniFBContext db = new MiniFBContext();
+        private IRepository<NewsFeedItem> _newsFeedItemRepo;
+
+        public NewsFeedItemController() 
+        {
+            _newsFeedItemRepo = new Repository<NewsFeedItem>();
+        }
+
+        public NewsFeedItemController(IRepository<NewsFeedItem> newsFeedItemRepo)
+        {
+            _newsFeedItemRepo = newsFeedItemRepo;
+        }
 
         public ActionResult Index() 
         {
@@ -24,7 +36,7 @@ namespace MiniFB.Controllers
 
         public ActionResult List()
         {
-            return View(db.NewsFeedItem.ToList());
+            return View(_newsFeedItemRepo.FindAll().ToList());
         }
 
         //
@@ -49,18 +61,13 @@ namespace MiniFB.Controllers
                 //newsfeeditem.NewsFeedID = Session["NewsFeedID"];
                 newsfeeditem.Created = DateTime.Now;
                 newsfeeditem.Modified = DateTime.Now;
-                db.NewsFeedItem.Add(newsfeeditem);
-                db.SaveChanges();
+                //db.NewsFeedItem.Add(newsfeeditem);
+                //db.SaveChanges();
+                _newsFeedItemRepo.Add(newsfeeditem);
                 return RedirectToAction("Index");
             }
 
             return View(newsfeeditem);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
         }
     }
 }

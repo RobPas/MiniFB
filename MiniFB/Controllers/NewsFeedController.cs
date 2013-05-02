@@ -21,6 +21,11 @@ namespace MiniFB.Controllers
             _newsFeedItemRepo = new Repository<NewsFeedItem>();
         }
 
+        public NewsFeedController(IRepository<NewsFeedItem> newsFeedItemRepo) 
+        {
+            _newsFeedItemRepo = newsFeedItemRepo;
+        }
+
         //
         // GET: /NewsFeed/
 

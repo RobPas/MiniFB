@@ -13,55 +13,12 @@ namespace MiniFB.Controllers
     {
         private MiniFBContext db = new MiniFBContext();
 
-        //
-        // GET: /Profile/
 
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.Users.First());
         }
 
-        //
-        // GET: /Profile/Details/5
-
-        public ActionResult Details(Guid id)
-        {
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
-
-        //
-        // GET: /Profile/Create
-
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Profile/Create
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(User user)
-        {
-            if (ModelState.IsValid)
-            {
-                user.Id = Guid.NewGuid();
-                db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(user);
-        }
-
-        //
-        // GET: /Profile/Edit/5
 
         public ActionResult Edit(Guid id)
         {
@@ -73,8 +30,6 @@ namespace MiniFB.Controllers
             return View(user);
         }
 
-        //
-        // POST: /Profile/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -89,31 +44,6 @@ namespace MiniFB.Controllers
             return View(user);
         }
 
-        //
-        // GET: /Profile/Delete/5
-
-        public ActionResult Delete(Guid id)
-        {
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
-
-        //
-        // POST: /Profile/Delete/5
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
-        {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
 
         protected override void Dispose(bool disposing)
         {

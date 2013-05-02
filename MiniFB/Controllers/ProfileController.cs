@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MiniFB.Models;
+using MiniFB.Models.ProfileSettings;
 
 namespace MiniFB.Controllers
 {
@@ -20,9 +21,9 @@ namespace MiniFB.Controllers
         }
 
 
-        public ActionResult Edit(Guid id)
+        public ActionResult Edit()
         {
-            User user = db.Users.Find(id);
+            User user = db.Users.First();
             if (user == null)
             {
                 return HttpNotFound();
@@ -35,7 +36,10 @@ namespace MiniFB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(User user)
         {
-            if (ModelState.IsValid)
+            SettingsValidator sv = new SettingsValidator();
+
+
+            if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();

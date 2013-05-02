@@ -2,9 +2,28 @@
 
 @{
     ViewBag.Title = Model.UserName + " - MiniFB";
+    
+    string loggedInUser = "Goat";
 }
 
 <h2>@Html.DisplayFor(model => model.UserName)'s profil sida</h2>
+
+
+<div>
+    <h3>Information om @Html.DisplayFor(model => model.UserName)</h3>
+    <span>Namn: @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span>
+    <span>Kön: @Html.DisplayFor(model => model.Sex)</span>
+    <span>Ålder: @Html.DisplayFor(model => model.BirthDate)</span>
+    <span>Epost: @Html.DisplayFor(model => model.Email)</span>
+
+    @if (Model.UserName == loggedInUser)
+    {
+        <p>@Html.ActionLink("Inställningar", "Edit", Model.Id)</p>
+    }
+    
+
+
+</div>
 
 
 

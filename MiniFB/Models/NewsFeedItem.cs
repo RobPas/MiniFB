@@ -9,7 +9,7 @@ namespace MiniFB.Models
     {
         public Guid NewsFeedItemID { get; set; }
         public Guid UserID { get; set; }
-        public NewsFeed NewsFeed { get; set; }
+        public Guid NewsFeedID { get; set; }
         public string Type { get; set; }
         public string Content { get; set; }
         public DateTime Created { get; set; }

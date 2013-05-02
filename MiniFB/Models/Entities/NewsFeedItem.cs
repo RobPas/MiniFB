@@ -11,12 +11,23 @@ namespace MiniFB.Models.Entities
         public Guid ID { get; set; }
         public User User { get; set; }
         public Guid UserID { get; set; }
-        public NewsFeed NewsFeed { get; set; }
-        public Guid NewsFeedID { get; set; }
         public string Type { get; set; }
         public string Content { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
         public virtual List<NewsFeedComment> Comments { get; set; }
+
+        protected static string[] GetNewsFeedItemTypes()
+        {
+            string[] types = new string[4]
+            {
+                "status",
+                "photo",
+                "video",
+                "link"
+            };
+
+            return types;
+        }
     }
 }

@@ -1,83 +1,57 @@
-﻿using System;
+﻿using MiniFB.Models.Entities;
+using MiniFB.Models.Repositories;
+using MiniFB.Models.Repositories.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-<<<<<<< HEAD
 using MiniFB.Models.Contexts;
-using MiniFB.Models.Entities;
-=======
-using MiniFB.Models;
-using MiniFB.Models.ProfileSettings;
->>>>>>> ProfileController
 
 namespace MiniFB.Controllers
 {
     public class ProfileController : Controller
     {
-        private MiniFBContext db = new MiniFBContext();
+        private IRepository<User> _userRepo;
 
+        public ProfileController()
+        {
+            _userRepo = new Repository<User>();
+        }
 
         public ActionResult Index()
         {
-            return View(db.Users.First());
+            return View();
         }
 
 
         public ActionResult Edit()
         {
-            User user = db.Users.First();
-            if (user == null)
+            //User user = db.Users.First();
+            /*if (user == null)
             {
                 return HttpNotFound();
-            }
-            return View(user);
+            }*/
+            return View();
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-<<<<<<< HEAD
-        public ActionResult Create(User user)
-        {
-            if (ModelState.IsValid)
-            {
-                user.ID = Guid.NewGuid();
-                db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(user);
-        }
-
-        //
-        // GET: /Profile/Edit/5
-
-        public ActionResult Edit(Guid id)
-=======
         public ActionResult Edit(User user)
->>>>>>> ProfileController
         {
-            SettingsValidator sv = new SettingsValidator();
+            //SettingsValidator sv = new SettingsValidator();&& sv.isValidSex(user.Sex)
 
 
-            if (ModelState.IsValid && sv.isValidSex(user.Sex))
+            /*if (ModelState.IsValid)
             {
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            return View(user);
-        }
-
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
+            }*/
+            return View();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿@model MiniFB.Models.User
+﻿@model MiniFB.Models.Entities.User
 
 @{
     ViewBag.Title = "Edit";
@@ -13,7 +13,7 @@
     <fieldset>
         <legend>User</legend>
 
-        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.ID)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.UserName)

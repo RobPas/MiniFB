@@ -9,6 +9,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MiniFB.Models.Contexts;
+using MiniFB.Models.ProfileSettings;
 
 namespace MiniFB.Controllers
 {
@@ -23,35 +24,32 @@ namespace MiniFB.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            User user = _userRepo.FindAll().Where(u => u.UserName == "Goat").FirstOrDefault();
+            return View(user);
         }
 
-
-        public ActionResult Edit()
+        public ActionResult Edit(Guid id)
         {
-            //User user = db.Users.First();
-            /*if (user == null)
+            User user = _userRepo.FindByID(id);
+            if (user == null)
             {
                 return HttpNotFound();
-            }*/
-            return View();
+            }
+            return View(user);
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(User user)
         {
-            //SettingsValidator sv = new SettingsValidator();&& sv.isValidSex(user.Sex)
+            SettingsValidator sv = new SettingsValidator();
 
-
-            /*if (ModelState.IsValid)
+            if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
+                _userRepo.Update(user);
                 return RedirectToAction("Index");
-            }*/
-            return View();
+            }
+            return View(user);
         }
     }
 }

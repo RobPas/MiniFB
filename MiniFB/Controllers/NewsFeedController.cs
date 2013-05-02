@@ -5,13 +5,21 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MiniFB.Models;
+using MiniFB.Models.Contexts;
+using MiniFB.Models.Entities;
+using MiniFB.Models.Repositories;
+using MiniFB.Models.Repositories.Abstract;
 
 namespace MiniFB.Controllers
 {
     public class NewsFeedController : Controller
     {
-        private MiniFBContext db = new MiniFBContext();
+        private IRepository<NewsFeedItem> _newsFeedItemRepo;
+
+        public NewsFeedController()
+        {
+            _newsFeedItemRepo = new Repository<NewsFeedItem>();
+        }
 
         //
         // GET: /NewsFeed/
@@ -23,13 +31,7 @@ namespace MiniFB.Controllers
 
         public ActionResult Items()
         {
-            return View(db.NewsFeedItem.ToList());
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            db.Dispose();
-            base.Dispose(disposing);
+            return View(_newsFeedItemRepo.FindAll());
         }
     }
 }

@@ -6,9 +6,11 @@ using System.Data.Objects;
 using System.Data.Entity;
 using System.Data;
 using MiniFB.Models;
-using MiniFB.Repository;
+using MiniFB.Entities.Abstract;
+using MiniFB.Models.Contexts;
+using MiniFB.Models.Repositories.Abstract;
 
-namespace MiniFB.Repository
+namespace MiniFB.Models.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class, IEntity
     {
@@ -33,7 +35,7 @@ namespace MiniFB.Repository
             return _dbSet.Where(filter).AsQueryable();
         }
 
-        public virtual T FindByID(int id)
+        public virtual T FindByID(Guid id)
         {
             return _dbSet.FirstOrDefault(e => e.ID == id);
         }

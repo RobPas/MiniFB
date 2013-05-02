@@ -5,7 +5,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MiniFB.Models;
+using MiniFB.Models.Contexts;
+using MiniFB.Models.Entities;
 
 namespace MiniFB.Controllers
 {
@@ -51,7 +52,7 @@ namespace MiniFB.Controllers
         {
             if (ModelState.IsValid)
             {
-                user.Id = Guid.NewGuid();
+                user.ID = Guid.NewGuid();
                 db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MiniFB.Models.NewsFeedItem>
+﻿@model IEnumerable<MiniFB.Models.Entities.NewsFeedItem>
 
 @{
     ViewBag.Title = "List";
@@ -50,9 +50,9 @@
             @Html.DisplayFor(modelItem => item.Modified)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NewsFeedItemID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NewsFeedItemID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NewsFeedItemID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

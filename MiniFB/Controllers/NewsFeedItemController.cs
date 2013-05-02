@@ -5,7 +5,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MiniFB.Models;
+using MiniFB.Models.Contexts;
+using MiniFB.Models.Entities;
 
 namespace MiniFB.Controllers
 {
@@ -44,7 +45,7 @@ namespace MiniFB.Controllers
             if (ModelState.IsValid)
             {
                 //newsfeeditem.UserID = Session['UserID'];
-                newsfeeditem.NewsFeedItemID = Guid.NewGuid();
+                newsfeeditem.ID = Guid.NewGuid();
                 //newsfeeditem.NewsFeedID = Session["NewsFeedID"];
                 newsfeeditem.Created = DateTime.Now;
                 newsfeeditem.Modified = DateTime.Now;

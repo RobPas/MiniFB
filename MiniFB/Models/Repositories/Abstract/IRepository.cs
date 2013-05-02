@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using MiniFB.Entities.Abstract;
 
-namespace MiniFB.Repository
+namespace MiniFB.Models.Repositories.Abstract
 {
     public interface IRepository<T> where T : class, IEntity
     {
         DbContext Model { get; }
 
         IQueryable<T> FindAll(Func<T, bool> filter = null);
-        T FindByID(int id);
+        T FindByID(Guid id);
         void Update(T entity);
         void Add(T entity);
         void Delete(T entity);

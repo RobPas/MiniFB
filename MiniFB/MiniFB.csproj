@@ -182,15 +182,16 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\MiniFBContext.cs" />
-    <Compile Include="Models\NewsFeed.cs" />
-    <Compile Include="Models\NewsFeedComment.cs" />
-    <Compile Include="Models\NewsFeedItem.cs" />
-    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Contexts\MiniFBContext.cs" />
+    <Compile Include="Models\Entities\NewsFeed.cs" />
+    <Compile Include="Models\Entities\NewsFeedComment.cs" />
+    <Compile Include="Models\Entities\NewsFeedItem.cs" />
+    <Compile Include="Models\Entities\User.cs" />
+    <Compile Include="Models\Repositories\FakeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IEntity.cs" />
-    <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Models\Entities\Abstract\IEntity.cs" />
+    <Compile Include="Models\Repositories\Abstract\IRepository.cs" />
+    <Compile Include="Models\Repositories\Repository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-responsive.css" />
@@ -324,6 +325,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

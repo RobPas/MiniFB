@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MiniFB.Repository
+namespace MiniFB.Entities.Abstract
 {
     public interface IEntity
     {
-        int ID { get; set; }
+        Guid ID { get; set; }
     }
 }

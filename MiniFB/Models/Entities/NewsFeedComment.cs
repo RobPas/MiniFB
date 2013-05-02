@@ -12,7 +12,6 @@ namespace MiniFB.Models.Entities
         public User User { get; set; }
         public Guid UserID { get; set; }
         public NewsFeedItem NewsFeedItem { get; set; }
-        public Guid NewsFeedItemID { get; set; }
         public string Message { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }

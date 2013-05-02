@@ -28,5 +28,6 @@ namespace MiniFB.Controllers
 
             return View();
         }
+
     }
 }

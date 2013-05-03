@@ -54,6 +54,15 @@ namespace MiniFB.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult LogOff()
+        {
+            WebSecurity.Logout();
+            return RedirectToAction("Index", "Home");
+        }
+
         //{
         //    if (ModelState.IsValid)
         //    {

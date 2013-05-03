@@ -30,7 +30,20 @@
                             <li>@Html.ActionLink("NewsFeed", "Index", "NewsFeed")</li>
                             <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
                             <li>@Html.ActionLink("RandomChat", "Index", "RandomChat")</li>
-                            <li>@Html.ActionLink("Registrera dig", "Index", "Registrering")</li>
+                            @if (Request.IsAuthenticated) {
+    <text>
+        
+        @using (Html.BeginForm("LogOff", "Registrering", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+        }
+    </text>
+}else{
+                                    <li>@Html.ActionLink("Registrera dig", "Index", "Registrering", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Logga in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                            }
+
+                            
                         </ul>
                     </nav>
                 </div>

@@ -34,9 +34,9 @@ namespace MiniFB.Controllers
             return View();
         }
 
-        public ActionResult Items()
+        public ViewResult Items()
         {
-            return View(_newsFeedItemRepo.FindAll());
+            return View(_newsFeedItemRepo.FindAll().ToList());
         }
     }
 }

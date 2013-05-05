@@ -8,13 +8,13 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using MiniFB.Filters;
 using MiniFB.Models;
+using MiniFB.Models.Contexts;
+using MiniFB.Models.Entities;
 
 namespace MiniFB.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         //
@@ -78,7 +78,22 @@ namespace MiniFB.Controllers
                 // Attempt to register the user
                 try
                 {
+                    MiniFBContext db = new MiniFBContext();
+
+                    Guid newGuid = Guid.NewGuid();
+                    User user = new User();
+                    user.BirthDate = DateTime.Now;
+                    user.UserName = model.UserName;
+                    user.ID = newGuid;
+
+                    db.Users.Add(user);
+                    db.SaveChanges();
+
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+
+                    
+
+
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }
@@ -262,7 +277,7 @@ namespace MiniFB.Controllers
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (UsersContext db = new UsersContext())
+                using (MiniFBContext db = new MiniFBContext())
                 {
                     UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists

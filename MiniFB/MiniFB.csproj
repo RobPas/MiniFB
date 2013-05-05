@@ -178,7 +178,6 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RandomChatController.cs" />
     <Compile Include="Controllers\RegistreringController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -189,6 +188,7 @@
     <Compile Include="Models\Entities\NewsFeedItem.cs" />
     <Compile Include="Models\Entities\RegisterUser.cs" />
     <Compile Include="Models\Entities\User.cs" />
+    <Compile Include="Models\Entities\UserProfile.cs" />
     <Compile Include="Models\Repositories\FakeRepository.cs" />
     <Compile Include="Models\ProfileSettings\SettingsValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -332,6 +332,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Filters\" />
     <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>

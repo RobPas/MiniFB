@@ -9,6 +9,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using MiniFB.Models;
 using MiniFB.Models.Contexts;
+using WebMatrix.WebData;
+using System.Data.Entity.Infrastructure;
 
 namespace MiniFB
 {
@@ -19,7 +21,11 @@ namespace MiniFB
     {
         protected void Application_Start()
         {
+            
             Database.SetInitializer<MiniFBContext>(new MiniFBInitializer());
+            
+            WebSecurity.InitializeDatabaseConnection("MiniFB", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+           
 
             AreaRegistration.RegisterAllAreas();
 

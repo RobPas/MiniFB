@@ -30,13 +30,6 @@ namespace MiniFB.Models.Entities
         [DisplayName("Kön")]
         public string Sex { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = " {0} måste vara minst {2} tecken lång.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Lösenord")]
-        public string Password { get; set; }
-
-        public Guid NewsFeedID { get; set; }
 
         public virtual List<NewsFeedItem> NewsFeedItems { get; set; }
 

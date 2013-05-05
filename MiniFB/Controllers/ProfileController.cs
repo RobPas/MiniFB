@@ -24,7 +24,7 @@ namespace MiniFB.Controllers
 
         public ActionResult Index()
         {
-            User user = _userRepo.FindAll().Where(u => u.UserName == "Goat").FirstOrDefault();
+            User user = _userRepo.FindAll().Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
             return View(user);
         }
 

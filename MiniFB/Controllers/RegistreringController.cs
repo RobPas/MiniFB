@@ -8,13 +8,11 @@ using System.Web.Mvc;
 using MiniFB.Models;
 using WebMatrix.WebData;
 using System.Web.Security;
-using MiniFB.Filters;
 using MiniFB.Models.Entities;
 
 namespace MiniFB.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
     public class RegistreringController : Controller
     {
         //private MiniFBContext db = new MiniFBContext();

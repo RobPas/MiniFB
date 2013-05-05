@@ -2,8 +2,6 @@
 
 @{
     ViewBag.Title = Model.UserName + " - MiniFB";
-
-    string loggedInUser = "Goat";
 }
 
 <h2>@Html.DisplayFor(model => model.UserName)'s profilsida</h2>
@@ -23,7 +21,7 @@
         <span><strong>Epost:</strong> @Html.DisplayFor(model => model.Email)</span><br />
 
 
-        @if (Model.UserName == loggedInUser)
+        @if (Model.UserName == User.Identity.Name)
         {
             <br />
             @Html.ActionLink("Inställningar", "Edit", new { id = Model.ID }, new { @class = "btn" })

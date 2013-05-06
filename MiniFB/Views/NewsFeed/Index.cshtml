@@ -10,6 +10,13 @@
     @Html.ActionLink("Create New Item", "Create", "NewsFeedItem", null, new { @class = "btn btn-success" })
 </p>
 
+<div class="btn-group" data-toggle="buttons-checkbox">
+  <button type="button" class="btn btn-primary">Status</button>
+  <button type="button" class="btn btn-primary">Bilder</button>
+  <button type="button" class="btn btn-primary">Länkar</button>
+  <button type="button" class="btn btn-primary">Videor</button>
+</div>
+
 @*Partial view with items*@
 
 @Html.Partial("_NewsFeedItems", Model)

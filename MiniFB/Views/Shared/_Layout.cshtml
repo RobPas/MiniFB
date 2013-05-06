@@ -10,32 +10,19 @@
         @Scripts.Render("~/bundles/modernizr")
     </head>
     <body>
-
-        <!--- Top Border --->
-        <div id="topBorder"><h1 id="logoTopic">MiniFB</h1></div>
-        <!--- Top Border --->
-
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("MiniFB", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("NewsFeed", "Index", "NewsFeed")</li>
-                            <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
-                            <li>@Html.ActionLink("RandomChat", "Index", "RandomChat")</li>
-                                                       
-                        </ul>
-                    </nav>
-                </div>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <a class="brand" href="/">Mini FB</a>
+                <ul class="nav">
+                    <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("NewsFeed", "Index", "NewsFeed")</li>
+                    <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
+                    <li>@Html.ActionLink("RandomChat", "Index", "RandomChat")</li>
+                </ul>
             </div>
-        </header>
+        </div>
+
+        
         <div id="body">
             <div style="display:none;">@RenderSection("featured", required: false)</div>
             <section class="content-wrapper main-content clear-fix">
@@ -43,10 +30,8 @@
             </section>
         </div>
         <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
+            <div class="container">
                     <p>&copy; @DateTime.Now.Year - MiniFB</p>
-                </div>
             </div>
         </footer>
 

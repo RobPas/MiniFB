@@ -72,7 +72,7 @@ namespace MiniFB.Controllers
             if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
                 _userRepo.Update(user);
-                return RedirectToAction("Index");
+                return RedirectToAction("MyProfile");
             }
             return View(user);
         }

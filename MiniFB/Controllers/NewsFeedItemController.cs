@@ -52,7 +52,7 @@ namespace MiniFB.Controllers
                 newsfeeditem.Created = DateTime.Now;
                 newsfeeditem.Modified = DateTime.Now;                
                 _newsFeedItemRepo.Add(newsfeeditem);
-                return RedirectToAction("Items", "NewsFeed");
+                return RedirectToAction("Index", "NewsFeed");
             }
 
             return View(newsfeeditem);

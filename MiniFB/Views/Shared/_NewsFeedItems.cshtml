@@ -1,43 +1,14 @@
 ﻿@model IEnumerable<MiniFB.Models.Entities.NewsFeedItem>
 
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "NewsFeed Items";
 }
-
-<h2>List</h2>
-
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Content)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Created)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Modified)
-        </th>
-        <th></th>
-    </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Content)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Created)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Modified)
-        </td>
-    </tr>
+<div class="media">
+    <div class="media-body">
+    @Html.DisplayFor(modelItem => item.Content) 
+    </div>
+    <small class="muted">@Html.DisplayFor(modelItem => item.Type) | @Html.DisplayFor(modelItem => item.Created)</small>
+</div>
 }
-
-</table>

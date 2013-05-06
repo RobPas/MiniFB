@@ -13,6 +13,7 @@ using MiniFB.Models.ProfileSettings;
 
 namespace MiniFB.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         private IRepository<User> _userRepo;
@@ -33,25 +34,23 @@ namespace MiniFB.Controllers
             User user = _userRepo.FindAll().Where(u => u.UserName == username).FirstOrDefault();
             return View(user);
         }
-
+        
         public ActionResult MyProfile()
         {
             User user = _userRepo.FindAll().Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
             if(user == null){
                 MiniFBContext db = new MiniFBContext();
+                User newuser = new User();
 
-                   
-                   User newuser = new User();
-                   newuser.BirthDate = DateTime.Now;
-                   newuser.UserName = User.Identity.Name;
-                   newuser.ID = Guid.NewGuid();
-                   db.Users.Add(newuser);
-                   db.SaveChanges();
+                newuser.BirthDate = DateTime.Now;
+                newuser.UserName = User.Identity.Name;
+                newuser.ID = Guid.NewGuid();
+                db.Users.Add(newuser);
+                db.SaveChanges();
 
-                   return View(newuser);
-
+                return View(newuser);
             }
-            return View(user);
+            return View("Index",user);
         }
 
         public ActionResult Edit(Guid id)

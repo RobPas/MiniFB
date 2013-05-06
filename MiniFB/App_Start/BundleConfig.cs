@@ -45,7 +45,7 @@ namespace MiniFB
             //bundles.Add(lessBundle);
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap")
-            .Include("~/Scripts/bootstrap.js"));
+                        .Include("~/Scripts/bootstrap.js"));
             bundles.Add(new StyleBundle("~/Content/bootstrap/css")
                         .Include("~/Content/bootstrap.css")
                         .Include("~/Content/bootstrap-responsive.css"));

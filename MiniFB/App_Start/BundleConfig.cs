@@ -44,8 +44,20 @@ namespace MiniFB
             //lessBundle.Transforms.Add(new CssMinify());
             //bundles.Add(lessBundle);
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap")
-            .Include("~/Scripts/bootstrap.js"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap/js")
+                        .Include("~/Scripts/bootstrap-affix.js")
+                        .Include("~/Scripts/bootstrap-alert.js")
+                        .Include("~/Scripts/bootstrap-button.js")
+                        .Include("~/Scripts/bootstrap-carousel.js")
+                        .Include("~/Scripts/bootstrap-collapse.js")
+                        .Include("~/Scripts/bootstrap-dropdown.js")
+                        .Include("~/Scripts/bootstrap-modal.js")
+                        .Include("~/Scripts/bootstrap-tooltip.js")
+                        .Include("~/Scripts/bootstrap-popover.js")
+                        .Include("~/Scripts/bootstrap-scrollspy.js")
+                        .Include("~/Scripts/bootstrap-tab.js")
+                        .Include("~/Scripts/bootstrap-transition.js")
+                        .Include("~/Scripts/bootstrap-typeahead.js"));
             bundles.Add(new StyleBundle("~/Content/bootstrap/css")
                         .Include("~/Content/bootstrap.css")
                         .Include("~/Content/bootstrap-responsive.css"));

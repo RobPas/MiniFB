@@ -32,14 +32,6 @@ namespace MiniFB.Controllers
         }
 
         //
-        // GET: /NewsFeedItem/List
-
-        public ActionResult List()
-        {
-            return View(_newsFeedItemRepo.FindAll().ToList());
-        }
-
-        //
         // GET: /NewsFeedItem/Create
 
         public ActionResult Create()

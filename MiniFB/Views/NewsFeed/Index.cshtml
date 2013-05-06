@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MiniFB.Models.Entities.NewsFeed>
+﻿@model IEnumerable<MiniFB.Models.Entities.NewsFeedItem>
 
 @{
     ViewBag.Title = "NewsFeed";
@@ -12,4 +12,6 @@
 
 @*Partial view with items*@
 
-@Html.ActionLink("List", "Items")
+@Html.Partial("_NewsFeedItems", Model)
+
+@*@Html.ActionLink("List", "Items")*@

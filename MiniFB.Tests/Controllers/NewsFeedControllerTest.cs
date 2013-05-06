@@ -42,17 +42,6 @@ namespace MiniFB.Tests.Controllers
         }
 
         [Test]
-        public void Items_should_return_list_with_NewsFeedItems()
-        {
-            // Doesn't test shit. But still passes.
-
-            NewsFeedController newsfeedcontroller = new NewsFeedController(_repo);
-            List<NewsFeedItem> list;
-
-            var newsFeedModel = newsfeedcontroller.Items().Model as List<NewsFeedItem>;
-        }
-
-        [Test]
         public void GoatCounts()
         {
             Assert.That(1 + 1, Is.EqualTo(2));

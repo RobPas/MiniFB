@@ -203,6 +203,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\goat-serious.jpg" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -327,7 +328,7 @@
     <Content Include="Views\Profile\Edit.cshtml" />
     <Content Include="Views\NewsFeed\Index.cshtml" />
     <Content Include="Views\NewsFeedItem\Create.cshtml" />
-    <Content Include="Views\NewsFeed\Items.cshtml" />
+    <Content Include="Views\Shared\_NewsFeedItems.cshtml" />
     <Content Include="Views\Registrering\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

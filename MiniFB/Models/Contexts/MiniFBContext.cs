@@ -49,6 +49,9 @@ namespace MiniFB.Models.Contexts
             context.NewsFeed.Add(new NewsFeed { ID = NFID_3, UserID = ID_3 });
 
             context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "This is my status...", Type = "Status", Created = DateTime.Now, Modified = DateTime.Now });
+            context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "Video...", Type = "Video", Created = DateTime.Now, Modified = DateTime.Now });
+            context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "http://google.com", Type = "Link", Created = DateTime.Now, Modified = DateTime.Now });
+            context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "/image.jpg", Type = "Image", Created = DateTime.Now, Modified = DateTime.Now });
 
             context.SaveChanges();
 

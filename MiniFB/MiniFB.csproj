@@ -262,8 +262,22 @@
     <Content Include="Global.asax" />
     <Content Include="Content\less\Goat.less" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap-affix.js" />
+    <Content Include="Scripts\bootstrap-alert.js" />
+    <Content Include="Scripts\bootstrap-button.js" />
+    <Content Include="Scripts\bootstrap-carousel.js" />
+    <Content Include="Scripts\bootstrap-collapse.js" />
+    <Content Include="Scripts\bootstrap-dropdown.js" />
+    <Content Include="Scripts\bootstrap-modal.js" />
+    <Content Include="Scripts\bootstrap-popover.js" />
+    <Content Include="Scripts\bootstrap-scrollspy.js" />
+    <Content Include="Scripts\bootstrap-tab.js" />
+    <Content Include="Scripts\bootstrap-tooltip.js" />
+    <Content Include="Scripts\bootstrap-transition.js" />
+    <Content Include="Scripts\bootstrap-typeahead.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\newsfeed.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
@@ -282,6 +296,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -290,7 +305,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
     <Content Include="Images\heroAccent.png" />

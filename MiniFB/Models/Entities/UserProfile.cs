@@ -19,6 +19,7 @@ namespace MiniFB.Models.Entities
         [DisplayName("Användarnamn")]
         public string UserName { get; set; }
 
+        public string Email { get; set; }
         public Guid UserGuid { get; set; }
     }
 }

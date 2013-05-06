@@ -10,7 +10,9 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using MiniFB.Models;
 using MiniFB.Models.Contexts;
-using MiniFB.Models.Entities;
+using MiniFB.Models.Entities;           
+using MiniFB.Filters;
+using Postal;
 
 namespace MiniFB.Controllers
 {
@@ -91,20 +93,73 @@ namespace MiniFB.Controllers
 
                     WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
 
-                    
-
-
                     WebSecurity.Login(model.UserName, model.Password);
-                    return RedirectToAction("Index", "Home");
+                    //return RedirectToAction("Index", "Home");
+
+                    string confirmationToken =
+WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = model.Email }, true);
+                    dynamic email = new Email("RegEmail");
+                    email.To = model.Email;
+                    email.UserName = model.UserName;
+                    email.ConfirmationToken = confirmationToken;
+                    email.Send();
+
+                    return RedirectToAction("RegisterStepTwo", "Account");
+
                 }
                 catch (MembershipCreateUserException e)
                 {
                     ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
                 }
+
+                //try
+                //{
+                //    string confirmationToken =
+                //    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = model.Email }, true);
+                //    dynamic email = new Email("RegEmail");
+                //    email.To = model.Email;
+                //    email.UserName = model.UserName;
+                //    email.ConfirmationToken = confirmationToken;
+                //    email.Send();
+
+                //    return RedirectToAction("RegisterStepTwo", "Account");
+                //}
+                //catch (MembershipCreateUserException e)
+                //{
+                //    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+                //}
             }
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [AllowAnonymous]
+        public ActionResult RegisterStepTwo()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult RegisterConfirmation(string Id)
+        {
+            if (WebSecurity.ConfirmAccount(Id))
+            {
+                return RedirectToAction("ConfirmationSuccess");
+            }
+            return RedirectToAction("ConfirmationFailure");
+        }
+
+        [AllowAnonymous]
+        public ActionResult ConfirmationSuccess()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult ConfirmationFailure()
+        {
+            return View();
         }
 
         //

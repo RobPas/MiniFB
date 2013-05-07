@@ -37,10 +37,12 @@
 
         
         <div id="body">
-            <div style="display:none;">@RenderSection("featured", required: false)</div>
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
+            <div class="container">
+                <div style="display:none;">@RenderSection("featured", required: false)</div>
+                <section class="content-wrapper main-content clear-fix">
+                    @RenderBody()
+                </section>
+            </div>
         </div>
         <footer>
             <div class="container">

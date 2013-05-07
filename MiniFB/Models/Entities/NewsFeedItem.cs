@@ -12,7 +12,7 @@ namespace MiniFB.Models.Entities
     {
         private string _itemType;
 
-        public ArrayList types = new ArrayList()
+        public static ArrayList Types = new ArrayList()
         {
             "status",
             "image",
@@ -25,10 +25,10 @@ namespace MiniFB.Models.Entities
         }
 
         public Guid ID { get; set; }
-        public User User { get; set; }
-        //public Guid UserID { get; set; }
+        public virtual User User { get; set; }
+        public virtual Guid UserID { get; set; }
 
-        [DisplayFormat()]
+        [Required]
         public string Type {
             get
             {
@@ -42,10 +42,10 @@ namespace MiniFB.Models.Entities
 
                 string str = value.ToString().ToLower();
 
-                int l = types.Count;
+                int l = Types.Count;
                 ArrayList results = new ArrayList();
 
-                foreach (string type in types)
+                foreach (string type in Types)
                 {
                     if (str == type)
                     {
@@ -63,14 +63,25 @@ namespace MiniFB.Models.Entities
                 }
             } 
         }
+
+        public ArrayList GetTypes() 
+        {
+            return Types;
+        }
+
+        [DataType(DataType.MultilineText)]
+        [StringLength(250)]
+        [Display(Name="Beskrivning")]
         public string Content { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:D}")]
         [DataType(DataType.Date)]
+        [Display(Name="Skapad")]
         public DateTime Created { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:D}")]
         [DataType(DataType.Date)]
+        [Display(Name="Modifierad")]
         public DateTime Modified { get; set; }
 
         public virtual List<NewsFeedComment> Comments { get; set; }

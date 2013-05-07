@@ -7,6 +7,7 @@
 @foreach (var item in Model) {
 <div class="media">
     <div class="media-body">
+    <b>@Html.DisplayFor(modelItem => item.User.UserName):</b>
     @Html.DisplayFor(modelItem => item.Content) 
     </div>
     <small class="muted">@Html.DisplayFor(modelItem => item.Type) | @Html.DisplayFor(modelItem => item.Created)</small>

@@ -4,3 +4,19 @@
 Sex-button-female {
     background-image: url("images/sex_female_32.png");
 }
+
+.label.video {
+background: #01ABBB;
+}
+
+.label.image {
+background: #AE219C;
+}
+
+.label.link {
+background: #4AA538;
+}
+
+.label.status {
+background: #EA7902;
+}

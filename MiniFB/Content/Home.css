@@ -1,7 +1,8 @@
 ﻿body {
 }
 
-.span4
+.span5
 {
     border: 1px solid black;
+    margin-bottom: 50px;
 }

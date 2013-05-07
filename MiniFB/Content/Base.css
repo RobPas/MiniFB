@@ -3,5 +3,55 @@
 
 footer
 {
-    background-color: #f2f2f2;
+    background-color: #006400;
+    color: #FFFFFF;
+}
+
+.trademark
+{
+    color: #D4D4D4;
+}
+
+.navbar-inner
+{
+    background-image: -moz-linear-gradient(top, transparent, transparent);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(transparent));
+    background-image: -webkit-linear-gradient(top, transparent, transparent);
+    background-image: -o-linear-gradient(top, transparent, transparent);
+    background-image: linear-gradient(to bottom, transparent, transparent);
+    background-color: #006400;
+
+}
+
+.navbar .brand
+{
+    color: #FFFFFF;
+}
+
+.navbar .nav li a
+{
+    color: #D4D4D4;
+    text-shadow: none;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus
+{
+    color: #D4D4D4;
+    text-shadow: none;
+    background-color: #00A100;
+}
+
+.navbar .nav li a:hover
+{
+    color: #FFFFFF;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus a:hover
+{
+    color: #FFFFFF;
+}
+
+.nav-collapse .nav > li > a:hover, .nav-collapse .nav > li > a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus
+{
+    background-color: #00A100;
 }

@@ -49,22 +49,15 @@ namespace MiniFB.Models.Contexts
             context.Users.Add(new User { ID = ID_2, UserName = "arnold", BirthDate = DateTime.Parse("1990-05-04"), FirstName = "Arnold", LastName = "Olsson", Email = "arnold@live.se", Sex = "Man" });
             context.Users.Add(new User { ID = ID_3, UserName = "urban", BirthDate = DateTime.Parse("1983-01-06"), FirstName = "Urban", LastName = "Explorer", Email = "No email", Sex = "Kvinna" });
 
-            context.SaveChanges();
-
-            // Inte nu längre! :=)
-
-            Guid NFID_1 = Guid.NewGuid();
-            Guid NFID_2 = Guid.NewGuid();
-            Guid NFID_3 = Guid.NewGuid();
-
-            context.NewsFeed.Add(new NewsFeed { ID = NFID_1, UserID = ID_1 });
-            context.NewsFeed.Add(new NewsFeed { ID = NFID_2, UserID = ID_2 });
-            context.NewsFeed.Add(new NewsFeed { ID = NFID_3, UserID = ID_3 });
-
-            context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "This is my status...", Type = "Status", Created = DateTime.Now, Modified = DateTime.Now });
-            context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "Video...", Type = "Video", Created = DateTime.Now, Modified = DateTime.Now });
-            context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "http://google.com", Type = "Link", Created = DateTime.Now, Modified = DateTime.Now });
-            context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "/image.jpg", Type = "Image", Created = DateTime.Now, Modified = DateTime.Now });
+            try
+            {
+                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "This is my status...", Type = "Status", Created = DateTime.Now, Modified = DateTime.Now, UserID = ID_1 });
+                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "Video...", Type = "Video", Created = DateTime.Now, Modified = DateTime.Now, UserID = ID_2 });
+                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "http://google.com", Type = "Link", Created = DateTime.Now, Modified = DateTime.Now, UserID = ID_3 });
+                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "/image.jpg", Type = "Image", Created = DateTime.Now, Modified = DateTime.Now, UserID = ID_3 });
+            }
+            catch (Exception e)
+            { }
 
             context.SaveChanges();
 

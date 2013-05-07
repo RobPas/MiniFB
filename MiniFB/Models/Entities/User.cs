@@ -30,7 +30,6 @@ namespace MiniFB.Models.Entities
         [DisplayName("Kön")]
         public string Sex { get; set; }
 
-
         public virtual List<NewsFeedItem> NewsFeedItems { get; set; }
 
         public int Age {

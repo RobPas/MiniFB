@@ -57,7 +57,7 @@
             //Html.RenderPartial("Newsfeeditems", null);
         }
         <p>
-        Html.RenderPartial("Newsfeeditems", Model);</p>
+        @Html.Partial("_NewsFeedItems", Model.NewsFeedItems)</p>
     </div>
 
 </div>

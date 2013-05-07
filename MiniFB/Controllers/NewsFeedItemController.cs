@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -36,6 +37,15 @@ namespace MiniFB.Controllers
 
         public ActionResult Create()
         {
+            List<SelectListItem> items = new List<SelectListItem>();
+
+            items.Add(new SelectListItem { Text = "status", Value = "status" });
+            items.Add(new SelectListItem { Text = "video", Value = "video" });
+            items.Add(new SelectListItem { Text = "image", Value = "image" });
+            items.Add(new SelectListItem { Text = "link", Value = "link" });
+
+            ViewBag.items = items;
+
             return View();
         }
 

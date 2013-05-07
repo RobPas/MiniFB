@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Inställningar - MiniFB";
 }
-
+<div class="row">
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -71,13 +71,22 @@
         </div>
         
         <div id="profile-img-buttons">
-            <p class="btn">Ladda upp bild</p>
+            <script>
+                function getFile() {
+                    document.getElementById("image-input").click();
+                }
+            </script>
+            
+            <p class="btn" onclick="getFile()">Ladda upp bild</p>
+    
+            <input style="display:none;" id="image-input" name="image-input"  type="file" value=""/>
+    
             <p class="btn btn-danger">Ta bort bilden</p>
         </div>
         
     </div>
 }
-
+</div>
 
 
 

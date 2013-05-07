@@ -50,10 +50,10 @@
         </div>
         <div class="editor-field">
             <div id="test-group" class="btn-group" data-toggle="buttons-radio" data-toggle-name="Sex">
-                <input type="hidden" name="Sex" value="@Model.Sex"/>
-                <button type="button" class="btn sex-button-male" data-toggle-value="Man">
+                <input type="hidden" name="Sex" id="Sex" value="@Model.Sex"/>
+                <button id="button-man" type="button" class="btn sex-button-male" data-toggle-value="Man">
                     <img class="sex-icon" src="~/Content/images/sex_male_32.png" alt="Male icon" />Man</button>
-                <button type="button" class="btn sex-button-female" data-toggle-value="Kvinna">
+                <button id="button-kvinna" type="button" class="btn sex-button-female" data-toggle-value="Kvinna">
                     <img class="sex-icon" src="~/Content/images/sex_female_32.png" alt="Female icon" />Kvinna</button>
             </div>
             @Html.ValidationMessageFor(model => model.Sex)
@@ -101,6 +101,14 @@
                     });
                 });
             });
+
+
+            if($('#Sex').val() == "Man") {
+                $('#button-man').addClass("active");
+            } else if($('#Sex').val() == "Kvinna") {
+                $('#button-kvinna').addClass("active");
+            }
+
 
             //$("#BirthDate").datepicker();
 

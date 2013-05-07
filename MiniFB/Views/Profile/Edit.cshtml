@@ -8,24 +8,16 @@
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Inställningar</legend>
-
+    
+    <div id="profile-setting-wrapper" class="span6">
         @Html.HiddenFor(model => model.ID)
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UserName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UserName)
-            @Html.ValidationMessageFor(model => model.UserName)
-        </div>
+        @Html.HiddenFor(model => model.UserName)
 
         <div class="editor-label">
             @Html.LabelFor(model => model.FirstName)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.FirstName)
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "span3"  })
             @Html.ValidationMessageFor(model => model.FirstName)
         </div>
 
@@ -33,7 +25,7 @@
             @Html.LabelFor(model => model.LastName)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.LastName)
+            @Html.TextBoxFor(model => model.LastName, new { @class = "span3"  })
             @Html.ValidationMessageFor(model => model.LastName)
         </div>
 
@@ -41,7 +33,7 @@
             @Html.LabelFor(model => model.Email)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
+            @Html.TextBoxFor(model => model.Email, new { @class = "span3"  })
             @Html.ValidationMessageFor(model => model.Email)
         </div>
 
@@ -49,7 +41,7 @@
             @Html.LabelFor(model => model.BirthDate)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.BirthDate)
+            @Html.TextBoxFor(model => model.BirthDate, new { @class = "span3"  })
             @Html.ValidationMessageFor(model => model.BirthDate)
         </div>
 
@@ -57,21 +49,65 @@
             @Html.LabelFor(model => model.Sex)
         </div>
         <div class="editor-field">
-            <input type="radio" name="Sex" value="Kvinna">Kvinna<br>
-            <input type="radio" name="Sex" value="Man">Man<br>
+            <div id="test-group" class="btn-group" data-toggle="buttons-radio" data-toggle-name="Sex">
+                <input type="hidden" name="Sex" value="@Model.Sex"/>
+                <button type="button" class="btn sex-button-male" data-toggle-value="Man">
+                    <img class="sex-icon" src="~/Content/images/sex_male_32.png" alt="Male icon" />Man</button>
+                <button type="button" class="btn sex-button-female" data-toggle-value="Kvinna">
+                    <img class="sex-icon" src="~/Content/images/sex_female_32.png" alt="Female icon" />Kvinna</button>
+            </div>
             @Html.ValidationMessageFor(model => model.Sex)
         </div>
 
-        <p>
-            <input type="submit" value="Spara" />
-        </p>
-    </fieldset>
+        <div id="profile-save-cancel-buttons">
+            @Html.ActionLink("Tillbaka", "MyProfile", null, new { @class = "btn" })
+            <input type="submit" class="btn btn-success" value="Spara inställningar" />            
+        </div>
+    </div>
+    
+    <div id="profile-img-wrapper" class="span6">
+        <div id="profile-img-preview">
+            <img src="http://placehold.it/300x300" class="img-polaroid">
+        </div>
+        
+        <div id="profile-img-buttons">
+            <p class="btn">Ladda upp bild</p>
+            <p class="btn btn-danger">Ta bort bilden</p>
+        </div>
+        
+    </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+
+
+<link href="~/Content/Profile.css" rel="stylesheet" />
+
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    <!-- Detta är ett test script och det skall läggas i en sepparat .js senare! -->
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+        $(document).ready(function () {
+            
+            $('div.btn-group[data-toggle-name]').each(function () {
+                var group = $(this);
+                var form = group.parents('form').eq(0);
+                var name = group.attr('data-toggle-name');
+                var hidden = $('input[name="' + name + '"]', form);
+                $('button', group).each(function () {
+                    $(this).on('click', function () {
+                        hidden.val($(this).data("toggle-value"));
+                    });
+                });
+            });
+
+            //$("#BirthDate").datepicker();
+
+
+        });
+    </script>
 }
+
+
+        

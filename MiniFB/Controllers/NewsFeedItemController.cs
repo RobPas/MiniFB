@@ -32,14 +32,6 @@ namespace MiniFB.Controllers
         }
 
         //
-        // GET: /NewsFeedItem/List
-
-        public ActionResult List()
-        {
-            return View(_newsFeedItemRepo.FindAll().ToList());
-        }
-
-        //
         // GET: /NewsFeedItem/Create
 
         public ActionResult Create()
@@ -60,7 +52,7 @@ namespace MiniFB.Controllers
                 newsfeeditem.Created = DateTime.Now;
                 newsfeeditem.Modified = DateTime.Now;                
                 _newsFeedItemRepo.Add(newsfeeditem);
-                return RedirectToAction("Items", "NewsFeed");
+                return RedirectToAction("Index", "NewsFeed");
             }
 
             return View(newsfeeditem);

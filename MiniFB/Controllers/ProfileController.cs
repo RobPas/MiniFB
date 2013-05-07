@@ -13,6 +13,7 @@ using MiniFB.Models.ProfileSettings;
 
 namespace MiniFB.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         private IRepository<User> _userRepo;
@@ -22,10 +23,34 @@ namespace MiniFB.Controllers
             _userRepo = new Repository<User>();
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string username = null)
+        {
+
+            if (username == null)
+            {
+                return HttpNotFound();
+            }
+
+            User user = _userRepo.FindAll().Where(u => u.UserName == username).FirstOrDefault();
+            return View(user);
+        }
+        
+        public ActionResult MyProfile()
         {
             User user = _userRepo.FindAll().Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
-            return View(user);
+            if(user == null){
+                MiniFBContext db = new MiniFBContext();
+                User newuser = new User();
+
+                newuser.BirthDate = DateTime.Now;
+                newuser.UserName = User.Identity.Name;
+                newuser.ID = Guid.NewGuid();
+                db.Users.Add(newuser);
+                db.SaveChanges();
+
+                return View(newuser);
+            }
+            return View("Index",user);
         }
 
         public ActionResult Edit(Guid id)
@@ -47,7 +72,7 @@ namespace MiniFB.Controllers
             if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
                 _userRepo.Update(user);
-                return RedirectToAction("Index");
+                return RedirectToAction("MyProfile");
             }
             return View(user);
         }

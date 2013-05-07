@@ -1,1 +1,6 @@
-﻿
+﻿Sex-button-male {
+    background-image: url("images/sex_male_32.png");
+}
+Sex-button-female {
+    background-image: url("images/sex_female_32.png");
+}

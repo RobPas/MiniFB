@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MiniFB.Models.Entities.NewsFeedItem>
+
+@{
+    ViewBag.Title = "NewsFeed Items";
+}
+
+@foreach (var item in Model) {
+<div class="media">
+    <div class="media-body">
+    @Html.DisplayFor(modelItem => item.Content) 
+    </div>
+    <small class="muted">@Html.DisplayFor(modelItem => item.Type) | @Html.DisplayFor(modelItem => item.Created)</small>
+</div>
+}

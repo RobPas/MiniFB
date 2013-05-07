@@ -15,20 +15,16 @@
         @Html.HiddenFor(model => model.UserName)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.FirstName)
+            <label for="FirstName">Fullständigt namn</label>
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.FirstName, new { @class = "span3" })
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "span2" })
+            @Html.TextBoxFor(model => model.LastName, new { @class = "span2" })
             @Html.ValidationMessageFor(model => model.FirstName)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.LastName)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.LastName, new { @class = "span3" })
             @Html.ValidationMessageFor(model => model.LastName)
         </div>
+
+        
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Email)

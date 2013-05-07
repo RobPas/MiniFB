@@ -50,24 +50,6 @@ namespace MiniFB.Controllers
             }
             return HttpNotFound();
         }
-        
-        public ActionResult MyProfile()
-        {
-            User user = _userRepo.FindAll().Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
-            if(user == null){
-                MiniFBContext db = new MiniFBContext();
-                User newuser = new User();
-
-                newuser.BirthDate = DateTime.Now;
-                newuser.UserName = User.Identity.Name;
-                newuser.ID = Guid.NewGuid();
-                db.Users.Add(newuser);
-                db.SaveChanges();
-
-                return View(newuser);
-            }
-            return View("Index",user);
-        }
 
         public ActionResult Edit(Guid id)
         {
@@ -88,7 +70,7 @@ namespace MiniFB.Controllers
             if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
                 _userRepo.Update(user);
-                return RedirectToAction("MyProfile");
+                return RedirectToAction("Index");
             }
             return View(user);
         }

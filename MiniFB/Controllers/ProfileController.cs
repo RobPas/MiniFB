@@ -25,14 +25,30 @@ namespace MiniFB.Controllers
 
         public ActionResult Index(string username = null)
         {
-
+            /* Om inget username skickas med visas den inloggades egna profilsida */
             if (username == null)
             {
-                return HttpNotFound();
+                if(User.Identity.Name != null){
+                    User user = _userRepo.FindAll().Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                    if (user == null)
+                    {
+                        /* Skapar en ny User om ingen finns */
+                        User newuser = new User { BirthDate = DateTime.Now, ID = Guid.NewGuid(), UserName = User.Identity.Name };
+                        MiniFBContext db = new MiniFBContext();
+                        db.Users.Add(newuser);
+                        db.SaveChanges();
+                        
+                        return View(newuser);
+                    }
+                    return View(user);
+                }
             }
-
-            User user = _userRepo.FindAll().Where(u => u.UserName == username).FirstOrDefault();
-            return View(user);
+            else
+            {
+                User user = _userRepo.FindAll().Where(u => u.UserName == username).FirstOrDefault();
+                return View(user);
+            }
+            return HttpNotFound();
         }
         
         public ActionResult MyProfile()

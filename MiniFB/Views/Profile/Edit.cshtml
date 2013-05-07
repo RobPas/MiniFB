@@ -4,7 +4,8 @@
     ViewBag.Title = "Inställningar - MiniFB";
 }
 <div class="row">
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -17,7 +18,7 @@
             @Html.LabelFor(model => model.FirstName)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.FirstName, new { @class = "span3"  })
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "span3" })
             @Html.ValidationMessageFor(model => model.FirstName)
         </div>
 
@@ -25,7 +26,7 @@
             @Html.LabelFor(model => model.LastName)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.LastName, new { @class = "span3"  })
+            @Html.TextBoxFor(model => model.LastName, new { @class = "span3" })
             @Html.ValidationMessageFor(model => model.LastName)
         </div>
 
@@ -33,7 +34,7 @@
             @Html.LabelFor(model => model.Email)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Email, new { @class = "span3"  })
+            @Html.TextBoxFor(model => model.Email, new { @class = "span3" })
             @Html.ValidationMessageFor(model => model.Email)
         </div>
 
@@ -41,7 +42,7 @@
             @Html.LabelFor(model => model.BirthDate)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.BirthDate, new { @class = "span3"  })
+            @Html.EditorFor(model => model.BirthDate)
             @Html.ValidationMessageFor(model => model.BirthDate)
         </div>
 
@@ -60,7 +61,7 @@
         </div>
 
         <div id="profile-save-cancel-buttons">
-            @Html.ActionLink("Tillbaka", "MyProfile", null, new { @class = "btn" })
+            @Html.ActionLink("Tillbaka", "Index",null, new { @class = "btn" })
             <input type="submit" class="btn btn-success" value="Spara inställningar" />            
         </div>
     </div>

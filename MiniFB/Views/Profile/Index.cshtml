@@ -17,9 +17,9 @@
             <br />
             <span><strong>Namn:</strong> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span><br />
             <span><strong>Kön:</strong> @Html.DisplayFor(model => model.Sex)</span><br />
-            <span><strong>Ålder:</strong> @Html.DisplayFor(model => model.Age)</span><br />
+            <span><strong>Ålder:</strong> @Html.DisplayFor(model => model.Age) (<em>Född @Model.BirthDate.Year</em>)</span><br />
             <span><strong>Epost:</strong> @Html.DisplayFor(model => model.Email)</span><br />
-
+            
 
             @if (Model.UserName == User.Identity.Name)
             {

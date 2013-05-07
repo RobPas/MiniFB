@@ -7,12 +7,12 @@
 <h2>@Html.DisplayFor(model => model.UserName)'s profilsida</h2>
 
 <div class="span4">
-    <div style="background-color: #E2E2E2; padding: 10px;">
+    <div style="background-color: #E2E2E2; padding: 10px; max-width: 300px;">
         <img style="display:block;" src="http://blog.ramboll.com/urbanenergysolutions/wp-content/themes/ramboll2/images/profile-img.jpg" alt="Profile picture" />
     </div>
 
     <br />
-    <div style="background-color: #E2E2E2; padding: 10px;">
+    <div style="background-color: #E2E2E2; padding: 10px; max-width: 300px;">
         <h3>Om @Html.DisplayFor(model => model.UserName)</h3>
         <br />
         <span><strong>Namn:</strong> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span><br />
@@ -29,7 +29,7 @@
     </div>
 
     <br />
-    <div style="background-color: #E2E2E2; padding: 10px;">
+    <div style="background-color: #E2E2E2; padding: 10px; max-width: 300px;">
         <h3>Foton</h3>
         <div>
             <div style="float:left;width:50px;">
@@ -50,42 +50,14 @@
 
 <div class="span8" style="background-color: #E2E2E2;">
     <h3>@Html.DisplayFor(model => model.UserName)'s senaste aktiviteter</h3>
-    <br />
 
     <div style="min-height:50px; margin-left: 20px; margin-right: 20px; background-color: #EFEFEF;">
-        <div class="statusProfileImage" style="float:left;width:50px;">
-            <img width="100%" src="http://blog.ramboll.com/urbanenergysolutions/wp-content/themes/ramboll2/images/profile-img.jpg" alt="Profil bild" /></div>
-        <div class="statusContent" style="float:left;min-height:50px;" >
-            <p style="padding-left:10px;" >
-                  Status text 1....
-            </p>
-            </div>
-    </div>
-
-    <br />
-
-    <div style="min-height:50px; margin-left: 20px; margin-right: 20px; background-color: #EFEFEF;">
-        <div class="statusProfileImage" style="float:left;width:50px;">
-            <img width="100%" src="http://blog.ramboll.com/urbanenergysolutions/wp-content/themes/ramboll2/images/profile-img.jpg" alt="Profil bild" /></div>
-        
-        <div class="statusContent" style="float:left;min-height:50px;" ><p style="padding-left:10px;">
-                  Bild exempel text 2....
-            </p>
-        </div>
-        <div class="statusContentImg" style="float:left;min-height:50px;padding:10px;" >
-            <img style="margin: 0 auto 0 auto;width:100%;" src="https://dl.dropboxusercontent.com/u/46936/lolpics/goat-serious.jpg" alt="Alternate Text" />
-        </div>
-        <div style="clear:both;"></div>
-    </div>
-
-    <br />
-    <div style="min-height:50px; margin-left: 20px; margin-right: 20px; background-color: #EFEFEF;">
-        <div class="statusProfileImage" style="float:left;width:50px;">
-            <img width="100%" src="http://blog.ramboll.com/urbanenergysolutions/wp-content/themes/ramboll2/images/profile-img.jpg" alt="Profil bild" /></div>
-        <div class="statusContent" style="float:left;min-height:50px;" >
-            <p style="padding-left:10px;">Status text 3....</p>
-
-        </div>
+        @{
+            
+            //Html.RenderPartial("Newsfeeditems", null);
+        }
+        <p>
+        Html.RenderPartial("Newsfeeditems", Model);</p>
     </div>
 
 </div>

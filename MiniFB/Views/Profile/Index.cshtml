@@ -52,21 +52,9 @@
         <h3>@Html.DisplayFor(model => model.UserName)'s senaste aktiviteter</h3>
 
         <div style="min-height:50px; margin-left: 20px; margin-right: 20px; background-color: #EFEFEF;">
-            @{
-            
-<<<<<<< Updated upstream
-            //Html.RenderPartial("Newsfeeditems", null);
-        }
-        <p>
-        Html.RenderPartial("Newsfeeditems", Model);</p>
-=======
-                //Html.RenderPartial("Newsfeeditems", null);
-            }
-            <p>
-            @Html.Partial("_NewsFeedItems", Model.NewsFeedItems)</p>
+            @Html.Partial("_NewsFeedItems", Model.NewsFeedItems)
         </div>
 
->>>>>>> Stashed changes
     </div>
 
 </div>

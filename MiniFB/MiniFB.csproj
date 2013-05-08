@@ -359,6 +359,7 @@
     <Content Include="Views\NewsFeedItem\Create.cshtml" />
     <Content Include="Views\Shared\_NewsFeedItems.cshtml" />
     <Content Include="Views\Registrering\Index.cshtml" />
+    <Content Include="Views\Konto\LogOn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

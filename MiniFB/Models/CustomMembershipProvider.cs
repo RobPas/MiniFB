@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Text;
-using System.Web.Security;
 using MiniFB.Models.Entities;
 using MiniFB.Models.Repositories;
+using WebMatrix.WebData;
+using System.Web.Security;
 
 
 namespace MiniFB.Models
 {
-    public class CustomMembershipProvider : MembershipProvider
+    public class CustomMembershipProvider : ExtendedMembershipProvider
     {
         public override MembershipUser CreateUser(string username, string password,
                string email, string passwordQuestion, string passwordAnswer,
@@ -204,6 +205,90 @@ namespace MiniFB.Models
         }
         public override MembershipUser GetUser(object providerUserKey
                         , bool userIsOnline)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DateTime GetLastPasswordFailureDate(string userName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override DateTime GetPasswordChangedDate(string userName)
+        {
+            throw new NotImplementedException();
+        }
+        public override DateTime GetCreateDate(string userName)
+        {
+            throw new NotImplementedException();
+        }
+        public override bool ResetPasswordWithToken(string token, string newPassword)
+        {
+            throw new NotImplementedException();
+        }
+        public override bool IsConfirmed(string userName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int GetPasswordFailuresSinceLastSuccess(string userName)
+        {
+            throw new NotImplementedException();
+        }
+        public override ICollection<OAuthAccountData> GetAccountsForUser(string userName)
+        {
+           throw new NotImplementedException();
+        }
+        public override string CreateAccount(string userName, string password)
+        {
+            return base.CreateAccount(userName, password);
+        }
+
+        public override string CreateUserAndAccount(string userName, string password)
+        {
+            return base.CreateUserAndAccount(userName, password);
+        }
+        public override int GetUserIdFromOAuth(string provider, string providerUserId)
+        {
+            return base.GetUserIdFromOAuth(provider, providerUserId);
+        }
+        public override bool DeleteAccount(string userName)
+        {
+            throw new NotImplementedException();
+        }
+        public override string GeneratePasswordResetToken(string userName)
+        {
+            return base.GeneratePasswordResetToken(userName);
+        }
+        public override int GetUserIdFromPasswordResetToken(string token)
+        {
+            throw new NotImplementedException();
+        }
+        public override bool ConfirmAccount(string accountConfirmationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override bool ConfirmAccount(string userName, string accountConfirmationToken)
+        {
+            throw new NotImplementedException();
+        }
+        public override string CreateUserAndAccount(string userName, string password, bool requireConfirmation)
+        {
+            return base.CreateUserAndAccount(userName, password, requireConfirmation);
+        }
+
+        public override string CreateAccount(string userName, string password, bool requireConfirmationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string GeneratePasswordResetToken(string userName, int tokenExpirationInMinutesFromNow)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string CreateUserAndAccount(string userName, string password, bool requireConfirmation, IDictionary<string, object> values)
         {
             throw new NotImplementedException();
         }

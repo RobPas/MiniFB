@@ -7,8 +7,21 @@
 <h1>NewsFeed</h1>
 
 <p>
-    @Html.ActionLink("Create New Item", "Create", "NewsFeedItem", null, new { @class = "btn btn-success" })
+    
 </p>
+
+<div class="btn-group">
+    @Html.ActionLink("Ny Status", "Create", "NewsFeedItem", null, new { @class = "btn btn-success" })
+  <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Status</a></li>
+    <li><a href="#">Bild</a></li>
+    <li><a href="#">Video</a></li>
+    <li><a href="#">Länk</a></li>
+  </ul>
+</div>
 
 <div class="btn-group newsfeed-sorting" data-toggle="buttons-checkbox">
   <button type="button" class="btn btn-primary" name="type" value="status">Status</button>

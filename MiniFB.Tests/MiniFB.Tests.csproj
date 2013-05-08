@@ -107,6 +107,7 @@
     <Compile Include="Controllers\GoatControllerTest.cs" />
     <Compile Include="Controllers\NewsFeedControllerTest.cs" />
     <Compile Include="Controllers\NewsFeedItemControllerTest.cs" />
+    <Compile Include="Controllers\ProfileControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>

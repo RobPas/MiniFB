@@ -6,10 +6,15 @@
 
 @foreach (var item in Model) {
 <div class="media">
+    <img class="pull-left media-object" src="http://placehold.it/60x60">
     <div class="media-body">
     <b>@Html.DisplayFor(modelItem => item.User.UserName):</b>
     @Html.DisplayFor(modelItem => item.Content) 
     </div>
-    <small class="muted">@Html.DisplayFor(modelItem => item.Type) | @Html.DisplayFor(modelItem => item.Created)</small>
+    <small class="muted">
+        <span class="label @item.Type.ToLower()">
+            @Html.DisplayFor(modelItem => item.Type)
+        </span> @Html.DisplayFor(modelItem => item.Created)
+    </small>
 </div>
 }

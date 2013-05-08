@@ -92,9 +92,7 @@ WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = m
                     email.ConfirmationToken = confirmationToken;
                     email.Send();
                     return RedirectToAction("RegisterStepTwo", "Account");
-
-                    
-                    
+                     
                 }
                 catch (MembershipCreateUserException e)
                 {

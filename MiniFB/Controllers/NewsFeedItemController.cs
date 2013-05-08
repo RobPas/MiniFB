@@ -16,10 +16,12 @@ namespace MiniFB.Controllers
     public class NewsFeedItemController : Controller
     {
         private IRepository<NewsFeedItem> _newsFeedItemRepo;
+        private IRepository<User> _userRepo;
 
         public NewsFeedItemController() 
         {
             _newsFeedItemRepo = new Repository<NewsFeedItem>();
+            _userRepo = new Repository<User>();
         }
 
         public NewsFeedItemController(IRepository<NewsFeedItem> newsFeedItemRepo)
@@ -60,7 +62,8 @@ namespace MiniFB.Controllers
             {
                 newsfeeditem.ID = Guid.NewGuid();
                 newsfeeditem.Created = DateTime.Now;
-                newsfeeditem.Modified = DateTime.Now;                
+                newsfeeditem.Modified = DateTime.Now;
+                newsfeeditem.UserID = _userRepo.FindAll().Where(x => x.UserName == User.Identity.Name).FirstOrDefault().ID;
                 _newsFeedItemRepo.Add(newsfeeditem);
                 return RedirectToAction("Index", "NewsFeed");
             }

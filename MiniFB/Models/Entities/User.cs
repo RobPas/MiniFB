@@ -25,11 +25,12 @@ namespace MiniFB.Models.Entities
         public string Email { get; set; }
 
         [DisplayName("Födelsedatum")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
 
         [DisplayName("Kön")]
         public string Sex { get; set; }
-
 
         public virtual List<NewsFeedItem> NewsFeedItems { get; set; }
 

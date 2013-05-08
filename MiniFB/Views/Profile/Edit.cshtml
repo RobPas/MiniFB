@@ -3,8 +3,9 @@
 @{
     ViewBag.Title = "Inställningar - MiniFB";
 }
-
-@using (Html.BeginForm()) {
+<div class="row">
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -14,26 +15,22 @@
         @Html.HiddenFor(model => model.UserName)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.FirstName)
+            <label for="FirstName">Fullständigt namn</label>
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.FirstName, new { @class = "span3"  })
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "span2" })
+            @Html.TextBoxFor(model => model.LastName, new { @class = "span2" })
             @Html.ValidationMessageFor(model => model.FirstName)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.LastName)
-        </div>
-        <div class="editor-field">
-            @Html.TextBoxFor(model => model.LastName, new { @class = "span3"  })
             @Html.ValidationMessageFor(model => model.LastName)
         </div>
+
+        
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Email)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.Email, new { @class = "span3"  })
+            @Html.TextBoxFor(model => model.Email, new { @class = "span3" })
             @Html.ValidationMessageFor(model => model.Email)
         </div>
 
@@ -41,7 +38,7 @@
             @Html.LabelFor(model => model.BirthDate)
         </div>
         <div class="editor-field">
-            @Html.TextBoxFor(model => model.BirthDate, new { @class = "span3"  })
+            @Html.EditorFor(model => model.BirthDate)
             @Html.ValidationMessageFor(model => model.BirthDate)
         </div>
 
@@ -50,17 +47,17 @@
         </div>
         <div class="editor-field">
             <div id="test-group" class="btn-group" data-toggle="buttons-radio" data-toggle-name="Sex">
-                <input type="hidden" name="Sex" value="@Model.Sex"/>
-                <button type="button" class="btn sex-button-male" data-toggle-value="Man">
+                <input type="hidden" name="Sex" id="Sex" value="@Model.Sex"/>
+                <button id="button-man" type="button" class="btn sex-button-male" data-toggle-value="Man">
                     <img class="sex-icon" src="~/Content/images/sex_male_32.png" alt="Male icon" />Man</button>
-                <button type="button" class="btn sex-button-female" data-toggle-value="Kvinna">
+                <button id="button-kvinna" type="button" class="btn sex-button-female" data-toggle-value="Kvinna">
                     <img class="sex-icon" src="~/Content/images/sex_female_32.png" alt="Female icon" />Kvinna</button>
             </div>
             @Html.ValidationMessageFor(model => model.Sex)
         </div>
 
         <div id="profile-save-cancel-buttons">
-            @Html.ActionLink("Tillbaka", "MyProfile", null, new { @class = "btn" })
+            @Html.ActionLink("Tillbaka", "Index",null, new { @class = "btn" })
             <input type="submit" class="btn btn-success" value="Spara inställningar" />            
         </div>
     </div>
@@ -71,13 +68,22 @@
         </div>
         
         <div id="profile-img-buttons">
-            <p class="btn">Ladda upp bild</p>
+            <script>
+                function getFile() {
+                    document.getElementById("image-input").click();
+                }
+            </script>
+            
+            <p class="btn" onclick="getFile()">Ladda upp bild</p>
+    
+            <input style="display:none;" id="image-input" name="image-input"  type="file" value=""/>
+    
             <p class="btn btn-danger">Ta bort bilden</p>
         </div>
         
     </div>
 }
-
+</div>
 
 
 
@@ -101,6 +107,14 @@
                     });
                 });
             });
+
+
+            if($('#Sex').val() == "Man") {
+                $('#button-man').addClass("active");
+            } else if($('#Sex').val() == "Kvinna") {
+                $('#button-kvinna').addClass("active");
+            }
+
 
             //$("#BirthDate").datepicker();
 

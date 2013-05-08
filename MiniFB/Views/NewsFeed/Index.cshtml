@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MiniFB.Models.Entities.NewsFeed>
+﻿@model IEnumerable<MiniFB.Models.Entities.NewsFeedItem>
 
 @{
     ViewBag.Title = "NewsFeed";
@@ -7,9 +7,22 @@
 <h1>NewsFeed</h1>
 
 <p>
-    @Html.ActionLink("Create New Item", "Create", "NewsFeedItem")
+    @Html.ActionLink("Create New Item", "Create", "NewsFeedItem", null, new { @class = "btn btn-success" })
 </p>
+
+<div class="btn-group newsfeed-sorting" data-toggle="buttons-checkbox">
+  <button type="button" class="btn btn-primary" name="type" value="status">Status</button>
+  <button type="button" class="btn btn-primary" name="type" value="images">Bilder</button>
+  <button type="button" class="btn btn-primary" name="type" value="links">Länkar</button>
+  <button type="button" class="btn btn-primary" name="type" value="videos">Videor</button>
+</div>
 
 @*Partial view with items*@
 
-@Html.ActionLink("List", "Items")
+@Html.Partial("_NewsFeedItems", Model)
+
+@*@Html.ActionLink("List", "Items")*@
+
+@section scripts {
+    <script src="~/Scripts/newsfeed.js"></script>
+}

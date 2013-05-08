@@ -11,6 +11,7 @@ using MiniFB.Models;
 using MiniFB.Models.Contexts;
 using WebMatrix.WebData;
 using System.Data.Entity.Infrastructure;
+using System.Web.Security;
 
 namespace MiniFB
 {
@@ -24,8 +25,6 @@ namespace MiniFB
             
             Database.SetInitializer<MiniFBContext>(new MiniFBInitializer());
             
-            WebSecurity.InitializeDatabaseConnection("MiniFB", "UserProfile", "UserId", "UserName", autoCreateTables: true);
-           
 
             AreaRegistration.RegisterAllAreas();
 

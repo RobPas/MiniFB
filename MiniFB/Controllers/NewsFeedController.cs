@@ -29,14 +29,19 @@ namespace MiniFB.Controllers
         //
         // GET: /NewsFeed/
 
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ViewResult Items()
+        public ViewResult Index()
         {
             return View(_newsFeedItemRepo.FindAll().ToList());
+        }
+
+        public ActionResult Items()
+        {
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_NewsFeedItems", _newsFeedItemRepo.FindAll().ToList());
+            }
+
+            return View("_NewsFeedItems", _newsFeedItemRepo.FindAll().ToList());
         }
     }
 }

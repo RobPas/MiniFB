@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MiniFB.Models;
+using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
+using System.Web;
 using System.Web.Mvc;
 using WebMatrix.WebData;
-using MiniFB.Models;
-using MiniFB.Models.Contexts;
 
 namespace MiniFB.Filters
 {
@@ -26,11 +27,11 @@ namespace MiniFB.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<MiniFBContext>(null);
+                Database.SetInitializer<UsersContext>(null);
 
                 try
                 {
-                    using (var context = new MiniFBContext())
+                    using (var context = new UsersContext())
                     {
                         if (!context.Database.Exists())
                         {

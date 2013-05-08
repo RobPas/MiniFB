@@ -10,13 +10,13 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using MiniFB.Models;
 using MiniFB.Models.Contexts;
-using MiniFB.Models.Entities;           
 using MiniFB.Filters;
 using Postal;
 
 namespace MiniFB.Controllers
 {
     [Authorize]
+    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
         //
@@ -80,20 +80,8 @@ namespace MiniFB.Controllers
                 // Attempt to register the user
                 try
                 {
-                    MiniFBContext db = new MiniFBContext();
-
-                    Guid newGuid = Guid.NewGuid();
-                    User user = new User();
-                    user.BirthDate = DateTime.Now;
-                    user.UserName = model.UserName;
-                    user.ID = newGuid;
-
-                    db.Users.Add(user);
-                    db.SaveChanges();
-
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-
-                    WebSecurity.Login(model.UserName, model.Password);
+                    //WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    //WebSecurity.Login(model.UserName, model.Password);
                     //return RedirectToAction("Index", "Home");
 
                     string confirmationToken =
@@ -103,31 +91,15 @@ WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = m
                     email.UserName = model.UserName;
                     email.ConfirmationToken = confirmationToken;
                     email.Send();
-
                     return RedirectToAction("RegisterStepTwo", "Account");
 
+                    
+                    
                 }
                 catch (MembershipCreateUserException e)
                 {
                     ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
                 }
-
-                //try
-                //{
-                //    string confirmationToken =
-                //    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = model.Email }, true);
-                //    dynamic email = new Email("RegEmail");
-                //    email.To = model.Email;
-                //    email.UserName = model.UserName;
-                //    email.ConfirmationToken = confirmationToken;
-                //    email.Send();
-
-                //    return RedirectToAction("RegisterStepTwo", "Account");
-                //}
-                //catch (MembershipCreateUserException e)
-                //{
-                //    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
-                //}
             }
 
             // If we got this far, something failed, redisplay form
@@ -332,7 +304,7 @@ WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = m
             if (ModelState.IsValid)
             {
                 // Insert a new user into the database
-                using (MiniFBContext db = new MiniFBContext())
+                using (var db = new UsersContext())
                 {
                     UserProfile user = db.UserProfiles.FirstOrDefault(u => u.UserName.ToLower() == model.UserName.ToLower());
                     // Check if user already exists

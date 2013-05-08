@@ -29,6 +29,10 @@ namespace MiniFB.Models.Entities
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime BirthDate { get; set; }
 
+        public string Salt { get; set; }
+        public string PasswordHash { get; set; }
+        
+
         [DisplayName("Kön")]
         public string Sex { get; set; }
 

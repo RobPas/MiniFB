@@ -41,6 +41,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net">
+      <HintPath>..\packages\BCrypt-Official.0.1.107\lib\BCrypt.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
@@ -173,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GoatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KontoController.cs" />
     <Compile Include="Controllers\NewsFeedController.cs" />
     <Compile Include="Controllers\NewsFeedItemController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -184,6 +188,7 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Contexts\MiniFBContext.cs" />
+    <Compile Include="Models\CustomMembershipProvider.cs" />
     <Compile Include="Models\Entities\NewsFeed.cs" />
     <Compile Include="Models\Entities\NewsFeedComment.cs" />
     <Compile Include="Models\Entities\NewsFeedItem.cs" />
@@ -191,6 +196,7 @@
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\Repositories\FakeRepository.cs" />
     <Compile Include="Models\ProfileSettings\SettingsValidator.cs" />
+    <Compile Include="Models\Repositories\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Entities\Abstract\IEntity.cs" />
     <Compile Include="Models\Repositories\Abstract\IRepository.cs" />
@@ -267,6 +273,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\less\Goat.less" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="LICENSE.txt" />
     <Content Include="Scripts\bootstrap-affix.js" />
     <Content Include="Scripts\bootstrap-alert.js" />
     <Content Include="Scripts\bootstrap-button.js" />

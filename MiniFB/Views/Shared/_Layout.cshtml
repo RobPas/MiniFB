@@ -22,10 +22,10 @@
                     </a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active">@Html.ActionLink("Home", "Index", "Home")</li>
-                            <li>@Html.ActionLink("NewsFeed", "Index", "NewsFeed")</li>
-                            <li>@Html.ActionLink("Profile", "Index", "Profile")</li>
-                            <li>@Html.ActionLink("RandomChat", "Index", "RandomChat")</li>
+                            @Html.MenuLink("Home", "Index", "Home")
+                            @Html.MenuLink("NewsFeed", "Index", "NewsFeed")
+                            @Html.MenuLink("Profile", "Index", "Profile")
+                            @Html.MenuLink("RandomChat", "Index", "RandomChat")
                         </ul>
                         <form class="navbar-search">
                             <input type="text" class="search-query" placeholder="Search">

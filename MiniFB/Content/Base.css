@@ -3,6 +3,8 @@
 
 footer
 {
+    margin-left: -20px;
+    margin-right: -20px;
     background-color: #006400;
     color: #FFFFFF;
 }
@@ -10,6 +12,11 @@ footer
 .trademark
 {
     color: #D4D4D4;
+}
+
+.content-wrapper.main-content.clear-fix
+{
+    margin-top: 70px;
 }
 
 .navbar-inner
@@ -54,4 +61,10 @@ footer
 .nav-collapse .nav > li > a:hover, .nav-collapse .nav > li > a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus
 {
     background-color: #00A100;
+}
+
+.navbar .divider-vertical
+{
+    border-right: 1px solid #D4D4D4;
+    border-left: 1px solid #D4D4D4;
 }

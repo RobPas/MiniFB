@@ -14,37 +14,6 @@ namespace MiniFB.Tests.Controllers
     [TestFixture]
     class NewsFeedControllerTest
     {
-        private IRepository<NewsFeedItem> _repo;
 
-        [SetUp]
-        public void Setup()
-        {
-            List<NewsFeedItem> newsFeedItemsList = new List<NewsFeedItem> {
-                new NewsFeedItem { ID = Guid.NewGuid(), Comments = null, Content = "This is a status", Created = DateTime.Now, Modified = DateTime.Now, Type = "status" }
-            };
-
-            _repo = new FakeRepository<NewsFeedItem>(newsFeedItemsList.ToArray());
-        }
-
-        [Test]
-        public void TestingUnitTesting() 
-        { 
-            // Arrange 
-            var a = 10;
-            var b = 20;
-            var expected = 30;
-
-            // Act 
-            int actual = a + b;
-
-            // Assert
-            Assert.That(actual, Is.EqualTo(expected));
-        }
-
-        [Test]
-        public void GoatCounts()
-        {
-            Assert.That(1 + 1, Is.EqualTo(2));
-        }
     }
 }

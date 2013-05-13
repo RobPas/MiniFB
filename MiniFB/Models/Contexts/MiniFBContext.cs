@@ -28,14 +28,15 @@ namespace MiniFB.Models.Contexts
         protected override void Seed(MiniFBContext context)
         {
 
+
             try
             {
-                
+
                 WebSecurity.CreateUserAndAccount("arnold", "password");
                 WebSecurity.CreateUserAndAccount("goat", "password");
                 WebSecurity.CreateUserAndAccount("urban", "password");
             }
-            catch(Exception e)
+            catch (Exception e)
             {
 
             }

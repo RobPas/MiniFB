@@ -1,15 +1,23 @@
-﻿body {
+﻿body 
+{
 }
 
-footer
+
+/* Rules for the content from all the views, first line is for navbar-fixed-top */
+
+.content-wrapper.main-content.clear-fix
 {
-    background-color: #006400;
-    color: #FFFFFF;
+    margin-top: 70px;
+    margin-bottom: 30px;
 }
 
-.trademark
+
+/* navbar rules */
+
+.navbar
 {
-    color: #D4D4D4;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .navbar-inner
@@ -21,6 +29,13 @@ footer
     background-image: linear-gradient(to bottom, transparent, transparent);
     background-color: #006400;
 
+}
+
+.fixed-top
+{
+    top: 0;
+    position: fixed;
+    width: 100%;
 }
 
 .navbar .brand
@@ -54,4 +69,51 @@ footer
 .nav-collapse .nav > li > a:hover, .nav-collapse .nav > li > a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus
 {
     background-color: #00A100;
+}
+
+.navbar .divider-vertical
+{
+    border-right: 1px solid #D4D4D4;
+    border-left: 1px solid #D4D4D4;
+}
+
+
+/* footer rules */
+
+footer
+{
+    margin-left: 0px;
+    margin-right: 0px;
+    background-color: #006400;
+    color: #FFFFFF;
+}
+
+.fixed-bottom
+{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.trademark
+{
+    color: #D4D4D4;
+}
+
+
+/* media queries for navbar and footer width */
+
+@media (max-width: 767px)
+{
+    .navbar
+    {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+
+    footer
+    {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
 }

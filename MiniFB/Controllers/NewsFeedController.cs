@@ -29,11 +29,21 @@ namespace MiniFB.Controllers
         //
         // GET: /NewsFeed/
 
-        public ViewResult Index()
+        public ViewResult Index(string orderBy = "status images videos links")
         {
-            return View(_newsFeedItemRepo.FindAll().ToList());
+            ViewBag.orderBy = orderBy;
+                        
+            //switch (orderBy) 
+            //{
+                
+            //}
+
+            string[] _types = orderBy.Split(' ');
+            
+            return View(_newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).Where(n => n.Type == "status").ToList());
         }
 
+        // Getting Items Partial via Ajax
         public ActionResult Items()
         {
             if (Request.IsAjaxRequest())
@@ -41,7 +51,7 @@ namespace MiniFB.Controllers
                 return PartialView("_NewsFeedItems", _newsFeedItemRepo.FindAll().ToList());
             }
 
-            return View("_NewsFeedItems", _newsFeedItemRepo.FindAll().ToList());
+            return RedirectToAction("Index");
         }
     }
 }

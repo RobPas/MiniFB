@@ -45,6 +45,12 @@
     <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.15.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.2.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Postal">
       <HintPath>..\packages\postal.0.8.2\lib\net45\Postal.dll</HintPath>
     </Reference>
@@ -215,6 +221,7 @@
     <Content Include="Content\images\goat-serious.jpg" />
     <Content Include="Content\images\sex_female_32.png" />
     <Content Include="Content\images\sex_male_32.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Profile.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />

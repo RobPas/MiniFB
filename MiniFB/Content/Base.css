@@ -8,6 +8,7 @@
 .content-wrapper.main-content.clear-fix
 {
     margin-top: 70px;
+    margin-bottom: 30px;
 }
 
 
@@ -28,6 +29,13 @@
     background-image: linear-gradient(to bottom, transparent, transparent);
     background-color: #006400;
 
+}
+
+.fixed-top
+{
+    top: 0;
+    position: fixed;
+    width: 100%;
 }
 
 .navbar .brand
@@ -78,6 +86,13 @@ footer
     margin-right: 0px;
     background-color: #006400;
     color: #FFFFFF;
+}
+
+.fixed-bottom
+{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .trademark

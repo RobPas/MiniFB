@@ -10,6 +10,7 @@ namespace MiniFB.Models.Entities
         public Guid ID { get; set; }
         public DateTime timestamp { get; set; }
         public string username { get; set; }
+        public string sendtousername { get; set; }
         public string message { get; set; }
 
         //Skapa en statisk variabel som innehåller applikationens lista över alla chatmeddelanden

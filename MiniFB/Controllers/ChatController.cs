@@ -51,22 +51,36 @@ namespace MiniFB.Controllers
             //Returnera listan i JSON-format (och tillåt GET-requests)
             return Json(msgs, JsonRequestBehavior.AllowGet);
         }
+        
+        public ActionResult GetMyChatMessages()
+        {
+            List<chatMessage> msgs = chatMessage.AllChatMessages.Where(m => m.username == User.Identity.Name).OrderBy(m => m.timestamp).ToList();
 
+            return Json(msgs, JsonRequestBehavior.AllowGet);
+        }
         
         public ActionResult StoreChatMessage(string newMessage)
         {
-
+            
             //Skapa en tidsstämpel utan millisekunder
             DateTime tstamp = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second, 0);
-
 
             //Lägg till chatmeddelandet i listan
             chatMessage.AllChatMessages.Add(new chatMessage { timestamp = tstamp, username = User.Identity.Name, message = newMessage });
 
-
             //Returnera något
             return Json("ok");
+        }
 
+        public ActionResult StoreChatMessageToRandom(string newMessage, Guid sendToID)
+        {
+            var SendToUsername = _userRepo.FindByID(sendToID).UserName;
+            
+            DateTime tstamp = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second, 0);
+
+            chatMessage.AllChatMessages.Add(new chatMessage { timestamp = tstamp, sendtousername = SendToUsername, username = User.Identity.Name, message = newMessage });
+
+            return Json("ok");
         }
     }
 }

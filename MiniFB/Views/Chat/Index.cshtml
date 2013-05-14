@@ -3,7 +3,9 @@
 }
 
 
-<h2>Chat</h2>
+<h2>Public Chat</h2>
+
+@Html.ActionLink("Gå till random Chatten", "Random", null, new { @class = "btn" })
 
 
 <div id="errorDisplay">Felmeddelande</div>
@@ -12,9 +14,10 @@
     <div id="chatCloser"></div>
 
     <div id="chatBox">
-        <div id="chatLoader">Laddar..</div>
+        <div id="chatLoader">
+            <img src="images/loading.gif" alt="loading..." /></div>
         <div id="chatMessages"></div>
-        <div>@Html.TextBox("chatInput") <input class="btn" type="button" id="chatButton" value="skicka"/></div>
+        <div>@Html.TextBox("chatInput") <input class="btn" type="button" id="chatButton" value="Skicka"/></div>
         </div>
 </div>
 

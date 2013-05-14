@@ -101,7 +101,37 @@ $(document).ready(function () {
 
     }
 
+    var SendChatMessageToRandom = function (message, toUserID) {
 
+        $.ajax("/Chat/StoreChatMessageToRandom/", {
+
+            type: 'post',
+
+            //Skicka med meddelande i JSON-format
+            data: { newMessage: message, sendToID: toUserID },
+
+
+            success: function (data) {
+
+                //Uppdatera chatrutan
+                GetChatMessages();
+                $("#chatInput").val("").focus();
+
+            },
+            error: function () {
+                ChatUtils.ShowError("Kunde inte skicka meddelanden till servern");
+            },
+            beforeSend: function () {
+                $("#chatLoader").fadeIn('slow');
+            },
+            complete: function () {
+                $("#chatLoader").fadeOut('slow');
+            }
+        });
+
+    }
+
+   
 
     //Koppla ihop knappens click-event med en funktion som anropar SendChatMessage-funktionen
     $("#chatButton").click(function () {
@@ -111,8 +141,17 @@ $(document).ready(function () {
         if ($("#chatInput").val() !== "") {
             SendChatMessage(message);
         }
-        
+    });
 
+    //Random chatt 
+    $("#chatButtonRandom").click(function () {
+
+        var message = $("#chatInput").val();
+        var toUserID = $("#sendToID").val();
+
+        if ($("#chatInput").val() !== "") {
+            SendChatMessageToRandom(message, toUserID);
+        }
     });
 
 

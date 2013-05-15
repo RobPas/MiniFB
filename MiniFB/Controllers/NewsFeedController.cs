@@ -29,18 +29,12 @@ namespace MiniFB.Controllers
         //
         // GET: /NewsFeed/
 
-        public ViewResult Index(string orderBy = "status images videos links")
+        public ViewResult Index(string filter = "")
         {
-            ViewBag.orderBy = orderBy;
-                        
-            //switch (orderBy) 
-            //{
-                
-            //}
-
-            string[] _types = orderBy.Split(' ');
-            
-            return View(_newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).Where(n => n.Type == "status").ToList());
+            if (filter == "")
+                return View(_newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).ToList());
+            else
+                return View(_newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).Where(n => n.Type == filter).ToList());
         }
 
         // Getting Items Partial via Ajax

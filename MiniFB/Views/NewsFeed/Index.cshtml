@@ -23,12 +23,15 @@
   </ul>
 </div>
 
+@using (Html.BeginForm(null, null, FormMethod.Get)) 
+{
 <div class="btn-group newsfeed-sorting" data-toggle="buttons-radio">
-  <button type="button" class="btn btn-primary" name="type" value="status">Status</button>
-  <button type="button" class="btn btn-primary" name="type" value="images">Bilder</button>
-  <button type="button" class="btn btn-primary" name="type" value="links">Länkar</button>
-  <button type="button" class="btn btn-primary" name="type" value="videos">Videor</button>
+  <button type="submit" class="btn btn-primary" name="filter" value="status">Status</button>
+  <button type="submit" class="btn btn-primary" name="filter" value="image">Bilder</button>
+  <button type="submit" class="btn btn-primary" name="filter" value="link">Länkar</button>
+  <button type="submit" class="btn btn-primary" name="filter" value="video">Videor</button>
 </div>
+}
 
 @Html.Partial("_NewsFeedItems", Model)
 

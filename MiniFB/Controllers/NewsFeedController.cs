@@ -31,6 +31,8 @@ namespace MiniFB.Controllers
 
         public ViewResult Index(string filter = "")
         {
+            ViewBag.active = filter;
+
             if (filter == "")
                 return View(_newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).ToList());
             else

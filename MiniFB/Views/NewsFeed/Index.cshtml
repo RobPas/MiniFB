@@ -27,7 +27,9 @@
   <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == "video" ? "active" : "")" name="filter" value="video">Videor</button>
 }
 
+<div class="newsfeed-items">
 @Html.Partial("_NewsFeedItems", Model)
+</div>
 
 @section scripts {
     <script src="~/Scripts/newsfeed.js"></script>

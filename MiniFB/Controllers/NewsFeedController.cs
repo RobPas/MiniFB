@@ -29,25 +29,19 @@ namespace MiniFB.Controllers
         //
         // GET: /NewsFeed/
 
-        public ViewResult Index(string filter = "")
+        public ActionResult Index(string filter = "")
         {
             ViewBag.active = filter;
+
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_NewsFeedItems", _newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).Where(n => n.Type == filter).ToList());
+            }
 
             if (filter == "")
                 return View(_newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).ToList());
             else
                 return View(_newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).Where(n => n.Type == filter).ToList());
-        }
-
-        // Getting Items Partial via Ajax
-        public ActionResult Items()
-        {
-            if (Request.IsAjaxRequest())
-            {
-                return PartialView("_NewsFeedItems", _newsFeedItemRepo.FindAll().ToList());
-            }
-
-            return RedirectToAction("Index");
         }
     }
 }

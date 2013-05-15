@@ -11,7 +11,7 @@ namespace MiniFB.Models.ProfileSettings
 
         public bool isValidSex(string sex = null)
         {
-            if (sex == "Kvinna" || sex == "Man")
+            if (sex.ToLower() == "kvinna" || sex.ToLower() == "man")
             {
                 return true;
             }

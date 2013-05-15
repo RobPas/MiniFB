@@ -23,18 +23,14 @@
   </ul>
 </div>
 
-<div class="btn-group newsfeed-sorting" data-toggle="buttons-checkbox">
+<div class="btn-group newsfeed-sorting" data-toggle="buttons-radio">
   <button type="button" class="btn btn-primary" name="type" value="status">Status</button>
   <button type="button" class="btn btn-primary" name="type" value="images">Bilder</button>
   <button type="button" class="btn btn-primary" name="type" value="links">Länkar</button>
   <button type="button" class="btn btn-primary" name="type" value="videos">Videor</button>
 </div>
 
-@*Partial view with items*@
-
 @Html.Partial("_NewsFeedItems", Model)
-
-@*@Html.ActionLink("List", "Items")*@
 
 @section scripts {
     <script src="~/Scripts/newsfeed.js"></script>

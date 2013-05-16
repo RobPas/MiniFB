@@ -7,7 +7,7 @@
                 <li class="span6">
                     <div class="thumbnail loginform-thumbnail">
                         <section id="loginForm">
-                        @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+                        @using (Html.BeginForm("Login", "Account")) {
                             @Html.AntiForgeryToken()
                             @Html.ValidationSummary(true)
 

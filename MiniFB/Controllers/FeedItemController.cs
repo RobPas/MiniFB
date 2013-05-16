@@ -7,6 +7,7 @@ using System.Web.Http;
 using MiniFB.Models.Entities;
 using MiniFB.Models.Repositories;
 using MiniFB.Models.Repositories.Abstract;
+using Newtonsoft.Json;
 
 namespace MiniFB.Controllers
 {

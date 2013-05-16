@@ -20,6 +20,14 @@ namespace MiniFB.Models.Entities
             "link"
         };
 
+        public enum NewsFeedItemTypes
+        {
+            Status = 0,
+            Image = 1,
+            Video = 2,
+            Link = 3
+        }
+
         public NewsFeedItem()
         {
         }

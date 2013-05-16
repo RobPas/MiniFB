@@ -52,10 +52,10 @@ namespace MiniFB.Models.Contexts
 
             try
             {
-                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "This is my status...", Type = "Status", Created = DateTime.Now, Modified = DateTime.Now, UserID = ID_1 });
-                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "Video...", Type = "Video", Created = DateTime.Now, Modified = DateTime.Now, UserID = ID_2 });
-                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "http://google.com", Type = "Link", Created = DateTime.Now, Modified = DateTime.Now, UserID = ID_3 });
-                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "/image.jpg", Type = "Image", Created = DateTime.Now, Modified = DateTime.Now, UserID = ID_3 });
+                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "This is my status...", Type = "Status", Created = DateTime.Now, Modified = DateTime.Now.AddDays(1), UserID = ID_1 });
+                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "Video...", Type = "Video", Created = DateTime.Now, Modified = DateTime.Now.AddDays(15), UserID = ID_2 });
+                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "http://google.com", Type = "Link", Created = DateTime.Now, Modified = DateTime.Now.AddDays(25), UserID = ID_3 });
+                context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "/image.jpg", Type = "Image", Created = DateTime.Now, Modified = DateTime.Now.AddDays(4), UserID = ID_3 });
             }
             catch (Exception e)
             { }

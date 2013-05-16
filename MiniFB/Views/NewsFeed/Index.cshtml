@@ -4,11 +4,7 @@
     ViewBag.Title = "NewsFeed";
 }
 
-<h1>NewsFeed</h1>
-
-<p>
-    
-</p>
+<h1>@Html.ActionLink("Nyhetsflöde", "Index")</h1>
 
 <div class="btn-group">
     @Html.ActionLink("Ny Status", "Create", "NewsFeedItem", null, new { @class = "btn btn-success" })
@@ -23,18 +19,17 @@
   </ul>
 </div>
 
-<div class="btn-group newsfeed-sorting" data-toggle="buttons-checkbox">
-  <button type="button" class="btn btn-primary" name="type" value="status">Status</button>
-  <button type="button" class="btn btn-primary" name="type" value="images">Bilder</button>
-  <button type="button" class="btn btn-primary" name="type" value="links">Länkar</button>
-  <button type="button" class="btn btn-primary" name="type" value="videos">Videor</button>
-</div>
+@using (Html.BeginForm(null, null, FormMethod.Get, new { @class = "btn-group newsfeed-sorting", @data_toggle = "buttons-radio" }))
+{
+  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == "status" ? "active" : "")" name="filter" value="status">Status</button>
+  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == "image" ? "active" : "")" name="filter" value="image">Bilder</button>
+  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == "link" ? "active" : "")" name="filter" value="link">Länkar</button>
+  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == "video" ? "active" : "")" name="filter" value="video">Videor</button>
+}
 
-@*Partial view with items*@
-
+<div class="newsfeed-items">
 @Html.Partial("_NewsFeedItems", Model)
-
-@*@Html.ActionLink("List", "Items")*@
+</div>
 
 @section scripts {
     <script src="~/Scripts/newsfeed.js"></script>

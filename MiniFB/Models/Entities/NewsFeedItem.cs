@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using MiniFB.Entities.Abstract;
 
@@ -33,6 +35,7 @@ namespace MiniFB.Models.Entities
         }
 
         public Guid ID { get; set; }
+
         public virtual User User { get; set; }
         public virtual Guid UserID { get; set; }
 

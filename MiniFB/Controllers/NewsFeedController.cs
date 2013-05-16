@@ -35,13 +35,13 @@ namespace MiniFB.Controllers
 
             if (Request.IsAjaxRequest())
             {
-                return PartialView("_NewsFeedItems", _newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).Where(n => n.Type == filter).ToList());
+                return PartialView("_NewsFeedItems", _newsFeedItemRepo.FindAll().Include(n => n.User).OrderByDescending(t => t.Modified).Where(n => n.Type == filter).ToList());
             }
-
+           
             if (filter == "")
-                return View(_newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).ToList());
+                return View(_newsFeedItemRepo.FindAll().Include(n => n.User).OrderByDescending(t => t.Modified).ToList());
             else
-                return View(_newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).Where(n => n.Type == filter).ToList());
+                return View(_newsFeedItemRepo.FindAll().Include(n => n.User).OrderByDescending(t => t.Modified).Where(n => n.Type == filter).ToList());
         }
     }
 }

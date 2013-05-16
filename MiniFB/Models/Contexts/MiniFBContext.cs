@@ -46,7 +46,7 @@ namespace MiniFB.Models.Contexts
             Guid ID_2 = Guid.NewGuid();
             Guid ID_3 = Guid.NewGuid();
 
-            context.Users.Add(new User { ID = ID_1, UserName = "goat", BirthDate = DateTime.Parse("1992-01-01"), FirstName = "Lasse", LastName = "Åberg" , Email = "lasse.aberg@hotmail.com", Sex = "Man" });
+            context.Users.Add(new User { ID = ID_1, UserName = "goat", BirthDate = DateTime.Parse("1992-01-01"), FirstName = "Lasse", LastName = "Åberg", Email = "lasse.aberg@hotmail.com", Sex = "Man" });
             context.Users.Add(new User { ID = ID_2, UserName = "arnold", BirthDate = DateTime.Parse("1990-05-04"), FirstName = "Arnold", LastName = "Olsson", Email = "arnold@live.se", Sex = "Man" });
             context.Users.Add(new User { ID = ID_3, UserName = "urban", BirthDate = DateTime.Parse("1983-01-06"), FirstName = "Urban", LastName = "Explorer", Email = "No email", Sex = "Kvinna" });
 

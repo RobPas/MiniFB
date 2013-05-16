@@ -5,6 +5,8 @@ using System.Linq;
 using System.Web;
 using MiniFB.Entities.Abstract;
 using System.ComponentModel;
+using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MiniFB.Models.Entities
 {

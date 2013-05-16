@@ -1,10 +1,13 @@
 ﻿@model IEnumerable<MiniFB.Models.Entities.NewsFeedItem>
 
 @{
-    ViewBag.Title = "NewsFeed";
+    string Title = "Nyhetsflöde";
+    ViewBag.Title = Title;
 }
 
-<h1>@Html.ActionLink("Nyhetsflöde", "Index")</h1>
+<div class="newsfeed-header">
+
+<h1>@Html.ActionLink(Title, "Index")</h1>
 
 <div class="btn-group">
     @Html.ActionLink("Ny Status", "Create", "NewsFeedItem", null, new { @class = "btn btn-success" })
@@ -26,6 +29,8 @@
   <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == "link" ? "active" : "")" name="filter" value="link">Länkar</button>
   <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == "video" ? "active" : "")" name="filter" value="video">Videor</button>
 }
+
+</div>
 
 <div class="newsfeed-items">
 @Html.Partial("_NewsFeedItems", Model)

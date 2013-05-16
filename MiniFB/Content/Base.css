@@ -8,7 +8,7 @@
 .content-wrapper.main-content.clear-fix
 {
     margin-top: 70px;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
 }
 
 
@@ -75,6 +75,116 @@
 {
     border-right: 1px solid #D4D4D4;
     border-left: 1px solid #D4D4D4;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus 
+{
+    background-color: #00A100;
+    background-image: none;
+    filter: none;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle
+{
+    background-color: #00A100;
+    color: #FFFFFF;
+}
+
+
+/* Logged in dropdown mennu */
+
+#logoutForm
+{
+    margin: 0px;
+}
+
+.nav.pull-right .dropdown-menu li.loggedIn
+{
+    font-size: 15px;
+    background-color: #D4D4D4;
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.nav.pull-right .dropdown-menu li a
+{
+    color: #000;
+}
+
+.nav.pull-right .dropdown-menu li a:hover
+{
+    color: #FFFFFF;
+}
+
+.dropdown-menu li a
+{
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 20px;
+    white-space: nowrap;
+}
+
+.dropdown-menu li a i
+{
+    margin-left: 10px;
+    margin-top: 1.45px;
+}
+
+.dropdown-menu li a:hover i
+{
+    color: #FFFFFF;
+}
+
+.dropdown-menu li a:hover
+{
+    text-decoration: none;
+}
+
+.dropdown-menu ul li
+{
+    list-style: none;
+}
+
+.dropdown a.dropdown-toggle i
+{
+    color: #FFFFFF;
+}
+
+
+/* Logged out dropdown menu */
+
+.dropdown-menu ul li a
+{
+    display: block;
+    clear: both;
+    font-weight: normal;
+    line-height: 20px;
+    white-space: nowrap;
+    margin-top: 22px;
+    display: inline-block;
+}
+
+.dropdown-menu ul li i
+{
+    margin-left: 10px;
+    margin-top: 1.45px;
+    display: inline-block;
+}
+
+/*.dropdown-menu ul li:hover i
+{
+    color: #FFFFFF;
+}*/
+
+.dropdown-menu ul li:hover a
+{
+    text-decoration: none;
 }
 
 

@@ -186,10 +186,11 @@
     <Compile Include="Controllers\FeedItemController.cs" />
     <Compile Include="Controllers\GoatController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JsonObject.cs" />
     <Compile Include="Controllers\NewsFeedController.cs" />
     <Compile Include="Controllers\NewsFeedItemController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
-    <Compile Include="Controllers\RandomChatController.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\RegistreringController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -199,6 +200,7 @@
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Contexts\MiniFBContext.cs" />
+    <Compile Include="Models\Entities\chatMessage.cs" />
     <Compile Include="Models\Entities\NewsFeed.cs" />
     <Compile Include="Models\Entities\NewsFeedComment.cs" />
     <Compile Include="Models\Entities\NewsFeedItem.cs" />
@@ -217,6 +219,11 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome-ie7.css" />
+    <Content Include="Content\font-awesome-ie7.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\font\fontawesome-webfont.svg" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\images\goat-serious.jpg" />
@@ -283,7 +290,12 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\less\Goat.less" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Images\loading.gif" />
     <Content Include="Scripts\bootstrap-affix.js" />
     <Content Include="Scripts\bootstrap-alert.js" />
     <Content Include="Scripts\bootstrap-button.js" />
@@ -299,6 +311,8 @@
     <Content Include="Scripts\bootstrap-typeahead.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\chat\chatScript.js" />
+    <Content Include="Scripts\chat\ChatUtils.js" />
     <Content Include="Scripts\newsfeed.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -360,7 +374,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\RandomChat\Index.cshtml" />
+    <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Goat\Index.cshtml" />
     <Content Include="Views\Goat\List.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
@@ -369,6 +383,7 @@
     <Content Include="Views\NewsFeedItem\Create.cshtml" />
     <Content Include="Views\Shared\_NewsFeedItems.cshtml" />
     <Content Include="Views\Registrering\Index.cshtml" />
+    <Content Include="Views\Chat\Random.cshtml" />
     <Content Include="Views\Emails\RegEmail.cshtml" />
     <Content Include="Views\Emails\_ViewStart.cshtml" />
     <Content Include="Views\Account\RegisterStepTwo.cshtml" />

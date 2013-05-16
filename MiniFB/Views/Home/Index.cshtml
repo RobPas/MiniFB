@@ -1,11 +1,49 @@
-﻿<link href="~/Content/Home.css" rel="stylesheet" />
+﻿@model MiniFB.Models.LoginModel
+
+<link href="~/Content/Home.css" rel="stylesheet" />
 
     <div class="row-fluid">
             <ul class="thumbnails">
                 <li class="span6">
-                    <a href="#" class="thumbnail">
-                        <img src="http://placehold.it/450x250" alt="">
-                    </a>
+                    <div class="thumbnail loginform-thumbnail">
+                        <section id="loginForm">
+                        @using (Html.BeginForm("Login", "Account")) {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+
+                            <fieldset>
+                                <legend>Logga in med dina befintliga användaruppgifter</legend>
+                                <ol>
+                                    <li>
+                                        @Html.LabelFor(m => m.UserName)
+                                        @Html.TextBoxFor(m => m.UserName)
+                                        @Html.ValidationMessageFor(m => m.UserName)
+                                    </li>
+                                    <li>
+                                        @Html.LabelFor(m => m.Password)
+                                        @Html.PasswordFor(m => m.Password)
+                                        @Html.ValidationMessageFor(m => m.Password)
+                                    </li>
+                                    <li>
+                                        @Html.CheckBoxFor(m => m.RememberMe)
+                                        @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox" })
+                                    </li>
+                                </ol>
+                                <input type="submit" value="Log in" class="btn LogIn" />
+                            </fieldset>
+                        }
+                        </section>
+
+                        @*<section class="social" id="socialLoginForm">
+                            <h2>Use another service to log in.</h2>
+                            @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
+                        </section>*@
+
+                        @*@section Scripts {
+                            @Scripts.Render("~/bundles/jqueryval")
+                        }*@
+
+                    </div>
                 </li>
                 <li class="span6">
                     <a href="#" class="thumbnail">

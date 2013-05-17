@@ -51,7 +51,21 @@
         </div>
         <footer class="fixed-bottom">
             <div class="container-fluid">
-                    <p class="trademark">&copy; @DateTime.Now.Year - MiniFB</p>
+                <p class="trademark pull-left">&copy; @DateTime.Now.Year - MiniFB</p>
+                @*<div class="pull-right social-buttons">
+                    <ul class="like-buttons">
+                        <li class="fb-like">
+                            <div id="fb-root"></div>
+                            <div class="fb-like" data-href="http://localhost:6113/NewsFeed" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
+                        </li>
+                        <li class="twitter-like">
+                            <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= url %>" data-count="true">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+                        </li>   
+                        <li class="g-plus-one">
+                            <g:plusone></g:plusone>
+                        </li>
+                    </ul>
+                </div>*@
             </div>
         </footer>
 
@@ -59,6 +73,10 @@
         @Scripts.Render("~/bundles/jqueryui")
         @Scripts.Render("~/bundles/bootstrap/js")
         @RenderSection("scripts", required: false)
+
+        @*<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
+        <script>(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/sv_SE/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>*@
 
     </body>
 </html>

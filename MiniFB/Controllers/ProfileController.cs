@@ -34,17 +34,8 @@ namespace MiniFB.Controllers
             if (username == null)
             {
                 if(User.Identity.Name != null){
-                    User user = _userRepo.FindAll().Where(u => u.UserName == User.Identity.Name).FirstOrDefault();
-                    if (user == null)
-                    {
-                        /* Skapar en ny User om ingen finns */
-                        User newuser = new User { BirthDate = DateTime.Now, ID = Guid.NewGuid(), UserName = User.Identity.Name };
-                        MiniFBContext db = new MiniFBContext();
-                        db.Users.Add(newuser);
-                        db.SaveChanges();
-                        
-                        return View(newuser);
-                    }
+                    User user = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                    
                     return View(user);
                 }
             }

@@ -10,24 +10,14 @@ namespace MiniFB.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Mini Facebook.";
+            /* Redirect if logged in */
+
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Newsfeed");
+            }
 
             return View();
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
     }
 }

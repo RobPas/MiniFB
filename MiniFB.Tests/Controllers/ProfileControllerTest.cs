@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MiniFB;
 using MiniFB.Controllers;
 using NUnit.Framework;
+using MiniFB.Models.Entities;
+using MiniFB.Models.Repositories;
 
 namespace MiniFB.Tests.Controllers
 {
@@ -17,13 +18,16 @@ namespace MiniFB.Tests.Controllers
         public void Index()
         {
             // Arrange
-            ProfileController controller = new ProfileController();
+            var testGuid = Guid.NewGuid();
+            var users = new List<User> { new User { UserName = "Test1", ID = testGuid, FirstName = "Test1"}};
+            var fakeUserRepo = new FakeRepository<User>(users.ToArray());
+            ProfileController controller = new ProfileController(fakeUserRepo);
 
             // Act
-            ViewResult result = controller.Index("urban") as ViewResult;
+            ViewResult result = controller.Index("Test1") as ViewResult;
 
             // Assert
-            NUnit.Framework.Assert.AreNotEqual(result.View, null);
+            Assert.That((result.Model as User).ID , Is.EqualTo(testGuid));
         }
 
     }

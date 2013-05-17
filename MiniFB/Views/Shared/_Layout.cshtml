@@ -13,7 +13,7 @@
         <link href="~/Content/Base.css" rel="stylesheet" />
     </head>
     <body>
-        <div class="navbar fixed-top">
+        @*<div class="navbar fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <a class="brand" href="/">Mini FB</a>
@@ -29,8 +29,6 @@
                             <li class="divider-vertical"></li>
                             @Html.MenuLink("NewsFeed", "Index", "NewsFeed")
                             <li class="divider-vertical"></li>
-                            @Html.MenuLink("Profile", "Index", "Profile")
-                            <li class="divider-vertical"></li>
                             @Html.MenuLink("RandomChat", "Index", "Chat")
                             <li class="divider-vertical"></li>
                         </ul>
@@ -41,7 +39,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
+
+        @Html.Partial("_LoginPartial")
 
         <div class="container-fluid">
             <div style="display:none;">@RenderSection("featured", required: false)</div>

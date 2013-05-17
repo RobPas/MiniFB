@@ -90,12 +90,12 @@ namespace MiniFB.Controllers
                 null, out createStatus);
 
 
-                dynamic email = new Email("RegEmail");
+                /*dynamic email = new Email("RegEmail");
                 email.To = model.Email;
                 email.UserName = model.UserName;
                 email.ConfirmationToken = createStatus;
                 email.Send();
-                return RedirectToAction("RegisterStepTwo", "Account");
+                return RedirectToAction("RegisterStepTwo", "Account");*/
 
 
                 if (createStatus == MembershipCreateStatus.Success)

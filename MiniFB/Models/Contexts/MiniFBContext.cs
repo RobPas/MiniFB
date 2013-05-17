@@ -38,7 +38,7 @@ namespace MiniFB.Models.Contexts
             }
             catch (Exception e)
             {
-
+                Console.Write(e.ToString());
             }
             
 
@@ -58,7 +58,7 @@ namespace MiniFB.Models.Contexts
                 context.NewsFeedItem.Add(new NewsFeedItem { ID = Guid.NewGuid(), Content = "/image.jpg", Type = "Image", Created = DateTime.Now, Modified = DateTime.Now.AddDays(4), UserID = ID_3 });
             }
             catch (Exception e)
-            { }
+            { Console.Write(e.ToString()); }
 
             context.SaveChanges();
 

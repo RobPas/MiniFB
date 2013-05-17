@@ -23,6 +23,11 @@ namespace MiniFB.Controllers
             _userRepo = new Repository<User>();
         }
 
+        public ProfileController(IRepository<User> userRepo)
+        {
+            _userRepo = userRepo;
+        }
+
         public ActionResult Index(string username = null)
         {
             /* Om inget username skickas med visas den inloggades egna profilsida */

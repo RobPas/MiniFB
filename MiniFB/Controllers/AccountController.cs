@@ -12,13 +12,19 @@ using MiniFB.Models;
 using MiniFB.Models.Contexts;
 using MiniFB.Filters;
 using Postal;
+using MiniFB.Models.Membership;
 
 namespace MiniFB.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        private CustomMembershipProvider _membership;
+        public AccountController()
+        {
+            _membership = new CustomMembershipProvider();
+        }
+
         //
         // GET: /Account/Login
 
@@ -37,11 +43,11 @@ namespace MiniFB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            if (ModelState.IsValid && _membership.ValidateUser(model.UserName, model.Password))
             {
-                return RedirectToAction("Index", "NewsFeed");
+                FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
+                return RedirectToLocal(returnUrl);
             }
-
             // If we got this far, something failed, redisplay form
             ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
@@ -54,7 +60,7 @@ namespace MiniFB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            WebSecurity.Logout();
+            FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
 
@@ -78,31 +84,68 @@ namespace MiniFB.Controllers
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
-                try
-                {
-                    //WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    //WebSecurity.Login(model.UserName, model.Password);
-                    //return RedirectToAction("Index", "Home");
+                MembershipCreateStatus createStatus;
+                _membership.CreateUser(model.UserName, model.Password,
+                null, null, null, true,
+                null, out createStatus);
 
-                    string confirmationToken =
-WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = model.Email }, true);
-                    dynamic email = new Email("RegEmail");
-                    email.To = model.Email;
-                    email.UserName = model.UserName;
-                    email.ConfirmationToken = confirmationToken;
-                    email.Send();
-                    return RedirectToAction("RegisterStepTwo", "Account");
-                     
-                }
-                catch (MembershipCreateUserException e)
+
+                dynamic email = new Email("RegEmail");
+                email.To = model.Email;
+                email.UserName = model.UserName;
+                email.ConfirmationToken = createStatus;
+                email.Send();
+                return RedirectToAction("RegisterStepTwo", "Account");
+
+
+                if (createStatus == MembershipCreateStatus.Success)
                 {
-                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+                    FormsAuthentication.SetAuthCookie(model.UserName,
+                    false /* createPersistentCookie */);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", ErrorCodeToString(createStatus));
                 }
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        //        [HttpPost]
+        //        [AllowAnonymous]
+        //        [ValidateAntiForgeryToken]
+        //        public ActionResult Register(RegisterModel model)
+        //        {
+        //            if (ModelState.IsValid)
+        //            {
+        //                // Attempt to register the user
+        //                try
+        //                {
+        //                    //WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+        //                    //WebSecurity.Login(model.UserName, model.Password);
+        //                    //return RedirectToAction("Index", "Home");
+
+        //                    string confirmationToken =
+        //WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = model.Email }, true);
+        //                    dynamic email = new Email("RegEmail");
+        //                    email.To = model.Email;
+        //                    email.UserName = model.UserName;
+        //                    email.ConfirmationToken = confirmationToken;
+        //                    email.Send();
+        //                    return RedirectToAction("RegisterStepTwo", "Account");
+
+        //                }
+        //                catch (MembershipCreateUserException e)
+        //                {
+        //                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
+        //                }
+        //            }
+
+        //            // If we got this far, something failed, redisplay form
+        //            return View(model);
+        //        }
 
         [AllowAnonymous]
         public ActionResult RegisterStepTwo()
@@ -164,17 +207,7 @@ WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = m
         //
         // GET: /Account/Manage
 
-        public ActionResult Manage(ManageMessageId? message)
-        {
-            ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : "";
-            ViewBag.HasLocalPassword = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
-            ViewBag.ReturnUrl = Url.Action("Manage");
-            return View();
-        }
+
 
         //
         // POST: /Account/Manage

@@ -209,7 +209,43 @@ footer
 .trademark
 {
     color: #D4D4D4;
+    /*margin: 6px 0 0px 0;*/
+    margin: 10px 0 10px 0;
 }
+
+
+/* social buttons div float right in footer */
+
+/*.social-buttons
+{
+    display: inline-block;
+}
+
+ul.like-buttons
+{
+    list-style: none;
+    margin: 4px 0 0px 0;
+    padding: 0;
+    width: 100%;
+}
+
+ul.like-buttons li
+{
+    display: inline-block;
+    margin-right: 10px;
+    padding-bottom: 0px;
+}
+li.twitter-like
+{
+    margin-top: 0px;
+    width: 80px;
+}
+
+.g-plus-one
+{
+    height: 23px;
+    width: 67px;
+}*/
 
 
 /* media queries for navbar and footer width */

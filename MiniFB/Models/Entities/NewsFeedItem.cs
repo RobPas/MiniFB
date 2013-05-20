@@ -16,10 +16,10 @@ namespace MiniFB.Models.Entities
 
         public enum NewsFeedItemTypes
         {
-            Status = 0,
-            Image = 1,
-            Video = 2,
-            Link = 3
+            Status = 1,
+            Image = 2,
+            Video = 3,
+            Link = 4
         }
 
         public Guid ID { get; set; }
@@ -38,7 +38,7 @@ namespace MiniFB.Models.Entities
             {
                 int max = Enum.GetNames(typeof(NewsFeedItemTypes)).Length;
 
-                if (value > max)
+                if (value <= 0 || value > max)
                 { 
                     throw new Exception("There is no type associated with that number");
                 }
@@ -57,16 +57,16 @@ namespace MiniFB.Models.Entities
 
                 switch (this.ItemType)
                 {
-                    case 0:
+                    case 1:
                         _itemTypeStr = "Status";
                         break;
-                    case 1:
+                    case 2:
                         _itemTypeStr = "Bild";
                         break;
-                    case 2:
+                    case 3:
                         _itemTypeStr = "Video";
                         break;
-                    case 3:
+                    case 4:
                         _itemTypeStr = "Länk";
                         break;
                     default:

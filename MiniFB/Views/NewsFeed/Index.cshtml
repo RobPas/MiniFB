@@ -10,15 +10,15 @@
 <h1>@Html.ActionLink(Title, "Index")</h1>
 
 <div class="btn-group">
-    @Html.ActionLink("Ny Status", "Create", "NewsFeedItem", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Ny Status", "Create", "NewsFeedItem", new { ItemType = 1 }, new { @class = "btn btn-success" })
   <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="#">Status</a></li>
-    <li><a href="#">Bild</a></li>
-    <li><a href="#">Video</a></li>
-    <li><a href="#">Länk</a></li>
+    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 1 })">Status</a></li>
+    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 2 })">Bild</a></li>
+    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 3 })">Video</a></li>
+    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 4 })">Länk</a></li>
   </ul>
 </div>
 
@@ -37,5 +37,5 @@
 </div>
 
 @section scripts {
-    <script src="~/Scripts/newsfeed.js"></script>
+    @Scripts.Render("~/newsfeed/index")
 }

@@ -12,28 +12,28 @@
     @Html.DisplayFor(modelItem => item.Content) 
     </div>
     <small class="muted">
-        @if (item.ItemType == 0)
+        @if (item.ItemType == 1)
         {
         <span class="label status">
             @Html.DisplayFor(modelItem => item.GetItemTypeStr)
         </span>
         }
 
-        @if (item.ItemType == 1)
+        @if (item.ItemType == 2)
         {
         <span class="label image">
             @Html.DisplayFor(modelItem => item.GetItemTypeStr)
         </span>
         }
 
-        @if (item.ItemType == 2)
+        @if (item.ItemType == 3)
         {
         <span class="label video">
             @Html.DisplayFor(modelItem => item.GetItemTypeStr)
         </span>
         }
 
-        @if (item.ItemType == 3)
+        @if (item.ItemType == 4)
         {
         <span class="label link">
             @Html.DisplayFor(modelItem => item.GetItemTypeStr)

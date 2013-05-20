@@ -204,7 +204,6 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Contexts\MiniFBContext.cs" />
     <Compile Include="Models\Entities\chatMessage.cs" />
-    <Compile Include="Models\Entities\NewsFeed.cs" />
     <Compile Include="Models\Entities\NewsFeedComment.cs" />
     <Compile Include="Models\Entities\NewsFeedItem.cs" />
     <Compile Include="Models\Entities\RegisterUser.cs" />

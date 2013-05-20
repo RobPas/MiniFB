@@ -214,8 +214,36 @@ footer
 .trademark
 {
     color: #D4D4D4;
-    /*margin: 6px 0 0px 0;*/
     margin: 10px 0 10px 0;
+    display: inline;
+    position:absolute;
+    left:0;
+    right:0;
+    margin: 10px 10px 10px 10px;
+}
+
+.footerlinks-table 
+{
+	display: table; 
+	margin: 0 auto;
+    width: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#footerlinks-list 
+{
+	list-style: none;
+	padding-top: 20px;
+    display: inline;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#footerlinks-list li 
+{
+    display: inline;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
@@ -267,5 +295,22 @@ li.twitter-like
     {
         margin-left: -20px;
         margin-right: -20px;
+    }
+}
+
+@media (max-width: 690px)
+{
+    .trademark
+    {
+        color: #D4D4D4;
+        position: static;
+        margin: 10px 10px 10px 10px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .footerlinks-table
+    {
+        clear: both;
     }
 }

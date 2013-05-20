@@ -29,9 +29,11 @@
                                         @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox-label" })
                                     </li>
                                 </ol>
-                                <input type="submit" value="Logga in" class="btn LogIn" />
-                                <button class="btn RegBtn">@Html.ActionLink("Registera dig", "Register", "Account")</button>
-                                
+                                <div class="form-btns">
+                                    <input type="submit" value="Logga in" class="btn LogIn" />
+                                    <button class="btn RegBtn">@Html.ActionLink("Registera dig", "Register", "Account")</button>
+                                </div>
+
                             </fieldset>
                         }
                         </section>

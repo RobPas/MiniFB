@@ -13,11 +13,8 @@
     <fieldset>
         <legend>NewsFeedItem</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ItemType)
-        </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ItemType)
+            <input type="hidden" name="ItemType" value="@ViewBag.type" />
             @Html.ValidationMessageFor(model => model.ItemType)
         </div>
 

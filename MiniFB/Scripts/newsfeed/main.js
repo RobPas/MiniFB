@@ -14,6 +14,12 @@
             }
         };
 
+        if (Modernizr.history) {
+            var url = $('.newsfeed-sorting').prop('action') + "/?filter=" + $(this).val();
+
+            history.pushState(null, null, url);
+        }
+
         $.ajax(url, ajaxOptions);
     });
 

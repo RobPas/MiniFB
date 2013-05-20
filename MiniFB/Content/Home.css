@@ -47,3 +47,23 @@ div.thumbnail.loginform-thumbnail section fieldset .LogIn
     margin-right: 95px;
     margin-top: 10px;
 }
+
+.RegBtn
+{
+    float: right;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.RegBtn a
+{
+    color: #000;
+    text-decoration: none;
+}
+
+.RegBtn a:hover
+{
+    color: #000;
+    text-decoration: none;
+}

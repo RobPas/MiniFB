@@ -52,8 +52,8 @@ input.checkbox
 .RegBtn
 {
     float: right;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 32%;
+    margin-left: 15px;
     margin-top: 10px;
 }
 
@@ -71,8 +71,9 @@ input.checkbox
 
 .btn.LogIn
 {
-    margin-right: 20px;
-    margin-left: 20px;
+    float: left;
+    margin-right: 15px;
+    margin-left: 32%;
     margin-top: 10px;
 }
 

@@ -41,7 +41,7 @@ namespace MiniFB.Controllers
         {
             ViewBag.type = ItemType;
 
-            if (ItemType <= 0)
+            if (ItemType <= 0 || ItemType > 4)
                 return RedirectToAction("Index", "NewsFeed");
 
             return View();                

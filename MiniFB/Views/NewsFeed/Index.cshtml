@@ -24,9 +24,9 @@
 
 @using (Html.BeginForm(null, null, FormMethod.Get, new { @class = "btn-group newsfeed-sorting", @data_toggle = "buttons-radio" }))
 {
-  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 0 ? "active" : "")" name="filter" value="status">Status</button>
-  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 1 ? "active" : "")" name="filter" value="image">Bilder</button>
-  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 2 ? "active" : "")" name="filter" value="link">Länkar</button>
+  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 1 ? "active" : "")" name="filter" value="status">Status</button>
+  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 2 ? "active" : "")" name="filter" value="image">Bilder</button>
+  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 4 ? "active" : "")" name="filter" value="link">Länkar</button>
   <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 3 ? "active" : "")" name="filter" value="video">Videor</button>
 }
 

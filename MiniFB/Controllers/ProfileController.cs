@@ -34,14 +34,14 @@ namespace MiniFB.Controllers
             if (username == null)
             {
                 if(User.Identity.Name != null){
-                    User user = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                    User user = _userRepo.FindAll(u => u.UserName == User.Identity.Name).Include(u => u.NewsFeedItems).FirstOrDefault();
                     
                     return View(user);
                 }
             }
             else
             {
-                User user = _userRepo.FindAll().Where(u => u.UserName == username).FirstOrDefault();
+                User user = _userRepo.FindAll().Where(u => u.UserName == username).Include(u => u.NewsFeedItems).FirstOrDefault();
                 return View(user);
             }
             return HttpNotFound();

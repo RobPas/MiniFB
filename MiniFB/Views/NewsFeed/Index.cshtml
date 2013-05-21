@@ -5,7 +5,7 @@
 
 <div class="row-fluid">
     <div class="span3"></div>
-    <div class="span6 newsfeed-btn-header">
+    <div class="span6">
         <div class="btn-group">
             @Html.ActionLink("Ny Status", "Create", "NewsFeedItem", new { ItemType = 1 }, new { @class = "btn btn-success" })
             <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
@@ -27,16 +27,11 @@
             <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 3 ? "active" : "")" name="filter" value="video">Videor</button>
         }
         <hr />
-    </div>
-    <div class="span3"></div>
-</div>
 
-<div class="row-fluid">
-    <div class="span3"></div>
-    <div class="span6">  
         <div class="newsfeed-container">
         @Html.Partial("_NewsFeedItems", Model)
         </div>
+
     </div>
     <div class="span3"></div>
 </div>

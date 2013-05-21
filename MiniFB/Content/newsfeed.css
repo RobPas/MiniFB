@@ -22,11 +22,6 @@ background: #4AA538;
 background: #EA7902;
 }
 
-.newsfeed-btn-header
-{
-    margin-bottom: 20px;
-}
-
 .newsfeed-items
 {
     margin-top: 40px;
@@ -36,4 +31,5 @@ background: #EA7902;
 .newsfeed-items:first-child
 {
     margin-bottom: 40px;
+    margin-top: 40px;
 }

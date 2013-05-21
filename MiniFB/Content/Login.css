@@ -66,13 +66,33 @@ input.checkbox
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
 .RegBtn
 {
     display: inline;
     margin-left: 15px;
 }
-.LogIn
+
+input.LogIn
 {
     display: inline;
-    margin-right: 15px;
+    padding-left: 81px;
+    padding-right: 81px;
+}
+
+.regLink
+{
+    margin-top: 50px;
+    margin-bottom: 0px;
+    margin-right: 10px;
+}
+
+.div-loginForm
+{
+    margin-top: 20px;
+}
+
+#loginForm h2
+{
+    text-align: center;
 }

@@ -10,24 +10,24 @@
 <h1>@Html.ActionLink(Title, "Index")</h1>
 
 <div class="btn-group">
-    @Html.ActionLink("Ny Status", "Create", "NewsFeedItem", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Ny Status", "Create", "NewsFeedItem", new { ItemType = 1 }, new { @class = "btn btn-success" })
   <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu">
-    <li><a href="#">Status</a></li>
-    <li><a href="#">Bild</a></li>
-    <li><a href="#">Video</a></li>
-    <li><a href="#">Länk</a></li>
+    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 1 })">Status</a></li>
+    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 2 })">Bild</a></li>
+    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 3 })">Video</a></li>
+    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 4 })">Länk</a></li>
   </ul>
 </div>
 
 @using (Html.BeginForm(null, null, FormMethod.Get, new { @class = "btn-group newsfeed-sorting", @data_toggle = "buttons-radio" }))
 {
-  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == "status" ? "active" : "")" name="filter" value="status">Status</button>
-  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == "image" ? "active" : "")" name="filter" value="image">Bilder</button>
-  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == "link" ? "active" : "")" name="filter" value="link">Länkar</button>
-  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == "video" ? "active" : "")" name="filter" value="video">Videor</button>
+  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 1 ? "active" : "")" name="filter" value="status">Status</button>
+  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 2 ? "active" : "")" name="filter" value="image">Bilder</button>
+  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 4 ? "active" : "")" name="filter" value="link">Länkar</button>
+  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 3 ? "active" : "")" name="filter" value="video">Videor</button>
 }
 
 </div>
@@ -37,5 +37,5 @@
 </div>
 
 @section scripts {
-    <script src="~/Scripts/newsfeed.js"></script>
+    @Scripts.Render("~/newsfeed/index")
 }

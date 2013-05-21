@@ -209,7 +209,6 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Contexts\MiniFBContext.cs" />
     <Compile Include="Models\Entities\chatMessage.cs" />
-    <Compile Include="Models\Entities\NewsFeed.cs" />
     <Compile Include="Models\Entities\NewsFeedComment.cs" />
     <Compile Include="Models\Entities\NewsFeedItem.cs" />
     <Compile Include="Models\Entities\RegisterUser.cs" />
@@ -297,6 +296,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\Home.css" />
+    <Content Include="Content\Login.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\less\Goat.less" />
@@ -323,7 +323,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chat\chatScript.js" />
     <Content Include="Scripts\chat\ChatUtils.js" />
-    <Content Include="Scripts\newsfeed.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
@@ -342,6 +341,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\newsfeed\main.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

@@ -78,6 +78,7 @@ input.LogIn
     display: inline;
     padding-left: 81px;
     padding-right: 81px;
+    margin-right: 130px;
 }
 
 .regLink
@@ -95,4 +96,18 @@ input.LogIn
 #loginForm h2
 {
     text-align: center;
+}
+
+.validation-summary-errors ul
+{
+    list-style: none;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    color: red;
+}
+
+.field-validation-error
+{
+    list-style: none;
+    color: red;
 }

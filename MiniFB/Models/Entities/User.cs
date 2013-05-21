@@ -32,8 +32,8 @@ namespace MiniFB.Models.Entities
         [DisplayName("Efternamn")]
         public string LastName { get; set; }
 
-        
 
+        public string teststring { get; set; }
         //public HttpPostedFile ProfilePictureInput { get; set; }
 
         [DisplayName("Epost")]

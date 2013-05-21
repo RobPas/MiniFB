@@ -39,7 +39,7 @@ namespace MiniFB.Models.Entities
                 int max = Enum.GetNames(typeof(NewsFeedItemTypes)).Length;
 
                 if (value <= 0 || value > max)
-                { 
+                {
                     throw new Exception("There is no type associated with that number");
                 }
                 else

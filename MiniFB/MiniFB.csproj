@@ -235,7 +235,7 @@
     <Content Include="Content\images\sex_male_32.png" />
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\Profile.css" />
-    <Content Include="Content\newsfeed.css" />
+    <Content Include="Content\Newsfeed.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

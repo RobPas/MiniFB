@@ -40,12 +40,18 @@ background: #EA7902;
 .profile-options-newsfeed
 {
     border: 1px solid black;
-    width: 100%
+    position: fixed;
+    width: 22%;
 }
 
 .profile-header
 {
-    height: 50px;
+    
+}
+
+.profile-link
+{
+    display: inline;
 }
 
 .edit-profile-link
@@ -68,4 +74,13 @@ background: #EA7902;
     font-weight: 100;
     letter-spacing: 0.8px;
     display: inline;
+}
+
+@media (max-width: 770px)
+{
+    .profile-options-newsfeed
+    {
+        position: static;
+        width: auto;
+    }
 }

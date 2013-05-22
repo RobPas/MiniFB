@@ -43,20 +43,5 @@ namespace MiniFB.Tests.Controllers
             // Assert
             Assert.That(userModel.Count(), Is.EqualTo(2));
         }
-
-        [Test]
-        public void MyMethod()
-        {
-            // Arrange
-            int a = 4;
-            int b = 4;
-            int expected = 8;
-
-            // Act
-            int actual = a + b;
-
-            // Assert
-            Assert.That(actual, Is.EqualTo(expected));
-        }
     }
 }

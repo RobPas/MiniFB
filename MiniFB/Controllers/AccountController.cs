@@ -86,23 +86,21 @@ namespace MiniFB.Controllers
                 // Attempt to register the user
                 MembershipCreateStatus createStatus;
                 _membership.CreateUser(model.UserName, model.Password,
-                null, null, null, true,
+                model.Email, null, null, true,
                 null, out createStatus);
-
-
-                /*dynamic email = new Email("RegEmail");
-                email.To = model.Email;
-                email.UserName = model.UserName;
-                email.ConfirmationToken = createStatus;
-                email.Send();
-                return RedirectToAction("RegisterStepTwo", "Account");*/
-
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
-                    FormsAuthentication.SetAuthCookie(model.UserName,
-                    false /* createPersistentCookie */);
-                    return RedirectToAction("Index", "Home");
+                    //FormsAuthentication.SetAuthCookie(model.UserName,
+                    //false /* createPersistentCookie */);
+
+                    var confirmationToken = _membership.CreateConfirmationToken(model.UserName);
+                    dynamic email = new Email("RegEmail");
+                    email.To = model.Email;
+                    email.UserName = model.UserName;
+                    email.ConfirmationToken = confirmationToken;
+                    email.Send();
+                    return RedirectToAction("RegisterStepTwo", "Account");
                 }
                 else
                 {
@@ -113,40 +111,6 @@ namespace MiniFB.Controllers
             return View(model);
         }
 
-        //        [HttpPost]
-        //        [AllowAnonymous]
-        //        [ValidateAntiForgeryToken]
-        //        public ActionResult Register(RegisterModel model)
-        //        {
-        //            if (ModelState.IsValid)
-        //            {
-        //                // Attempt to register the user
-        //                try
-        //                {
-        //                    //WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-        //                    //WebSecurity.Login(model.UserName, model.Password);
-        //                    //return RedirectToAction("Index", "Home");
-
-        //                    string confirmationToken =
-        //WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = model.Email }, true);
-        //                    dynamic email = new Email("RegEmail");
-        //                    email.To = model.Email;
-        //                    email.UserName = model.UserName;
-        //                    email.ConfirmationToken = confirmationToken;
-        //                    email.Send();
-        //                    return RedirectToAction("RegisterStepTwo", "Account");
-
-        //                }
-        //                catch (MembershipCreateUserException e)
-        //                {
-        //                    ModelState.AddModelError("", ErrorCodeToString(e.StatusCode));
-        //                }
-        //            }
-
-        //            // If we got this far, something failed, redisplay form
-        //            return View(model);
-        //        }
-
         [AllowAnonymous]
         public ActionResult RegisterStepTwo()
         {
@@ -156,7 +120,7 @@ namespace MiniFB.Controllers
         [AllowAnonymous]
         public ActionResult RegisterConfirmation(string Id)
         {
-            if (WebSecurity.ConfirmAccount(Id))
+            if (_membership.ConfirmAccount(Id))
             {
                 return RedirectToAction("ConfirmationSuccess");
             }

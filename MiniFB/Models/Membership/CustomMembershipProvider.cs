@@ -10,6 +10,31 @@ namespace MiniFB.Models.Membership
 {
     public class CustomMembershipProvider : MembershipProvider
     {
+        public bool ConfirmAccount(string Id)
+        {
+            var userRepo = new Repository<User>();
+            var currentUser = userRepo.FindAll(u => u.ConfirmationToken == Id).FirstOrDefault();
+
+            if (currentUser != null)
+            {
+                currentUser.IsConfirmed = true;
+                userRepo.Update(currentUser);
+                return true;
+            }
+            return false;
+        }
+
+        public string CreateConfirmationToken(string UserName)
+        {
+            var userRepo = new Repository<User>();
+            var currentUser = userRepo.FindAll(u => u.UserName == UserName).FirstOrDefault();
+
+            currentUser.ConfirmationToken = Guid.NewGuid().ToString();
+            userRepo.Update(currentUser);
+
+            return currentUser.ConfirmationToken;
+        }
+
         public override MembershipUser CreateUser(string username, string password,
                string email, string passwordQuestion, string passwordAnswer,
                bool isApproved, object providerUserKey, out MembershipCreateStatus status)
@@ -36,6 +61,7 @@ namespace MiniFB.Models.Membership
             {
                 User appUser = new User();
                 appUser.UserName = username;
+                appUser.IsConfirmed = false;
                 appUser.Salt = DevOne.Security.Cryptography.BCrypt.BCryptHelper.GenerateSalt();
                 appUser.BirthDate = DateTime.Now;
                 appUser.Email = "nasdasd@asd.se";

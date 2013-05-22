@@ -319,6 +319,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chat\chatScript.js" />
     <Content Include="Scripts\chat\ChatUtils.js" />
+    <Content Include="Scripts\chat\chatWindow.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />

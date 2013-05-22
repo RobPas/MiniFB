@@ -17,10 +17,12 @@ namespace MiniFB.Controllers
     public class ProfileController : Controller
     {
         private IRepository<User> _userRepo;
+        private IRepository<NewsFeedItem> _newsFeedItemRepo;
 
         public ProfileController()
         {
             _userRepo = new Repository<User>();
+            _newsFeedItemRepo = new Repository<NewsFeedItem>();
         }
 
         public ProfileController(IRepository<User> userRepo)
@@ -33,15 +35,19 @@ namespace MiniFB.Controllers
             /* Om inget username skickas med visas den inloggades egna profilsida */
             if (username == null)
             {
-                if(User.Identity.Name != null){
+                if(User.Identity.Name != null)
+                {
+                    List<NewsFeedItem> _newsfeeditems = _newsFeedItemRepo.FindAll().Include(n => n.User).Where(n => n.User.UserName == User.Identity.Name).ToList();
+
                     User user = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault();
+                    user.NewsFeedItems = _newsfeeditems;
                     
                     return View(user);
                 }
             }
             else
             {
-                User user = _userRepo.FindAll().Where(u => u.UserName == username).FirstOrDefault();
+                User user = _userRepo.FindAll().Where(u => u.UserName == username).Include(u => u.NewsFeedItems).FirstOrDefault();
                 return View(user);
             }
             return HttpNotFound();
@@ -63,8 +69,12 @@ namespace MiniFB.Controllers
         {
             SettingsValidator sv = new SettingsValidator();
 
+
+
             if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
+
+                user.teststring = "TEST";
                 _userRepo.Update(user);
                 return RedirectToAction("Index");
             }

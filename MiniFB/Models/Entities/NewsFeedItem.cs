@@ -12,72 +12,69 @@ namespace MiniFB.Models.Entities
 {
     public class NewsFeedItem : IEntity
     {
-        private string _itemType;
-
-        public static ArrayList Types = new ArrayList()
-        {
-            "status",
-            "image",
-            "video",
-            "link"
-        };
+        private int _itemType;
 
         public enum NewsFeedItemTypes
         {
-            Status = 0,
-            Image = 1,
-            Video = 2,
-            Link = 3
-        }
-
-        public NewsFeedItem()
-        {
+            Status = 1,
+            Image = 2,
+            Video = 3,
+            Link = 4
         }
 
         public Guid ID { get; set; }
 
         public virtual User User { get; set; }
-        public virtual Guid UserID { get; set; }
 
         [Required]
-        public string Type {
-            get
+        public int ItemType 
+        {
+            get 
             {
                 return this._itemType;
             }
- 
-            set 
+            set
             {
-                if (value == null)
-                    throw new Exception("Type cannot be null");
+                int max = Enum.GetNames(typeof(NewsFeedItemTypes)).Length;
 
-                string str = value.ToString().ToLower();
-
-                int l = Types.Count;
-                ArrayList results = new ArrayList();
-
-                foreach (string type in Types)
+                if (value <= 0 || value > max)
                 {
-                    if (str == type)
-                    {
-                        results.Add(str);
-                    }
+                    throw new Exception("There is no type associated with that number");
                 }
-
-                if (results.Count > 0)
+                else
                 {
                     this._itemType = value;
                 }
-                else 
-                {
-                    throw new Exception("That is not a valid type value!");
-                }
-            } 
+            }
         }
 
-        public ArrayList GetTypes() 
+        public string GetItemTypeStr 
         {
-            return Types;
+            get 
+            { 
+                string _itemTypeStr;
+
+                switch (this.ItemType)
+                {
+                    case 1:
+                        _itemTypeStr = "Status";
+                        break;
+                    case 2:
+                        _itemTypeStr = "Bild";
+                        break;
+                    case 3:
+                        _itemTypeStr = "Video";
+                        break;
+                    case 4:
+                        _itemTypeStr = "Länk";
+                        break;
+                    default:
+                        _itemTypeStr = "";
+                        break;
+                }
+
+                return _itemTypeStr;
+            }
         }
 
         [DataType(DataType.MultilineText)]

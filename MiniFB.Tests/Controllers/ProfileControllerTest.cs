@@ -8,65 +8,61 @@ using MiniFB.Controllers;
 using NUnit.Framework;
 using MiniFB.Models.Entities;
 using MiniFB.Models.Repositories;
-using System.Web;
-using System.IO;
+using MiniFB.Models.Repositories.Abstract;
 
 namespace MiniFB.Tests.Controllers
 {
     [TestFixture]
     public class ProfileControllerTest
     {
-        ProfileController controller;
-        Guid testGuid;
 
+        
+        private IRepository<User> fakeUserRepo;
+        private Guid UserID;
         [SetUp]
-        public void SetUp()
+        public void setup()
         {
-            testGuid = Guid.NewGuid();
-            var users = new List<User> { new User { UserName = "Test1", ID = testGuid, FirstName = "Test1" } };
-            var fakeUserRepo = new FakeRepository<User>(users.ToArray());
-            controller = new ProfileController(fakeUserRepo);
+            UserID = Guid.NewGuid();
+            List<User> userList = new List<User> { 
+                                new User { 
+                                    ID = UserID, 
+                                    UserName = "TestUser1", 
+                                    BirthDate = DateTime.Parse("1980-01-01") 
+                                },                                
+                                new User { 
+                                    ID = Guid.NewGuid(), 
+                                    UserName = "TestUser", 
+                                    BirthDate = DateTime.Parse("2000-01-01") } 
+                                };
+            fakeUserRepo = new FakeRepository<User>(userList.ToArray());
         }
 
         [Test]
-        public void ProfileControllerTest_Index_returning_right_user_by_id()
+        public void ProfileControllerIndexReturnEqualIDToUsername()
         {
             // Arrange
+            
+            ProfileController controller = new ProfileController(fakeUserRepo);
 
             // Act
-            ViewResult result = controller.Index("Test1") as ViewResult;
+            ViewResult result = controller.Index("TestUser1") as ViewResult;
 
             // Assert
-            Assert.That((result.Model as User).ID , Is.EqualTo(testGuid));
+            Assert.That((result.Model as User).ID , Is.EqualTo(UserID));
         }
-
 
         [Test]
-        public void ProfileControllerTest_Edit_returning_right_user_by_id()
+        public void ProfileController_Edit_Model_is_not_null()
         {
             // Arrange
-            
+            ProfileController controller = new ProfileController(fakeUserRepo);
 
             // Act
-            ViewResult result = controller.Index("Test1") as ViewResult;
-           
-            // Assert
-            Assert.That((result.Model as User).UserName, Is.EqualTo("Test1"));
-        }
-
-
-        [Test]
-        public void ProfileControllerTest_Edit_returning_ERROR_404_if_user_equals_to_null()
-        {
-            // Arrange
-            
-
-            // Act
-            ViewResult result = controller.Index("ThisUsernameDosntExist") as ViewResult;
+            ViewResult result = controller.Edit(UserID) as ViewResult;
 
             // Assert
-            Assert.Throws(HttpNotFoundResult);
-            
+            Assert.That((result.Model as User), Is.Not.Null);
         }
+
     }
 }

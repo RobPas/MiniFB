@@ -32,6 +32,10 @@ namespace MiniFB.Models.Entities
         [DisplayName("Efternamn")]
         public string LastName { get; set; }
 
+
+        public string teststring { get; set; }
+        //public HttpPostedFile ProfilePictureInput { get; set; }
+
         [DisplayName("Epost")]
         public string Email { get; set; }
 
@@ -43,7 +47,7 @@ namespace MiniFB.Models.Entities
         [DisplayName("Kön")]
         public string Sex { get; set; }
 
-        public virtual List<NewsFeedItem> NewsFeedItems { get; set; }
+        public List<NewsFeedItem> NewsFeedItems { get; set; }
 
         public int Age {
             get {

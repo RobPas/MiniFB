@@ -20,7 +20,7 @@ namespace MiniFB.Models.Repositories
         public Repository()
         {
             _context = new MiniFBContext();
-            _context.Configuration.ProxyCreationEnabled = false;
+            //_context.Configuration.ProxyCreationEnabled = false;
             _dbSet = _context.Set<T>();
         }
 

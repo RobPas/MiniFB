@@ -21,3 +21,66 @@ background: #4AA538;
 .label.status {
 background: #EA7902;
 }
+
+.newsfeed-items
+{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.newsfeed-items:first-child
+{
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+
+/* Left space profile options */
+
+.profile-options-newsfeed
+{
+    border: 1px solid black;
+    position: fixed;
+    width: 22%;
+}
+
+.profile-header
+{
+    
+}
+
+.profile-link
+{
+    display: inline;
+}
+
+.edit-profile-link
+{
+    display: inline;
+}
+
+.media-body.profile-link h4
+{
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+.media.edit-profile-link h4
+{
+    font-size: 12px;
+    font-weight: 100;
+    letter-spacing: 0.8px;
+    display: inline;
+}
+
+@media (max-width: 770px)
+{
+    .profile-options-newsfeed
+    {
+        position: static;
+        width: auto;
+    }
+}

@@ -37,18 +37,14 @@ namespace MiniFB.Controllers
         //
         // GET: /NewsFeedItem/Create
 
-        public ActionResult Create()
+        public ActionResult Create(int ? ItemType = -1)
         {
-            List<SelectListItem> items = new List<SelectListItem>();
+            ViewBag.type = ItemType;
 
-            items.Add(new SelectListItem { Text = "status", Value = "status" });
-            items.Add(new SelectListItem { Text = "video", Value = "video" });
-            items.Add(new SelectListItem { Text = "image", Value = "image" });
-            items.Add(new SelectListItem { Text = "link", Value = "link" });
+            if (ItemType <= 0 || ItemType > 4)
+                return RedirectToAction("Index", "NewsFeed");
 
-            ViewBag.items = items;
-
-            return View();
+            return View();                
         }
 
         //
@@ -63,7 +59,7 @@ namespace MiniFB.Controllers
                 newsfeeditem.ID = Guid.NewGuid();
                 newsfeeditem.Created = DateTime.Now;
                 newsfeeditem.Modified = DateTime.Now;
-                newsfeeditem.UserID = _userRepo.FindAll().Where(x => x.UserName == User.Identity.Name).FirstOrDefault().ID;
+                //newsfeeditem.UserID = _userRepo.FindAll().Where(x => x.UserName == User.Identity.Name).FirstOrDefault().ID;
                 _newsFeedItemRepo.Add(newsfeeditem);
                 return RedirectToAction("Index", "NewsFeed");
             }

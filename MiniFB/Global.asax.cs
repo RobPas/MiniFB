@@ -22,9 +22,7 @@ namespace MiniFB
     {
         protected void Application_Start()
         {
-            
-            Database.SetInitializer<MiniFBContext>(new MiniFBInitializer());
-            
+
 
             AreaRegistration.RegisterAllAreas();
 

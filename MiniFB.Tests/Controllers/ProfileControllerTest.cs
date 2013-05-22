@@ -59,16 +59,13 @@ namespace MiniFB.Tests.Controllers
         public void ProfileControllerTest_Edit_returning_ERROR_404_if_user_equals_to_null()
         {
             // Arrange
-            var response = new HttpResponse(TextWriter.Null);
+            
 
             // Act
             ViewResult result = controller.Index("ThisUsernameDosntExist") as ViewResult;
 
-
-            
-            Console.Write(controller.Response.StatusCode);
             // Assert
-            Assert.That(response.StatusCode, Is.EqualTo(404));
+            Assert.Throws(HttpNotFoundResult);
             
         }
     }

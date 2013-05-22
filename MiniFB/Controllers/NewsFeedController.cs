@@ -15,10 +15,12 @@ namespace MiniFB.Controllers
     public class NewsFeedController : Controller
     {
         private IRepository<NewsFeedItem> _newsFeedItemRepo;
+        private IRepository<User> _userRepo;
 
         public NewsFeedController()
         {
             _newsFeedItemRepo = new Repository<NewsFeedItem>();
+            _userRepo = new Repository<User>();
         }
 
         public NewsFeedController(IRepository<NewsFeedItem> newsFeedItemRepo) 

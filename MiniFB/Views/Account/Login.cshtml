@@ -15,11 +15,11 @@
                         <section>
                         @using (Html.BeginForm("Login", "Account")) {
                             @Html.AntiForgeryToken()
-                            @Html.ValidationSummary(true)
 
                             <fieldset>
                                 <legend>Logga in med dina befintliga användaruppgifter</legend>
                                 <ol class="registerform-table">
+                                        <strong>@Html.ValidationSummary(true)</strong>
                                     <li class="registerform-list">
                                         @Html.LabelFor(m => m.UserName)
                                         @Html.TextBoxFor(m => m.UserName)

@@ -1,39 +1,54 @@
 ﻿@model IEnumerable<MiniFB.Models.Entities.NewsFeedItem>
 
-@{
-    string Title = "Nyhetsflöde";
-    ViewBag.Title = Title;
-}
+<link href="~/Content/newsfeed.css" rel="stylesheet" />
+<script src="~/Scripts/newsfeed/main.js"></script>
 
-<div class="newsfeed-header">
+<div class="row-fluid">
+    <div class="span3">
+        <div class="profile-options-newsfeed">
+            <div class="media profile-header">
+                <a class="pull-left" href="@Url.Action("Index", "Profile")">
+                    <img src="http://placehold.it/50x50" class="media-object">
+                </a>
+                <div class="media-body profile-link">
+                    <h4 class="media-heading">@Html.ActionLink(User.Identity.Name, "Index", "Profile", routeValues: null, htmlAttributes: new { title = "Gå till din profil"})</h4>
+                </div>
+                <div class="media edit-profile-link">       
+                    <h4><a href="#" title="Redigera din profil">Redigera profil</a></h4>      
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="span6">
+        <div class="btn-group">
+            @Html.ActionLink("Ny Status", "Create", "NewsFeedItem", new { ItemType = 1 }, new { @class = "btn btn-success" })
+            <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+            <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 1 })">Status</a></li>
+            <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 2 })">Bild</a></li>
+            <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 3 })">Video</a></li>
+            <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 4 })">Länk</a></li>
+            </ul>
+        </div>
 
-<h1>@Html.ActionLink(Title, "Index")</h1>
+        @using (Html.BeginForm(null, null, FormMethod.Get, new { @class = "btn-group newsfeed-sorting", @data_toggle = "buttons-radio" }))
+        {
+            <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 1 ? "active" : "")" name="filter" value="status">Status</button>
+            <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 2 ? "active" : "")" name="filter" value="image">Bilder</button>
+            <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 4 ? "active" : "")" name="filter" value="link">Länkar</button>
+            <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 3 ? "active" : "")" name="filter" value="video">Videor</button>
+        }
+        <hr />
 
-<div class="btn-group">
-    @Html.ActionLink("Ny Status", "Create", "NewsFeedItem", new { ItemType = 1 }, new { @class = "btn btn-success" })
-  <button class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 1 })">Status</a></li>
-    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 2 })">Bild</a></li>
-    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 3 })">Video</a></li>
-    <li><a href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 4 })">Länk</a></li>
-  </ul>
-</div>
+        <div class="newsfeed-container">
+        @Html.Partial("_NewsFeedItems", Model)
+        </div>
 
-@using (Html.BeginForm(null, null, FormMethod.Get, new { @class = "btn-group newsfeed-sorting", @data_toggle = "buttons-radio" }))
-{
-  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 1 ? "active" : "")" name="filter" value="status">Status</button>
-  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 2 ? "active" : "")" name="filter" value="image">Bilder</button>
-  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 4 ? "active" : "")" name="filter" value="link">Länkar</button>
-  <button type="submit" class="btn btn-primary @(ViewBag.active != null && ViewBag.active == 3 ? "active" : "")" name="filter" value="video">Videor</button>
-}
-
-</div>
-
-<div class="newsfeed-items">
-@Html.Partial("_NewsFeedItems", Model)
+    </div>
+    <div class="span3"></div>
 </div>
 
 @section scripts {

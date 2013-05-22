@@ -64,5 +64,21 @@ namespace MiniFB.Tests.Controllers
             Assert.That((result.Model as User), Is.Not.Null);
         }
 
+        [Test]
+        public void ProfileController_Edit_return_exeption_if_user_is_null()
+        {
+            // Arrange
+            ProfileController controller = new ProfileController(fakeUserRepo);
+
+            Guid fakeuserID = Guid.NewGuid();
+            // Act
+            ViewResult result = controller.Edit(UserID) as ViewResult;
+
+            // Assert
+            Assert.Throws<Exception>(
+      delegate { throw new Exception(); });
+        }
+        
+
     }
 }

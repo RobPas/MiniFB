@@ -56,6 +56,7 @@ namespace MiniFB.Controllers
         public ActionResult Edit(Guid id)
         {
             User user = _userRepo.FindByID(id);
+
             if (user == null)
             {
                 return HttpNotFound();

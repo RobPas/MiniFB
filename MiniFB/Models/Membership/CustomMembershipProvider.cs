@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Security;
 using MiniFB.Models.Entities;
 using MiniFB.Models.Repositories;
-using MembershipDemo.Models.Repositories;
 
 namespace MiniFB.Models.Membership
 {

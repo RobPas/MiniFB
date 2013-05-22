@@ -69,8 +69,12 @@ namespace MiniFB.Controllers
         {
             SettingsValidator sv = new SettingsValidator();
 
+
+
             if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
+
+                user.teststring = "TEST";
                 _userRepo.Update(user);
                 return RedirectToAction("Index");
             }

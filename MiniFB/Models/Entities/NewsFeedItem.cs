@@ -25,7 +25,6 @@ namespace MiniFB.Models.Entities
         public Guid ID { get; set; }
 
         public virtual User User { get; set; }
-        public virtual Guid UserID { get; set; }
 
         [Required]
         public int ItemType 
@@ -39,7 +38,7 @@ namespace MiniFB.Models.Entities
                 int max = Enum.GetNames(typeof(NewsFeedItemTypes)).Length;
 
                 if (value <= 0 || value > max)
-                { 
+                {
                     throw new Exception("There is no type associated with that number");
                 }
                 else

@@ -6,7 +6,7 @@ using MiniFB.Models.Entities;
 using MiniFB.Models.Repositories.Abstract;
 using MiniFB.Models.Repositories;
 
-namespace MembershipDemo.Models.Repositories
+namespace MiniFB.Models.Repositories
 {
     public interface IAppUserRepository : IRepository<User>
     {

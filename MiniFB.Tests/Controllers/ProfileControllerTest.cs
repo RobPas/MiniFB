@@ -25,6 +25,5 @@ namespace MiniFB.Tests.Controllers
             // Assert
             NUnit.Framework.Assert.AreNotEqual(result.View, null);
         }
-
     }
 }

@@ -24,7 +24,7 @@ namespace MiniFB.Tests.Models.ProfileSettings
         { 
             // arrange
             
-            string sex = "Kvinna";
+            string sex = "kvinna";
             bool expected = true;
 
             // act
@@ -77,6 +77,20 @@ namespace MiniFB.Tests.Models.ProfileSettings
             //{
             //    _settingsValidator.isValidSex(sex);
             //});
+        }
+        [Test]
+        public void IsValidSex_ifUppercase_return_false()
+        { 
+            //arrange
+            var sex = "KVINNA";
+            bool expected = false;
+
+            //act
+            var actual = _settingsValidator.isValidSex(sex);
+
+            //assert
+            Assert.That(actual, Is.EqualTo(expected));
+
         }
     }
 }

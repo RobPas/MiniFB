@@ -4,7 +4,22 @@
 <script src="~/Scripts/newsfeed/main.js"></script>
 
 <div class="row-fluid">
-    <div class="span3"></div>
+    <div class="span3">
+        <div class="profile-options-newsfeed">
+            <div class="media profile-header">
+                <a class="pull-left" href="#">
+                    <img src="http://placehold.it/50x50" class="media-object">
+                </a>
+                <div class="media-body profile-link">
+                    <h4 class="media-heading">@Html.ActionLink(User.Identity.Name, "Index", "Profile", routeValues: null, htmlAttributes: new { title = "Gå till din profil"})</h4>
+                </div>
+                <div class="media edit-profile-link">       
+                    <h4><a href="#" title="Redigera din profil">Redigera profil</a></h4>      
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="span6">
         <div class="btn-group">
             @Html.ActionLink("Ny Status", "Create", "NewsFeedItem", new { ItemType = 1 }, new { @class = "btn btn-success" })

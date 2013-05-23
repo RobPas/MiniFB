@@ -378,7 +378,6 @@ li.twitter-like
     color: #000;
     border-bottom: 1px solid #000;
     height: auto;
-    display: none;
 }
 
 .chat-window
@@ -396,6 +395,7 @@ li.twitter-like
 .chat-content
 {
     margin: 10px 10px 10px 10px;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
     height: 80%;
 }

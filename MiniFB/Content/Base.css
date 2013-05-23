@@ -370,7 +370,17 @@ li.twitter-like
     font-size: 14px;
 }
 
-.chat-content
+.chat-header
+{
+    width: 100%;
+    text-align: center;
+    background-color: #D4D4D4;
+    color: #000;
+    border-bottom: 1px solid #000;
+    height: auto;
+}
+
+.chat-window
 {
     display: none;
     height: 200px;
@@ -382,7 +392,10 @@ li.twitter-like
     bottom: 38px;
 }
 
-.chat-content p
+.chat-content
 {
     margin: 10px 10px 10px 10px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 80%;
 }

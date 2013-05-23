@@ -396,6 +396,7 @@
     <Content Include="Views\Account\RegisterStepTwo.cshtml" />
     <Content Include="Views\Account\ConfirmationSuccess.cshtml" />
     <Content Include="Views\Account\ConfirmationFailure.cshtml" />
+    <Content Include="Views\Chat\ChatWindowPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,11 +1,16 @@
-﻿@if (Request.IsAuthenticated)
+﻿@{
+var _userRepo = new MiniFB.Models.Repositories.Repository<MiniFB.Models.Entities.User>();
+MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault();
+}
+
+@if (Request.IsAuthenticated)
 {
-    
    
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
     {
     @Html.AntiForgeryToken()
     }
+    
     <div class="navbar fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
@@ -34,6 +39,7 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Redigera profil", "Edit", "Profile", new {id = user.ID }, htmlAttributes: new { title = "Gå till din profil" })</li>
                                 <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off<i class="icon-signout"></i></a></li>
                             </ul>
                         </li>

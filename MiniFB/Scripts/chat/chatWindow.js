@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     $(".chat").click(function () {
-        $(".chat-content").slideToggle("slow");
+        $(".chat-header").slideToggle("slow");
+        $(".chat-window").slideToggle("slow");
     });
 });

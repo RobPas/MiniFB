@@ -3,7 +3,8 @@ margin-bottom: 1em;
 }
 
 .newsfeed-sorting {
-margin: 0;
+margin-left: 5px;
+margin-bottom: 10px;
 }
 
 .label.video {
@@ -82,5 +83,56 @@ background: #EA7902;
     {
         position: static;
         width: auto;
+    }
+}
+
+
+/* media queries for newsfeed status button and sort buttons */
+
+@media (min-width: 836px)
+{
+    .newsfeed-sorting 
+    {
+        margin-left: 5px;
+        margin-bottom: 10px;
+        display: inline;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 835px)
+{
+    .newsfeed-sorting 
+    {
+        margin-left: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 468px) and (max-width: 767px)
+{
+    .newsfeed-sorting 
+    {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        display: inline;
+    }
+
+    .newsfeed-middle-column
+    {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 467px)
+{
+    .newsfeed-sorting 
+    {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .newsfeed-middle-column
+    {
+        margin-top: 20px;
     }
 }

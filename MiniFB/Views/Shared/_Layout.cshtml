@@ -53,6 +53,10 @@
             <div class="container-fluid" id="footerlinks">
                 <div class="row-fluid">
                     <p class="trademark pull-left">&copy; @DateTime.Now.Year - MiniFB</p>
+
+                    @* ParialView for chat*@
+                    @Html.Partial("~/Views/chat/ChatWindowPartial.cshtml")
+
                     <div class="footerlinks-table">
                         <ul id="footerlinks-list">
                             <li>Link 1</li>
@@ -62,6 +66,7 @@
                             <li>Link 5</li>
                         </ul>
                     </div>
+                    
                 </div>
                 @*<div class="pull-right social-buttons">
                     <ul class="like-buttons">
@@ -88,6 +93,8 @@
         @*<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
         <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
         <script>(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/sv_SE/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>*@
+
+        <script src="~/Scripts/chat/chatWindow.js"></script>
 
     </body>
 </html>

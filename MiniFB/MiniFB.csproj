@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\RegistreringController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -319,6 +320,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chat\chatScript.js" />
     <Content Include="Scripts\chat\ChatUtils.js" />
+    <Content Include="Scripts\chat\chatWindow.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
@@ -395,6 +397,7 @@
     <Content Include="Views\Account\RegisterStepTwo.cshtml" />
     <Content Include="Views\Account\ConfirmationSuccess.cshtml" />
     <Content Include="Views\Account\ConfirmationFailure.cshtml" />
+    <Content Include="Views\Chat\ChatWindowPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

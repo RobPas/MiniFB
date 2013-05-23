@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<MiniFB.Models.Entities.NewsFeedItem>
 
+@{
+    var _userRepo = new MiniFB.Models.Repositories.Repository<MiniFB.Models.Entities.User>();
+    MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault();
+}
+
 <link href="~/Content/newsfeed.css" rel="stylesheet" />
 <script src="~/Scripts/newsfeed/main.js"></script>
 
@@ -14,7 +19,7 @@
                     <h4 class="media-heading">@Html.ActionLink(User.Identity.Name, "Index", "Profile", routeValues: null, htmlAttributes: new { title = "Gå till din profil"})</h4>
                 </div>
                 <div class="media edit-profile-link">       
-                    <h4><a href="#" title="Redigera din profil">Redigera profil</a></h4>      
+                    <h4>@Html.ActionLink("Redigera profil", "Edit", "Profile", new {id = user.ID }, htmlAttributes: new { title = "Gå till din profil" })</h4>      
                 </div>
             </div>
         </div>

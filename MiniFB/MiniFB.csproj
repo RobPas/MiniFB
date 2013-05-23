@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\RegistreringController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

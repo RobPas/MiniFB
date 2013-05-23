@@ -394,8 +394,19 @@ li.twitter-like
 
 .chat-content
 {
+    height: 80%;
     margin: 10px 10px 10px 10px;
     overflow-x: hidden;
     overflow-y: auto;
-    height: 80%;
+    max-width: 100%;
+}
+
+.chat-content p
+{
+    margin-right: 10px;
+    overflow: hidden;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
 }

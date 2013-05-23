@@ -410,3 +410,62 @@ li.twitter-like
     -moz-hyphens: auto;
     hyphens: auto;
 }
+
+
+/* media queries for chat  */
+
+/* Large desktop */
+@media (min-width: 1200px) 
+{
+    .chat
+    {
+        
+    }
+
+    .nav-collapse.collapse .nav li:nth-child(4)
+    {
+        display: none;
+    }
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 980px)
+{
+    .chat
+    {
+        
+    }
+
+    .nav-collapse.collapse .nav li:nth-child(4)
+    {
+        display: none;
+    }
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 979px) 
+{
+    .chat
+    {
+        display: none;
+    }
+
+    .nav-collapse.collapse .nav li:nth-child(4)
+    {
+        display: normal;
+    }
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) 
+{
+    .chat
+    {
+        display: none;
+    }
+
+    .nav-collapse.collapse .nav li:nth-child(4)
+    {
+        display: normal;
+    }
+}

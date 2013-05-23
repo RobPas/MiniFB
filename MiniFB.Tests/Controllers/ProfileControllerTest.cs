@@ -72,11 +72,12 @@ namespace MiniFB.Tests.Controllers
 
             Guid fakeuserID = Guid.NewGuid();
             // Act
-            ViewResult result = controller.Edit(UserID) as ViewResult;
+            ViewResult result = controller.Edit(fakeuserID) as ViewResult;
 
             // Assert
-            Assert.Throws<Exception>(
-      delegate { throw new Exception(); });
+            Assert.That(true, Is.True);
+
+            
         }
         
 

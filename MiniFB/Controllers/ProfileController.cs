@@ -59,7 +59,8 @@ namespace MiniFB.Controllers
 
             if (user == null)
             {
-                return HttpNotFound();
+                throw new Exception("No user");
+                
             }
             return View(user);
         }

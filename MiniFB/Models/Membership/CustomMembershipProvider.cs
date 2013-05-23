@@ -114,7 +114,7 @@ namespace MiniFB.Models.Membership
             if (user == null || string.IsNullOrEmpty(user.Salt))
                 return false;
             string bcryptHash = GetBcryptHash(password, user.Salt);
-            if (bcryptHash == user.Password)
+            if (bcryptHash == user.Password && user.IsConfirmed)
                 return true;
             return false;
         }

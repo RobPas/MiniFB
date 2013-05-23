@@ -444,7 +444,7 @@ li.twitter-like
         
     }
 
-    .nav-collapse.collapse .nav li:nth-child(4)
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
     {
         display: none;
     }
@@ -458,7 +458,7 @@ li.twitter-like
         
     }
 
-    .nav-collapse.collapse .nav li:nth-child(4)
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
     {
         display: none;
     }
@@ -472,7 +472,7 @@ li.twitter-like
         display: none;
     }
 
-    .nav-collapse.collapse .nav li:nth-child(4)
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
     {
         display: normal;
     }
@@ -486,7 +486,7 @@ li.twitter-like
         display: none;
     }
 
-    .nav-collapse.collapse .nav li:nth-child(4)
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
     {
         display: normal;
     }

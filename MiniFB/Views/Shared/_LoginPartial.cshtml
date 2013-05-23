@@ -21,7 +21,7 @@ MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Ide
                     <span class="icon-bar"></span>
                 </a>
                 <div class="nav-collapse collapse">
-                    <ul class="nav">
+                    <ul class="nav left-nav">
                         <li class="divider-vertical"></li>
                             @Html.MenuLink("RandomChat", "Index", "Chat")
                         <li class="divider-vertical"></li>
@@ -30,7 +30,7 @@ MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Ide
                     <form class="navbar-search pull-left">
                         <input type="text" class="search-query" placeholder="Search">
                     </form>
-                    <ul class="nav pull-right">
+                    <ul class="nav pull-right right-nav">
                         <li class="divider-vertical"></li>
                         <li>@Html.ActionLink(User.Identity.Name, "Index", "Profile", routeValues: null, htmlAttributes: new { @class = "username", title = "Din profil."})</li>  
                         <li class="divider-vertical"></li>

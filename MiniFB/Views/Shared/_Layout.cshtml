@@ -53,22 +53,10 @@
             <div class="container-fluid" id="footerlinks">
                 <div class="row-fluid">
                     <p class="trademark pull-left">&copy; @DateTime.Now.Year - MiniFB</p>
-                    @if (Request.IsAuthenticated)
-                    {
-                    <div class="chat pull-right">
-                        <h4>Chatt</h4>
-                        <div class="chat-content pull-right">
-                            <p>jdnvdnv <br />
-                            jnvdjkvn <br />
-                            sadsd <br />
-                            lljlghöj <br />
-                            bhsvtg</p> 
-                        </div>
-                    </div>
-                    }
-                    else
-                    {
-                    }
+
+                    @* ParialView for chat*@
+                    @Html.Partial("~/Views/chat/ChatWindowPartial.cshtml")
+
                     <div class="footerlinks-table">
                         <ul id="footerlinks-list">
                             <li>Link 1</li>

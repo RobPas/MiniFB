@@ -59,7 +59,7 @@ namespace MiniFB.Controllers
                 newsfeeditem.ID = Guid.NewGuid();
                 newsfeeditem.Created = DateTime.Now;
                 newsfeeditem.Modified = DateTime.Now;
-                newsfeeditem.User.ID = _userRepo.FindAll().Where(x => x.UserName == User.Identity.Name).FirstOrDefault().ID;
+                newsfeeditem.UserID = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault().ID;
                 _newsFeedItemRepo.Add(newsfeeditem);
                 return RedirectToAction("Index", "NewsFeed");
             }

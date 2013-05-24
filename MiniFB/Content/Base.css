@@ -448,7 +448,7 @@ li.twitter-like
 /* Large desktop */
 @media (min-width: 1200px) 
 {
-    .chat
+    .chat-footer
     {
         
     }
@@ -462,7 +462,7 @@ li.twitter-like
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 980px)
 {
-    .chat
+    .chat-footer
     {
         
     }
@@ -476,7 +476,7 @@ li.twitter-like
 /* Landscape phone to portrait tablet */
 @media (max-width: 979px) 
 {
-    .chat
+    .chat-footer
     {
         display: none;
     }
@@ -490,7 +490,7 @@ li.twitter-like
 /* Landscape phones and down */
 @media (max-width: 480px) 
 {
-    .chat
+    .chat-footer
     {
         display: none;
     }
@@ -505,7 +505,7 @@ li.twitter-like
 /* media queries for navbar */
 /* media queries for searchform */
 
-@media (min-width: 980px)
+/*@media (min-width: 980px)
 {
     .navbar-search
     {
@@ -519,7 +519,7 @@ li.twitter-like
     {
         display: none;
     }
-}
+}*/
 
 
 /* media queries for navbar-links */

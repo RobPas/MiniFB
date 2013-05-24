@@ -3,12 +3,11 @@
     $('.newsfeed-sorting .btn').on('click', function (e) {
         e.preventDefault();
 
-        var url = $('h1 a').prop('href'),
+        var url = $('.brand').prop('href'),
             container = $('.newsfeed-container:first');
 
         var ajaxOptions = {
             type: 'get',
-            data: { filter: $(this).val() },
             success: function (d) {
                 $(container).html(d);
             }

@@ -1,9 +1,4 @@
-﻿body 
-{
-}
-
-
-/* Rules for the content from all the views, first line is for navbar-fixed-top */
+﻿/* Rules for the content from all the views, first line is for navbar-fixed-top */
 
 .content-wrapper.main-content.clear-fix
 {
@@ -363,6 +358,28 @@ li.twitter-like
     margin-right: 50px;
 }
 
+.chat:hover
+{
+    background-color: #B4B4B4;
+    cursor: pointer;
+}
+
+.chat:focus
+{
+    background-color: #B4B4B4;
+    cursor: pointer;
+}
+
+.chat-content:hover
+{
+    cursor: default;
+}
+
+.chat-content:focus
+{
+    cursor: default;
+}
+
 .chat h4
 {
     text-align: center;
@@ -374,7 +391,7 @@ li.twitter-like
 {
     width: 100%;
     text-align: center;
-    background-color: #D4D4D4;
+    background-color: #B4B4B4;
     color: #000;
     border-bottom: 1px solid #000;
     height: auto;
@@ -409,4 +426,147 @@ li.twitter-like
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     hyphens: auto;
+}
+
+
+/* media queries for chat  */
+
+/* Large desktop */
+@media (min-width: 1200px) 
+{
+    .chat
+    {
+        
+    }
+
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
+    {
+        display: none;
+    }
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 980px)
+{
+    .chat
+    {
+        
+    }
+
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
+    {
+        display: none;
+    }
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 979px) 
+{
+    .chat
+    {
+        display: none;
+    }
+
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
+    {
+        display: normal;
+    }
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) 
+{
+    .chat
+    {
+        display: none;
+    }
+
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
+    {
+        display: normal;
+    }
+}
+
+
+/* media queries for navbar */
+/* media queries for searchform */
+
+@media (min-width: 980px)
+{
+    .navbar-search
+    {
+
+    }
+}
+
+@media (max-width: 979px)
+{
+    .navbar-search
+    {
+        display: none;
+    }
+}
+
+
+/* media queries for navbar-links */
+
+@media (min-width: 980px)
+{
+    .settings-dropdown
+    {
+
+    }
+
+    .profile-link
+    {
+        
+    }
+
+    .logout-link
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 979px)
+{
+    .settings-dropdown
+    {
+        display: none;
+    }
+
+    .logout-link
+    {
+        display: normal;
+    }
+}
+
+
+/* media queries for devider vertical in navbar */
+
+@media (min-width: 980px)
+{
+    .divider-vertical-navbar
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 979px)
+{
+    .divider-vertical-navbar
+    {
+        display: normal;
+    }
+}
+
+
+/* media queries for navbar pull-right so it displays at the same line as before the navbar was collapsed. */
+
+@media (min-width: 980px)
+{
+    .navbar .nav.pull-right
+    {
+        min-width: 155px;
+    }
 }

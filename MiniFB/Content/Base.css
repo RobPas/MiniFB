@@ -1,9 +1,4 @@
-﻿body 
-{
-}
-
-
-/* Rules for the content from all the views, first line is for navbar-fixed-top */
+﻿/* Rules for the content from all the views, first line is for navbar-fixed-top */
 
 .content-wrapper.main-content.clear-fix
 {
@@ -489,5 +484,89 @@ li.twitter-like
     .nav-collapse.collapse .nav.left-nav li:nth-child(4)
     {
         display: normal;
+    }
+}
+
+
+/* media queries for navbar */
+/* media queries for searchform */
+
+@media (min-width: 980px)
+{
+    .navbar-search
+    {
+
+    }
+}
+
+@media (max-width: 979px)
+{
+    .navbar-search
+    {
+        display: none;
+    }
+}
+
+
+/* media queries for navbar-links */
+
+@media (min-width: 980px)
+{
+    .settings-dropdown
+    {
+
+    }
+
+    .profile-link
+    {
+        
+    }
+
+    .logout-link
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 979px)
+{
+    .settings-dropdown
+    {
+        display: none;
+    }
+
+    .logout-link
+    {
+        display: normal;
+    }
+}
+
+
+/* media queries for devider vertical in navbar */
+
+@media (min-width: 980px)
+{
+    .divider-vertical-navbar
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 979px)
+{
+    .divider-vertical-navbar
+    {
+        display: normal;
+    }
+}
+
+
+/* media queries for navbar pull-right so it displays at the same line as before the navbar was collapsed. */
+
+@media (min-width: 980px)
+{
+    .navbar .nav.pull-right
+    {
+        min-width: 155px;
     }
 }

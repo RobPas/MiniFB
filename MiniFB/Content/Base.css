@@ -426,7 +426,7 @@ li.twitter-like
 .chat-content
 {
     height: 80%;
-    margin: 10px 10px 10px 10px;
+    margin: 10px 0px 10px 10px;
     overflow-x: hidden;
     overflow-y: auto;
     max-width: 100%;

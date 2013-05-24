@@ -346,7 +346,7 @@ li.twitter-like
 
 /* chat rules */
 
-.chat
+.chat-footer
 {
     height: 38px;
     width: 200px;
@@ -358,13 +358,13 @@ li.twitter-like
     margin-right: 50px;
 }
 
-.chat:hover
+.chat-footer:hover
 {
     background-color: #B4B4B4;
     cursor: pointer;
 }
 
-.chat:focus
+.chat-footer:focus
 {
     background-color: #B4B4B4;
     cursor: pointer;
@@ -380,7 +380,7 @@ li.twitter-like
     cursor: default;
 }
 
-.chat h4
+.chat-footer h4
 {
     text-align: center;
     color: #000;
@@ -391,10 +391,22 @@ li.twitter-like
 {
     width: 100%;
     text-align: center;
-    background-color: #B4B4B4;
+    background-color: #D4D4D4;
     color: #000;
     border-bottom: 1px solid #000;
     height: auto;
+}
+
+.chat-header:hover
+{
+    background-color: #B4B4B4;
+    cursor: pointer;
+}
+
+.chat-header:focus
+{
+    background-color: #B4B4B4;
+    cursor: pointer;
 }
 
 .chat-window
@@ -406,7 +418,9 @@ li.twitter-like
     color: #000;
     border: 1px solid #000;
     position:absolute;
+    right: 0;
     bottom: 38px;
+    margin-right: 50px;
 }
 
 .chat-content
@@ -434,7 +448,7 @@ li.twitter-like
 /* Large desktop */
 @media (min-width: 1200px) 
 {
-    .chat
+    .chat-footer
     {
         
     }
@@ -448,7 +462,7 @@ li.twitter-like
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 980px)
 {
-    .chat
+    .chat-footer
     {
         
     }
@@ -462,7 +476,7 @@ li.twitter-like
 /* Landscape phone to portrait tablet */
 @media (max-width: 979px) 
 {
-    .chat
+    .chat-footer
     {
         display: none;
     }
@@ -476,7 +490,7 @@ li.twitter-like
 /* Landscape phones and down */
 @media (max-width: 480px) 
 {
-    .chat
+    .chat-footer
     {
         display: none;
     }
@@ -491,7 +505,7 @@ li.twitter-like
 /* media queries for navbar */
 /* media queries for searchform */
 
-@media (min-width: 980px)
+/*@media (min-width: 980px)
 {
     .navbar-search
     {
@@ -505,7 +519,7 @@ li.twitter-like
     {
         display: none;
     }
-}
+}*/
 
 
 /* media queries for navbar-links */

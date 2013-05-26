@@ -584,3 +584,32 @@ li.twitter-like
         min-width: 155px;
     }
 }
+
+
+/* media queries for dropdown-chat */
+
+@media (max-width: 979px)
+{
+    .dropdown-chat-menu
+    {
+        display: table;
+        margin: 0 auto;
+        width: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .dropdown-chat-menu ul
+    {
+        list-style: none;
+        margin: 0px;
+    }
+}
+
+@media (min-width: 980px)
+{
+    .dropdown-chat-menu
+    {
+        display: none;
+    }
+}

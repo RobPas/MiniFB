@@ -71,8 +71,6 @@ namespace MiniFB.Controllers
         {
             if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
-
-                user.teststring = "TEST";
                 _userRepo.Update(user);
                 return RedirectToAction("Index");
             }
@@ -86,11 +84,11 @@ namespace MiniFB.Controllers
         public ActionResult ChangePassword(Guid id)
         {
             User user = _userRepo.FindByID(id);
-            if (user == null)
+            if (user != null && sv.isCorrectUser(User.Identity.Name, user))
             {
-                return HttpNotFound();
+                return View(user);
             }
-            return View(user);
+            return HttpNotFound();
         }
 
         [HttpPost]
@@ -99,18 +97,22 @@ namespace MiniFB.Controllers
         {
             User user = _userRepo.FindByID(id);
 
-            if (user != null)
+            if (user != null && sv.isCorrectUser(User.Identity.Name, user))
             {
                 if (sv.isPasswordConfirmed(newpassword, confirmpassword) && sv.isOldPasswordCorrect(oldpassword, user))
                 {
                     user.Password = DevOne.Security.Cryptography.BCrypt.BCryptHelper.HashPassword(newpassword, user.Salt);
                     _userRepo.Update(user);
-                    return RedirectToAction("Index");
-                    
+                    return RedirectToAction("Message", new { msg = "Tjoho! Du har byt lösenord. Ditt gamla lösenord gäller inte längre."});
                 }
             }
-
             return View(user);
+        }
+
+        public ActionResult Message(string msg = null)
+        {
+            ViewBag.msg = msg;
+            return View();
         }
 
 

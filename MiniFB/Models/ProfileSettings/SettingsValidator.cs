@@ -20,7 +20,13 @@ namespace MiniFB.Models.ProfileSettings
         }
 
 
+        /* Kollar om den inloggades username stämmer överens med User modellen. */
+        public bool isCorrectUser(string username, User user)
+        {
+            if(user.UserName.Equals(username)){return true;} return false;
+        }
 
+        /* Compare new password */
         public bool isPasswordConfirmed(string newpw, string confirmpw)
         {
             if(String.IsNullOrEmpty(newpw) || String.IsNullOrEmpty(confirmpw))
@@ -32,6 +38,7 @@ namespace MiniFB.Models.ProfileSettings
             return false;
         }
 
+        /* Kollar så det gamla lösenordet stämmer. */
         public bool isOldPasswordCorrect(string oldpw, User user)
         {
             if (String.IsNullOrEmpty(oldpw))

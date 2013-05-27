@@ -401,6 +401,7 @@
     <Content Include="Views\Chat\ChatWindowPartial.cshtml" />
     <Content Include="Views\Chat\ChatWindowDropdownPartial.cshtml" />
     <Content Include="Views\Profile\ChangePassword.cshtml" />
+    <Content Include="Views\Profile\Message.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

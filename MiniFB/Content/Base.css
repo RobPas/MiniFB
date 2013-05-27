@@ -613,3 +613,8 @@ li.twitter-like
         display: none;
     }
 }
+
+.spacer {
+    height:20px;
+    clear:both;
+}

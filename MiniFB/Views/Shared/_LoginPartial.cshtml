@@ -20,16 +20,17 @@ MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Ide
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
+                @Html.Partial("~/Views/chat/ChatWindowDropdownPartial.cshtml")
                 <div class="nav-collapse collapse">
                     <hr class="divider-vertical-navbar" />
                     <ul class="nav left-nav">
                         <li class="divider-vertical"></li>
-                            @Html.MenuLink("RandomChat", "Index", "Chat")
+                            @Html.MenuLink("RandomChat", "Random", "Chat")
                         <li class="divider-vertical"></li>
                             @Html.MenuLink("Chat", "Index", "Chat")
                     </ul>    
                     <form class="navbar-search pull-left">
-                        <input type="text" class="search-query" placeholder="Search">
+                        <input type="text" class="search-query" placeholder="Search" @*data-provide="typeahead" autocomplete="off" data-source="["Ahmedabad","Akola","Asansol","Aurangabad","Bangaluru","Baroda","Belgaon","Berhumpur","Calicut","Chennai","Chapra","Cherapunji"]"*@>
                     </form>
                     <ul class="nav pull-right right-nav">
                         <li class="divider-vertical"></li>

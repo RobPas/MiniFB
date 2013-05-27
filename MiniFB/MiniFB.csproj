@@ -207,6 +207,7 @@
     <Compile Include="Models\Contexts\MiniFBContext.cs" />
     <Compile Include="Models\Entities\chatMessage.cs" />
     <Compile Include="Models\Entities\FileStringResult.cs" />
+    <Compile Include="Models\Entities\Image.cs" />
     <Compile Include="Models\Entities\NewsFeedComment.cs" />
     <Compile Include="Models\Entities\NewsFeedItem.cs" />
     <Compile Include="Models\Entities\RegisterUser.cs" />

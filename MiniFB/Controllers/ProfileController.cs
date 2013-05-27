@@ -18,11 +18,13 @@ namespace MiniFB.Controllers
     {
         private IRepository<User> _userRepo;
         private IRepository<NewsFeedItem> _newsFeedItemRepo;
+        private IRepository<Image> _imageRepo;
 
         public ProfileController()
         {
             _userRepo = new Repository<User>();
             _newsFeedItemRepo = new Repository<NewsFeedItem>();
+            _imageRepo = new Repository<Image>();
         }
 
         public ProfileController(IRepository<User> userRepo)
@@ -88,14 +90,13 @@ namespace MiniFB.Controllers
             {
                 string path = @"C:\images\";
 
-                if (photo.ContentLength > 10240)
+                if (photo.ContentLength > 102400)
                 {
                     ModelState.AddModelError("photo", "The size of the file should not exceed 10 KB");
                     return RedirectToAction("Index");
                 }
 
-                var supportedTypes = new[] { "jpg", "jpeg", "png" };
-
+                var supportedTypes = new[] { "jpg", "jpeg", "png", "gif" };
                 var fileExt = System.IO.Path.GetExtension(photo.FileName).Substring(1);
 
                 if (!supportedTypes.Contains(fileExt))
@@ -104,19 +105,24 @@ namespace MiniFB.Controllers
                     return RedirectToAction("Index");
                 }
 
+                Image image = new Image();
+                image.ID = Guid.NewGuid();
+                image.FileType = "image/" + fileExt;
+                image.FileName = photo.FileName;
+                _imageRepo.Add(image);
+
                 photo.SaveAs(path + photo.FileName);
+                
             }
 
             return RedirectToAction("Index");
         }
 
-        public ActionResult ImageDisplayTest(string imageName)
+        public FileResult ImageDisplayTest(Guid ID)
         {
-            if (imageName != null) {
-                return File(@"c:\images\" + imageName, "image/png");
-            }
+            Image image = _imageRepo.FindByID(ID);
 
-            return RedirectToAction("Index");
+            return File(@"c:\images\" + image.FileName, image.FileType);            
         }
     }
 }

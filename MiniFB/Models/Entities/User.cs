@@ -19,6 +19,9 @@ namespace MiniFB.Models.Entities
         public string Password { get; set; }
         public string Salt { get; set; }
         
+
+
+
         public bool IsAdmin { get; set; }
 
         

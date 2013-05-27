@@ -18,11 +18,13 @@ namespace MiniFB.Controllers
     {
         private IRepository<User> _userRepo;
         private IRepository<NewsFeedItem> _newsFeedItemRepo;
+        private SettingsValidator sv;
 
         public ProfileController()
         {
             _userRepo = new Repository<User>();
             _newsFeedItemRepo = new Repository<NewsFeedItem>();
+            sv = new SettingsValidator();
         }
 
         public ProfileController(IRepository<User> userRepo)
@@ -67,10 +69,6 @@ namespace MiniFB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(User user)
         {
-            SettingsValidator sv = new SettingsValidator();
-
-
-
             if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
 
@@ -80,5 +78,45 @@ namespace MiniFB.Controllers
             }
             return View(user);
         }
+
+
+
+
+
+        public ActionResult ChangePassword(Guid id)
+        {
+            User user = _userRepo.FindByID(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(Guid id, string oldpassword, string newpassword, string confirmpassword)
+        {
+            User user = _userRepo.FindByID(id);
+
+            if (user != null)
+            {
+                if (sv.isPasswordConfirmed(newpassword, confirmpassword) && sv.isOldPasswordCorrect(oldpassword, user))
+                {
+                    user.Password = DevOne.Security.Cryptography.BCrypt.BCryptHelper.HashPassword(newpassword, user.Salt);
+                    _userRepo.Update(user);
+                    return RedirectToAction("Index");
+                    
+                }
+            }
+
+            return View(user);
+        }
+
+
+
+
+
+
     }
 }

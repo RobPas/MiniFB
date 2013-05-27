@@ -35,6 +35,7 @@ namespace MiniFB.Models.Entities
 
 
         public string teststring { get; set; }
+        public string ImageURL{ get; set; }
         //public HttpPostedFile ProfilePictureInput { get; set; }
 
         [DisplayName("Epost")]
@@ -58,5 +59,5 @@ namespace MiniFB.Models.Entities
             
         }
     }
-    
+
 }

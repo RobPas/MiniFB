@@ -80,5 +80,43 @@ namespace MiniFB.Controllers
             }
             return View(user);
         }
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase photo)
+        {
+            if (photo != null)
+            {
+                string path = @"C:\images\";
+
+                if (photo.ContentLength > 10240)
+                {
+                    ModelState.AddModelError("photo", "The size of the file should not exceed 10 KB");
+                    return RedirectToAction("Index");
+                }
+
+                var supportedTypes = new[] { "jpg", "jpeg", "png" };
+
+                var fileExt = System.IO.Path.GetExtension(photo.FileName).Substring(1);
+
+                if (!supportedTypes.Contains(fileExt))
+                {
+                    ModelState.AddModelError("photo", "Invalid type. Only the following types (jpg, jpeg, png) are supported.");
+                    return RedirectToAction("Index");
+                }
+
+                photo.SaveAs(path + photo.FileName);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult ImageDisplayTest(string imageName)
+        {
+            if (imageName != null) {
+                return File(@"c:\images\" + imageName, "image/png");
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

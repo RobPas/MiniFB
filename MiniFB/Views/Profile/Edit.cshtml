@@ -61,13 +61,13 @@
             <input type="submit" class="btn btn-success" value="Spara inställningar" />            
         </div>
     </div>
-    
+}    
     <div id="profile-img-wrapper" class="span6">
         <div id="profile-img-preview">
             <img src="http://placehold.it/300x300" class="img-polaroid">
         </div>
         
-        <div id="profile-img-buttons">
+        @*<div id="profile-img-buttons">
             <script>
                 function getFile() {
                     document.getElementById("image-input").click();
@@ -79,10 +79,17 @@
             <input style="display:none;" id="" name=""  type="file" value=""/>
     
             <p class="btn btn-danger">Ta bort bilden</p>
-        </div>
-        
+        </div>*@
+        <form action="/profile/upload"  method="post" enctype="multipart/form-data">
+            @Html.HiddenFor(u => u.ID)
+
+	        <label for="photo">Bild:</label>
+	        <input type="file" name="photo" id="photo" />
+
+	        <input class="btn" type="submit" value="Upload" />
+        </form>
     </div>
-}
+
 </div>
 
 

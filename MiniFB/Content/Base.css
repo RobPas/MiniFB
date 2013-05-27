@@ -1,9 +1,4 @@
-﻿body 
-{
-}
-
-
-/* Rules for the content from all the views, first line is for navbar-fixed-top */
+﻿/* Rules for the content from all the views, first line is for navbar-fixed-top */
 
 .content-wrapper.main-content.clear-fix
 {
@@ -351,7 +346,7 @@ li.twitter-like
 
 /* chat rules */
 
-.chat
+.chat-footer
 {
     height: 38px;
     width: 200px;
@@ -363,7 +358,29 @@ li.twitter-like
     margin-right: 50px;
 }
 
-.chat h4
+.chat-footer:hover
+{
+    background-color: #B4B4B4;
+    cursor: pointer;
+}
+
+.chat-footer:focus
+{
+    background-color: #B4B4B4;
+    cursor: pointer;
+}
+
+.chat-content:hover
+{
+    cursor: default;
+}
+
+.chat-content:focus
+{
+    cursor: default;
+}
+
+.chat-footer h4
 {
     text-align: center;
     color: #000;
@@ -380,6 +397,18 @@ li.twitter-like
     height: auto;
 }
 
+.chat-header:hover
+{
+    background-color: #B4B4B4;
+    cursor: pointer;
+}
+
+.chat-header:focus
+{
+    background-color: #B4B4B4;
+    cursor: pointer;
+}
+
 .chat-window
 {
     display: none;
@@ -389,13 +418,198 @@ li.twitter-like
     color: #000;
     border: 1px solid #000;
     position:absolute;
+    right: 0;
     bottom: 38px;
+    margin-right: 50px;
 }
 
 .chat-content
 {
-    margin: 10px 10px 10px 10px;
+    height: 80%;
+    margin: 10px 0px 10px 10px;
     overflow-x: hidden;
     overflow-y: auto;
-    height: 80%;
+    max-width: 100%;
+}
+
+.chat-content p
+{
+    margin-right: 10px;
+    overflow: hidden;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+
+/* media queries for chat  */
+
+/* Large desktop */
+@media (min-width: 1200px) 
+{
+    .chat-footer
+    {
+        
+    }
+
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
+    {
+        display: none;
+    }
+}
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 980px)
+{
+    .chat-footer
+    {
+        
+    }
+
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
+    {
+        display: none;
+    }
+}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 979px) 
+{
+    .chat-footer
+    {
+        display: none;
+    }
+
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
+    {
+        display: normal;
+    }
+}
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) 
+{
+    .chat-footer
+    {
+        display: none;
+    }
+
+    .nav-collapse.collapse .nav.left-nav li:nth-child(4)
+    {
+        display: normal;
+    }
+}
+
+
+/* media queries for navbar */
+/* media queries for searchform */
+
+/*@media (min-width: 980px)
+{
+    .navbar-search
+    {
+
+    }
+}
+
+@media (max-width: 979px)
+{
+    .navbar-search
+    {
+        display: none;
+    }
+}*/
+
+
+/* media queries for navbar-links */
+
+@media (min-width: 980px)
+{
+    .settings-dropdown
+    {
+
+    }
+
+    .profile-link
+    {
+        
+    }
+
+    .logout-link
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 979px)
+{
+    .settings-dropdown
+    {
+        display: none;
+    }
+
+    .logout-link
+    {
+        display: normal;
+    }
+}
+
+
+/* media queries for devider vertical in navbar */
+
+@media (min-width: 980px)
+{
+    .divider-vertical-navbar
+    {
+        display: none;
+    }
+}
+
+@media (max-width: 979px)
+{
+    .divider-vertical-navbar
+    {
+        display: normal;
+    }
+}
+
+
+/* media queries for navbar pull-right so it displays at the same line as before the navbar was collapsed. */
+
+@media (min-width: 980px)
+{
+    .navbar .nav.pull-right
+    {
+        min-width: 155px;
+    }
+}
+
+
+/* media queries for dropdown-chat */
+
+@media (max-width: 979px)
+{
+    .dropdown-chat-menu
+    {
+        display: table;
+        margin: 0 auto;
+        width: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .dropdown-chat-menu ul
+    {
+        list-style: none;
+        margin: 0px;
+    }
+}
+
+@media (min-width: 980px)
+{
+    .dropdown-chat-menu
+    {
+        display: none;
+    }
 }

@@ -10,7 +10,7 @@ MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Ide
     {
     @Html.AntiForgeryToken()
     }
-    
+    <div id="main-wrapper"></div>
     <div class="navbar fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
@@ -20,20 +20,24 @@ MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Ide
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
+                @Html.Partial("~/Views/chat/ChatWindowDropdownPartial.cshtml")
                 <div class="nav-collapse collapse">
-                    <ul class="nav">
+                    <hr class="divider-vertical-navbar" />
+                    <ul class="nav left-nav">
                         <li class="divider-vertical"></li>
-                            @Html.MenuLink("RandomChat", "Index", "Chat")
+                            @Html.MenuLink("RandomChat", "Random", "Chat")
                         <li class="divider-vertical"></li>
+                            @Html.MenuLink("Chat", "Index", "Chat")
                     </ul>    
                     <form class="navbar-search pull-left">
-                        <input type="text" class="search-query" placeholder="Search">
+                        <input type="text" class="search-query" placeholder="Search" @*data-provide="typeahead" autocomplete="off" data-source="["Ahmedabad","Akola","Asansol","Aurangabad","Bangaluru","Baroda","Belgaon","Berhumpur","Calicut","Chennai","Chapra","Cherapunji"]"*@>
                     </form>
-                    <ul class="nav pull-right">
+                    <ul class="nav pull-right right-nav">
                         <li class="divider-vertical"></li>
-                        <li>@Html.ActionLink(User.Identity.Name, "Index", "Profile", routeValues: null, htmlAttributes: new { @class = "username", title = "Din profil."})</li>  
+                        <li class="profile-link">@Html.ActionLink(User.Identity.Name, "Index", "Profile", routeValues: null, htmlAttributes: new { @class = "username", title = "Din profil."})</li>  
+                        <li class="logout-link"><a href="javascript:document.getElementById('logoutForm').submit()">Log off<i class="icon-signout"></i></a></li>
                         <li class="divider-vertical"></li>
-                        <li class="dropdown">
+                        <li class="dropdown settings-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="icon-cog"></i>
                                 <b class="caret"></b>

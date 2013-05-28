@@ -340,6 +340,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\changepwval.js" />
     <Content Include="Scripts\newsfeed\main.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

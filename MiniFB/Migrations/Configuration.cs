@@ -20,11 +20,11 @@ namespace MiniFB.Migrations
             Guid ID_3 = Guid.NewGuid();
 
             string salt = DevOne.Security.Cryptography.BCrypt.BCryptHelper.GenerateSalt();
-            string pw = DevOne.Security.Cryptography.BCrypt.BCryptHelper.HashPassword("password", salt); 
+            string pw = DevOne.Security.Cryptography.BCrypt.BCryptHelper.HashPassword("password", salt);
 
-            User User_1 = new User { ID = ID_1, UserName = "goat", Password=pw, Salt=salt, IsAdmin=false, BirthDate = DateTime.Parse("1992-01-01"), FirstName = "Lasse", LastName = "Åberg", Email = "lasse.aberg@hotmail.com", Sex = "Man" };
-            User User_2 = new User { ID = ID_2, UserName = "arnold", Password = pw, Salt = salt, IsAdmin = false, BirthDate = DateTime.Parse("1990-05-04"), FirstName = "Arnold", LastName = "Olsson", Email = "arnold@live.se", Sex = "Man" };
-            User User_3 = new User { ID = ID_3, UserName = "urban", Password = pw, Salt = salt, IsAdmin = false, BirthDate = DateTime.Parse("1983-01-06"), FirstName = "Urban", LastName = "Explorer", Email = "No email", Sex = "Kvinna" };
+            User User_1 = new User { ID = ID_1, UserName = "goat", IsUsingGravatar = false, Password = pw, Salt = salt, IsAdmin = false, BirthDate = DateTime.Parse("1992-01-01"), FirstName = "Lasse", LastName = "Åberg", Email = "lasse.aberg@hotmail.com", Sex = "Man" };
+            User User_2 = new User { ID = ID_2, UserName = "arnold", IsUsingGravatar = true, Password = pw, Salt = salt, IsAdmin = false, BirthDate = DateTime.Parse("1990-05-04"), FirstName = "Arnold", LastName = "Olsson", Email = "arnold@live.se", Sex = "Man" };
+            User User_3 = new User { ID = ID_3, UserName = "urban", IsUsingGravatar = true , Password = pw, Salt = salt, IsAdmin = false, BirthDate = DateTime.Parse("1983-01-06"), FirstName = "Urban", LastName = "Explorer", Email = "No email", Sex = "Kvinna" };
 
             context.Users.AddOrUpdate(r => r.UserName,
                 User_1,

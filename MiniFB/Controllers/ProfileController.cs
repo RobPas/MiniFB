@@ -76,10 +76,7 @@ namespace MiniFB.Controllers
             }
             return View(user);
         }
-
-
-
-
+        
 
         public ActionResult ChangePassword(Guid id)
         {
@@ -118,11 +115,6 @@ namespace MiniFB.Controllers
             ViewBag.msg = msg;
             return View();
         }
-
-
-
-
-
 
     }
 }

@@ -9,3 +9,33 @@
 .sex-icon {
     width:20px;
 }
+
+.profile-photos
+{
+    width: 20%;
+    display: inline-block;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.about-field span
+{
+    margin-top: 5px;
+}
+
+.about-field a
+{
+    margin-top: 10px;
+}
+
+.photos-field div a
+{
+    margin: 7px;
+}
+
+.latest-activity
+{
+    text-align: center;
+    margin-bottom: 70px;
+    margin-top: 0px;
+}

@@ -30,7 +30,10 @@ MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Ide
                             @Html.MenuLink("Chat", "Index", "Chat")
                     </ul>    
                     <form class="navbar-search pull-left">
-                        <input type="text" class="search-query" placeholder="Search" @*data-provide="typeahead" autocomplete="off" data-source="["Ahmedabad","Akola","Asansol","Aurangabad","Bangaluru","Baroda","Belgaon","Berhumpur","Calicut","Chennai","Chapra","Cherapunji"]"*@>
+                        <div class="input-prepend">
+                            <input type="text" placeholder="Search" id="prependedInput">
+                            <i class="icon-search add-on"></i>
+                        </div>
                     </form>
                     <ul class="nav pull-right right-nav">
                         <li class="divider-vertical"></li>

@@ -1,22 +1,53 @@
 ﻿@model MiniFB.Models.Entities.NewsFeedItem
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Skapa Nyhetsinlägg";
 }
 
-<h2>Create</h2>
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>NewsFeedItem</legend>
+        @switch((int)ViewBag.type)
+        {
+            case 1:
+                <legend>Status</legend>
+                break;
+            case 2:
+                <legend>Bild</legend>
+                break;
+            case 3:
+                <legend>Video</legend>
+                break;
+            case 4: 
+                <legend>Länk</legend>
+                break;
+            default:
+                break;
+        }
 
         <div class="editor-field">
             <input type="hidden" name="ItemType" value="@ViewBag.type" />
             @Html.ValidationMessageFor(model => model.ItemType)
         </div>
+
+        @if (ViewBag.type == 2)
+        {
+            @:Förhandsvisning:
+            <div class="image-preview">
+                <img src="http://placehold.it/480x240" alt="">
+            </div>
+            
+            <div class="editor-label">
+                @Html.Label("ImageURL", "Bild URL")
+            </div>
+            <div class="editor-field">
+                @Html.Editor("ImageUrl")
+            </div>
+        }
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Content)
@@ -27,13 +58,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="Skapa" class="btn" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Tillbaka till nyhetsflöde", "Index")
 </div>
 
 @section Scripts {

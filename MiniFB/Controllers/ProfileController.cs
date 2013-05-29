@@ -104,8 +104,7 @@ namespace MiniFB.Controllers
                     user.Password = DevOne.Security.Cryptography.BCrypt.BCryptHelper.HashPassword(changePasswordModel.NewPassword, user.Salt);
                     _userRepo.Update(user);
                     return RedirectToAction("Message", new { msg = "Tjoho! Du har byt lösenord. Ditt gamla lösenord gäller inte längre." });
-                }
-                else if (sv.isOldPasswordCorrect(changePasswordModel.OldPassword, user))
+                }else if (sv.isOldPasswordCorrect(changePasswordModel.OldPassword, user) == false)
                 {
                     ViewBag.ErrorMessage = "Ditt gamla lösenord stämmer inte.";
                 }

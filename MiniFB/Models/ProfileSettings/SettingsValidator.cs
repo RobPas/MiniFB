@@ -9,7 +9,6 @@ namespace MiniFB.Models.ProfileSettings
     public class SettingsValidator
     {
 
-
         public bool isValidSex(string sex = null)
         {
             if (sex.ToLower() == "kvinna" || sex.ToLower() == "man")
@@ -18,9 +17,6 @@ namespace MiniFB.Models.ProfileSettings
             }
             return false;
         }
-
-       
-
 
         /* Kollar om den inloggades username stämmer överens med User modellen. */
         public bool isCorrectUser(string username, User user)

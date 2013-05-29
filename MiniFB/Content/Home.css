@@ -69,10 +69,10 @@ input.checkbox
 .RegBtn
 {
     display: inline;
-    margin-left: 15px;
+    margin-right: 15px;
 }
 .LogIn
 {
     display: inline;
-    margin-right: 15px;
+    margin-left: 15px;
 }

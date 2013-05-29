@@ -91,6 +91,24 @@
     color: #FFFFFF;
 }
 
+.navbar-search .input-prepend input
+{
+    -webkit-border-radius: 4px 0 0 4px;
+    -moz-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+.navbar-search .input-prepend i
+{
+    background-color: #FFFFFF;
+    border-left: none;
+}
+
+.navbar-search .input-prepend
+{
+    margin-bottom: auto;
+}
+
 
 /* Logged in dropdown mennu */
 
@@ -604,6 +622,13 @@ li.twitter-like
         list-style: none;
         margin: 0px;
     }
+
+    .dropdown-menu.dropdown-chat-bubble
+    {
+        min-height: 200px;
+        min-width: 250px;
+        margin-top: 10px;
+    }
 }
 
 @media (min-width: 980px)
@@ -612,4 +637,9 @@ li.twitter-like
     {
         display: none;
     }
+}
+
+.spacer {
+    height:20px;
+    clear:both;
 }

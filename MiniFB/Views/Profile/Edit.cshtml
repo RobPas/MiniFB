@@ -13,6 +13,8 @@
     <div id="profile-setting-wrapper" class="span6">
         @Html.HiddenFor(model => model.ID)
         @Html.HiddenFor(model => model.UserName)
+        @Html.HiddenFor(model => model.IsUsingGravatar)
+        @Html.HiddenFor(model => model.ProfileImageUrl)
 
         <div class="editor-label">
             <label for="FirstName">Fullständigt namn</label>
@@ -55,6 +57,8 @@
             </div>
             @Html.ValidationMessageFor(model => model.Sex)
         </div>
+        <div class="spacer"></div>
+        <div>@Html.ActionLink("Byt lösenord", "ChangePassword", new { id = Model.ID }, new { @class = "btn" })</div>
 
         <div id="profile-save-cancel-buttons">
             @Html.ActionLink("Tillbaka", "Index",null, new { @class = "btn" })
@@ -76,7 +80,7 @@
             
             <p class="btn" onclick="getFile()">Ladda upp bild</p>
     
-            <input style="display:none;" id="" name=""  type="file" value=""/>
+            <input style="display:none;" id="image-input" name="image-input"  type="file" value=""/>
     
             <p class="btn btn-danger">Ta bort bilden</p>
         </div>

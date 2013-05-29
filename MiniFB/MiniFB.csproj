@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\RegistreringController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -204,6 +205,7 @@
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Contexts\MiniFBContext.cs" />
+    <Compile Include="Models\Encryptor.cs" />
     <Compile Include="Models\Entities\chatMessage.cs" />
     <Compile Include="Models\Entities\NewsFeedComment.cs" />
     <Compile Include="Models\Entities\NewsFeedItem.cs" />
@@ -339,6 +341,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\changepwval.js" />
     <Content Include="Scripts\newsfeed\main.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -399,6 +402,8 @@
     <Content Include="Views\Account\ConfirmationFailure.cshtml" />
     <Content Include="Views\Chat\ChatWindowPartial.cshtml" />
     <Content Include="Views\Chat\ChatWindowDropdownPartial.cshtml" />
+    <Content Include="Views\Profile\ChangePassword.cshtml" />
+    <Content Include="Views\Profile\Message.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

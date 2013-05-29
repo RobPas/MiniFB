@@ -1,4 +1,4 @@
-﻿@model MiniFB.Models.Entities.User
+﻿@model MiniFB.Models.Entities.UserProfileSettings
 
 @{
     ViewBag.Title = "Inställningar - MiniFB";
@@ -11,10 +11,8 @@
 
     
     <div id="profile-setting-wrapper" class="span6">
-        @Html.HiddenFor(model => model.ID)
-        @Html.HiddenFor(model => model.UserName)
-        @Html.HiddenFor(model => model.IsUsingGravatar)
-        @Html.HiddenFor(model => model.ProfileImageUrl)
+        @Html.HiddenFor(model => model.UserID)
+        
 
         <div class="editor-label">
             <label for="FirstName">Fullständigt namn</label>
@@ -25,6 +23,7 @@
             @Html.ValidationMessageFor(model => model.FirstName)
             @Html.ValidationMessageFor(model => model.LastName)
         </div>
+        <div class="spacer"></div>
 
         
 
@@ -35,6 +34,7 @@
             @Html.TextBoxFor(model => model.Email, new { @class = "span3" })
             @Html.ValidationMessageFor(model => model.Email)
         </div>
+        <div class="spacer"></div>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.BirthDate)
@@ -43,7 +43,8 @@
             @Html.EditorFor(model => model.BirthDate)
             @Html.ValidationMessageFor(model => model.BirthDate)
         </div>
-
+        <div class="spacer"></div>
+        
         <div class="editor-label">
             @Html.LabelFor(model => model.Sex)
         </div>
@@ -58,7 +59,7 @@
             @Html.ValidationMessageFor(model => model.Sex)
         </div>
         <div class="spacer"></div>
-        <div>@Html.ActionLink("Byt lösenord", "ChangePassword", new { id = Model.ID }, new { @class = "btn" })</div>
+        <div>@Html.ActionLink("Byt lösenord", "ChangePassword", new { userID = Model.UserID }, new { @class = "btn" })</div>
 
         <div id="profile-save-cancel-buttons">
             @Html.ActionLink("Tillbaka", "Index",null, new { @class = "btn" })
@@ -86,12 +87,16 @@
         </div>*@
         <form action="/profile/upload"  method="post" enctype="multipart/form-data">
             @Html.HiddenFor(u => u.ID)
-
 	        <label for="photo">Bild:</label>
 	        <input type="file" name="photo" id="photo" />
 
 	        <input class="btn" type="submit" value="Upload" />
         </form>
+        <div class="editor-label">
+            Använd Gravatar?<br />
+            @Html.EditorFor(model => model.IsUsingGravatar)
+        </div>
+        
     </div>
 
 </div>

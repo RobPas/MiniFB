@@ -1,61 +1,57 @@
 ﻿@model MiniFB.Models.Entities.User
 
-<link href="~/Content/Profile.css" rel="stylesheet" />
-
 @{
     ViewBag.Title = Model.UserName + " - MiniFB";
 }
 
 <h2>@Html.DisplayFor(model => model.UserName)'s profilsida</h2>
-<hr />
-<div class="row-fluid">
-    <div class="span3">
-        <div class="profile-image-div">
-            <img src="@Model.ProfileImageUrl" alt="Profile picture" />
+<div class="row">
+    <div class="span4">
+        <div style="background-color: #E2E2E2; padding: 10px; max-width: 300px;">
+            <img style="display:block;" src="http://blog.ramboll.com/urbanenergysolutions/wp-content/themes/ramboll2/images/profile-img.jpg" alt="Profile picture" />
         </div>
 
-        <div class="about-field">
-            <div>
-                <h3>Om @Html.DisplayFor(model => model.UserName)</h3>
-                <span class="clearfix"><strong>Namn:</strong> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span>
-                <span class="clearfix"><strong>Kön:</strong> @Html.DisplayFor(model => model.Sex)</span>
-                <span class="clearfix"><strong>Ålder:</strong> @Html.DisplayFor(model => model.Age) (<em>Född @Model.BirthDate.Year</em>)</span>
-                <span class="clearfix"><strong>Epost:</strong> @Html.DisplayFor(model => model.Email)</span>
-            </div>
+        <br />
+        <div style="background-color: #E2E2E2; padding: 10px; max-width: 300px;">
+            <h3>Om @Html.DisplayFor(model => model.UserName)</h3>
+            <br />
+            <span><strong>Namn:</strong> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span><br />
+            <span><strong>Kön:</strong> @Html.DisplayFor(model => model.Sex)</span><br />
+            <span><strong>Ålder:</strong> @Html.DisplayFor(model => model.Age) (<em>Född @Model.BirthDate.Year</em>)</span><br />
+            <span><strong>Epost:</strong> @Html.DisplayFor(model => model.Email)</span><br />
+            
 
             @if (Model.UserName == User.Identity.Name)
             {
-                <div>@Html.ActionLink("Inställningar", "Edit", new { id = Model.ID }, new { @class = "btn edit-profile-btn" })</div>
+                <br />
+                @Html.ActionLink("Inställningar", "Edit", new { id = Model.ID }, new { @class = "btn" })
             }
         </div>
-        <div class="photos-field">
-            <h3>Foton</h3>
-            <div class="photos-container">
-                <div class="profile-photos">
-                    <img class="img-rounded" src="http://postmediawindsorstar.files.wordpress.com/2013/01/cat_shot_by_arrow-1.jpg" alt="Alternate Text" />
-                </div>
-                <div class="profile-photos">
-                    <img class="img-rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwr7KmFDWDHOcfMFqfqYfc1onZM_xVrAYLdHmj9g-gA9U3tgwZ9A" alt="Alternate Text" />
-                </div>
-                <div class="profile-photos">
-                    <img class="img-rounded" src="http://2.bp.blogspot.com/_wdqqn17WEKY/TRo1ECKFEFI/AAAAAAAAIKw/0AM5re0YPsM/s1600/goat.gif" alt="Alternate Text" />
-                </div>
-                <div class="profile-photos">
-                    <img class="img-rounded" src="http://stringvisions.ovationpress.com/wp-content/uploads/2011/11/goat2a.bmp" alt="Alternate Text" />
-                </div>
-            </div>
 
-            <div class="show-more-photos"><a href="#">Visa fler</a></div>
-        
+        <br />
+        <div style="background-color: #E2E2E2; padding: 10px; max-width: 300px;">
+            <h3>Foton</h3>
+            <div>
+                <div style="float:left;width:50px;">
+                    <img width="100%" src="http://postmediawindsorstar.files.wordpress.com/2013/01/cat_shot_by_arrow-1.jpg" alt="Alternate Text" /></div>
+                <div style="margin-left:5px; float:left;width:50px;">
+                    <img width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwr7KmFDWDHOcfMFqfqYfc1onZM_xVrAYLdHmj9g-gA9U3tgwZ9A" alt="Alternate Text" /></div>
+                <div style="margin-left:5px; float:left;width:50px;">
+                    <img width="100%" src="http://2.bp.blogspot.com/_wdqqn17WEKY/TRo1ECKFEFI/AAAAAAAAIKw/0AM5re0YPsM/s1600/goat.gif" alt="Alternate Text" /></div>
+                <div style="margin-left:5px; float:left;width:50px;">
+                    <img width="100%" src="http://stringvisions.ovationpress.com/wp-content/uploads/2011/11/goat2a.bmp" alt="Alternate Text" /></div>
+            </div>
+            <div style="clear:both;"><a href="#">Visa fler</a></div>
+          
+            <div style="clear:both;"></div>
         </div>
     </div>
 
 
-    <div class="span9">
-        <h3 class="latest-activity">@Html.DisplayFor(model => model.UserName)'s senaste aktiviteter</h3>
-        <hr />
+    <div class="span8" style="background-color: #E2E2E2;">
+        <h3>@Html.DisplayFor(model => model.UserName)'s senaste aktiviteter</h3>
 
-        <div>
+        <div style="min-height:50px; margin-left: 20px; margin-right: 20px; background-color: #EFEFEF;">
             @if (Model.NewsFeedItems != null)
             {
                 @Html.Partial("_NewsFeedItems", Model.NewsFeedItems)

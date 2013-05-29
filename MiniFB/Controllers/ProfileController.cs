@@ -58,23 +58,43 @@ namespace MiniFB.Controllers
         public ActionResult Edit(Guid id)
         {
             User user = _userRepo.FindByID(id);
-            if (user == null)
+
+            if (user != null)
             {
-                return HttpNotFound();
+                UserProfileSettings ups = new UserProfileSettings();
+                ups.UserID = user.ID;
+                ups.FirstName = user.FirstName;
+                ups.LastName = user.LastName;
+                ups.BirthDate = user.BirthDate;
+                ups.Email = user.Email;
+                ups.IsUsingGravatar = user.IsUsingGravatar;
+                ups.Sex = user.Sex;
+               
+                return View(ups);
             }
-            return View(user);
+            return HttpNotFound();
+            
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(User user)
+        public ActionResult Edit(UserProfileSettings userp)
         {
-            if (ModelState.IsValid && sv.isValidSex(user.Sex))
+            User user = _userRepo.FindByID(userp.UserID);
+
+            if (ModelState.IsValid && sv.isValidSex(userp.Sex))
             {
+                user.ID = userp.UserID;
+                user.FirstName = userp.FirstName;
+                user.LastName = userp.LastName;
+                user.BirthDate = userp.BirthDate;
+                user.Email = userp.Email;
+                user.IsUsingGravatar = userp.IsUsingGravatar;
+                user.Sex = userp.Sex;
                 _userRepo.Update(user);
                 return RedirectToAction("Index");
             }
-            return View(user);
+            return View(userp);
         }
         
 
@@ -103,6 +123,7 @@ namespace MiniFB.Controllers
                 {
                     user.Password = DevOne.Security.Cryptography.BCrypt.BCryptHelper.HashPassword(changePasswordModel.NewPassword, user.Salt);
                     _userRepo.Update(user);
+
                     return RedirectToAction("Message", new { msg = "Tjoho! Du har byt lösenord. Ditt gamla lösenord gäller inte längre." });
                 }else if (sv.isOldPasswordCorrect(changePasswordModel.OldPassword, user) == false)
                 {

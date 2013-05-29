@@ -19,13 +19,8 @@ namespace MiniFB.Models.Entities
         
         public string Password { get; set; }
         public string Salt { get; set; }
-        
-
-
 
         public bool IsAdmin { get; set; }
-
-        
 
         [DisplayName("Användarnamn")]
         public string UserName { get; set; }
@@ -73,6 +68,34 @@ namespace MiniFB.Models.Entities
             }
             
         }
+    }
+
+
+    public class UserProfileSettings 
+    { 
+        public Guid UserID { get; set; }
+
+        [DisplayName("Förnamn")]
+        public string FirstName { get; set; }
+
+        [DisplayName("Efternamn")]
+        public string LastName { get; set; }
+
+        [DisplayName("Epost")]
+        public string Email { get; set; }
+
+        public bool IsUsingGravatar { get; set; }
+        
+        [DisplayName("Födelsedatum")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime BirthDate { get; set; }
+               
+        [DisplayName("Kön")]
+        public string Sex { get; set; }
+
+        
+
     }
     
 }

@@ -19,7 +19,8 @@
                     <h4 class="media-heading">@Html.ActionLink(User.Identity.Name, "Index", "Profile", routeValues: null, htmlAttributes: new { title = "Gå till din profil"})</h4>
                 </div>
                 <div class="media edit-profile-link">       
-                    <h4>@Html.ActionLink("Redigera profil", "Edit", "Profile", new {id = user.ID }, htmlAttributes: new { title = "Gå till din profil" })</h4>      
+                    <h4>@Html.ActionLink("Redigera profil", "Edit", "Profile", new {id = user.ID }, htmlAttributes: new { title = "Gå till din profil" })</h4>   
+                      
                 </div>
             </div>
         </div>

@@ -17,13 +17,11 @@ namespace MiniFB.Controllers
     public class ProfileController : Controller
     {
         private IRepository<User> _userRepo;
-        private IRepository<NewsFeedItem> _newsFeedItemRepo;
         private IRepository<Image> _imageRepo;
 
         public ProfileController()
         {
             _userRepo = new Repository<User>();
-            _newsFeedItemRepo = new Repository<NewsFeedItem>();
             _imageRepo = new Repository<Image>();
         }
 
@@ -39,17 +37,14 @@ namespace MiniFB.Controllers
             {
                 if(User.Identity.Name != null)
                 {
-                    List<NewsFeedItem> _newsfeeditems = _newsFeedItemRepo.FindAll().Include(n => n.User).Where(n => n.User.UserName == User.Identity.Name).ToList();
-
                     User user = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault();
-                    user.NewsFeedItems = _newsfeeditems;
                     
                     return View(user);
                 }
             }
             else
             {
-                User user = _userRepo.FindAll().Where(u => u.UserName == username).Include(u => u.NewsFeedItems).FirstOrDefault();
+                User user = _userRepo.FindAll().Where(u => u.UserName == username).FirstOrDefault();
                 return View(user);
             }
             return HttpNotFound();

@@ -58,56 +58,79 @@ namespace MiniFB.Controllers
         public ActionResult Edit(Guid id)
         {
             User user = _userRepo.FindByID(id);
-            if (user == null)
+
+            if (user != null)
             {
-                return HttpNotFound();
+                UserProfileSettings ups = new UserProfileSettings();
+                ups.UserID = user.ID;
+                ups.FirstName = user.FirstName;
+                ups.LastName = user.LastName;
+                ups.BirthDate = user.BirthDate;
+                ups.Email = user.Email;
+                ups.IsUsingGravatar = user.IsUsingGravatar;
+                ups.Sex = user.Sex;
+               
+                return View(ups);
             }
-            return View(user);
+            return HttpNotFound();
+            
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(User user)
+        public ActionResult Edit(UserProfileSettings userp)
         {
-            if (ModelState.IsValid && sv.isValidSex(user.Sex))
+            User user = _userRepo.FindByID(userp.UserID);
+
+            if (ModelState.IsValid && sv.isValidSex(userp.Sex))
             {
+                user.ID = userp.UserID;
+                user.FirstName = userp.FirstName;
+                user.LastName = userp.LastName;
+                user.BirthDate = userp.BirthDate;
+                user.Email = userp.Email;
+                user.IsUsingGravatar = userp.IsUsingGravatar;
+                user.Sex = userp.Sex;
                 _userRepo.Update(user);
                 return RedirectToAction("Index");
             }
-            return View(user);
+            return View(userp);
         }
         
 
-        public ActionResult ChangePassword(Guid id)
+        public ActionResult ChangePassword(Guid userID)
         {
-            User user = _userRepo.FindByID(id);
+            User user = _userRepo.FindByID(userID);
             if (user != null && sv.isCorrectUser(User.Identity.Name, user))
             {
-                return View(user);
+                ChangePasswordModel cpm = new ChangePasswordModel();
+                cpm.UserID = user.ID;
+                
+                return View(cpm);
             }
             return HttpNotFound();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangePassword(Guid id, string oldpassword, string newpassword, string confirmpassword)
+        public ActionResult ChangePassword(ChangePasswordModel changePasswordModel)
         {
-            User user = _userRepo.FindByID(id);
+            User user = _userRepo.FindByID(changePasswordModel.UserID);
 
             if (user != null && sv.isCorrectUser(User.Identity.Name, user))
             {
-                if (sv.isPasswordConfirmed(newpassword, confirmpassword) && sv.isOldPasswordCorrect(oldpassword, user))
+                if (ModelState.IsValid && sv.isOldPasswordCorrect(changePasswordModel.OldPassword, user))
                 {
-                    user.Password = DevOne.Security.Cryptography.BCrypt.BCryptHelper.HashPassword(newpassword, user.Salt);
+                    user.Password = DevOne.Security.Cryptography.BCrypt.BCryptHelper.HashPassword(changePasswordModel.NewPassword, user.Salt);
                     _userRepo.Update(user);
+
                     return RedirectToAction("Message", new { msg = "Tjoho! Du har byt lösenord. Ditt gamla lösenord gäller inte längre." });
-                }
-                else
+                }else if (sv.isOldPasswordCorrect(changePasswordModel.OldPassword, user) == false)
                 {
-                    ViewBag.msg = "Ditt gamla lösenord stämmer inte. Eller så matchar inte det nya varandra.";
+                    ViewBag.ErrorMessage = "Ditt gamla lösenord stämmer inte.";
                 }
             }
-            return View(user);
+            return View(changePasswordModel);
         }
 
         public ActionResult Message(string msg = null)

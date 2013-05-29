@@ -105,6 +105,10 @@ namespace MiniFB.Controllers
                     _userRepo.Update(user);
                     return RedirectToAction("Message", new { msg = "Tjoho! Du har byt lösenord. Ditt gamla lösenord gäller inte längre." });
                 }
+                else if (sv.isOldPasswordCorrect(changePasswordModel.OldPassword, user))
+                {
+                    ViewBag.ErrorMessage = "Ditt gamla lösenord stämmer inte.";
+                }
             }
             return View(changePasswordModel);
         }

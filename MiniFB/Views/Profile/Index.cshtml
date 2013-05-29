@@ -7,28 +7,30 @@
 }
 
 <h2>@Html.DisplayFor(model => model.UserName)'s profilsida</h2>
+<hr />
 <div class="row-fluid">
-    <div class="span4">
-        <div>
+    <div class="span3">
+        <div class="profile-image-div">
             <img src="@Model.ProfileImageUrl" alt="Profile picture" />
         </div>
 
         <div class="about-field">
-            <h3>Om @Html.DisplayFor(model => model.UserName)</h3>
-            <span class="clearfix"><strong>Namn:</strong> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span>
-            <span class="clearfix"><strong>Kön:</strong> @Html.DisplayFor(model => model.Sex)</span>
-            <span class="clearfix"><strong>Ålder:</strong> @Html.DisplayFor(model => model.Age) (<em>Född @Model.BirthDate.Year</em>)</span>
-            <span class="clearfix"><strong>Epost:</strong> @Html.DisplayFor(model => model.Email)</span>
-            
+            <div>
+                <h3>Om @Html.DisplayFor(model => model.UserName)</h3>
+                <span class="clearfix"><strong>Namn:</strong> @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)</span>
+                <span class="clearfix"><strong>Kön:</strong> @Html.DisplayFor(model => model.Sex)</span>
+                <span class="clearfix"><strong>Ålder:</strong> @Html.DisplayFor(model => model.Age) (<em>Född @Model.BirthDate.Year</em>)</span>
+                <span class="clearfix"><strong>Epost:</strong> @Html.DisplayFor(model => model.Email)</span>
+            </div>
 
             @if (Model.UserName == User.Identity.Name)
             {
-                @Html.ActionLink("Inställningar", "Edit", new { id = Model.ID }, new { @class = "btn" })
+                <div>@Html.ActionLink("Inställningar", "Edit", new { id = Model.ID }, new { @class = "btn edit-profile-btn" })</div>
             }
         </div>
         <div class="photos-field">
             <h3>Foton</h3>
-            <div>
+            <div class="photos-container">
                 <div class="profile-photos">
                     <img class="img-rounded" src="http://postmediawindsorstar.files.wordpress.com/2013/01/cat_shot_by_arrow-1.jpg" alt="Alternate Text" />
                 </div>
@@ -43,14 +45,15 @@
                 </div>
             </div>
 
-            <div><a href="#">Visa fler</a></div>
+            <div class="show-more-photos"><a href="#">Visa fler</a></div>
         
         </div>
     </div>
 
 
-    <div class="span8">
+    <div class="span9">
         <h3 class="latest-activity">@Html.DisplayFor(model => model.UserName)'s senaste aktiviteter</h3>
+        <hr />
 
         <div>
             @if (Model.NewsFeedItems != null)

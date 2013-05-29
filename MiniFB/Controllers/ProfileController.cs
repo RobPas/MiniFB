@@ -78,36 +78,35 @@ namespace MiniFB.Controllers
         }
         
 
-        public ActionResult ChangePassword(Guid id)
+        public ActionResult ChangePassword(Guid userID)
         {
-            User user = _userRepo.FindByID(id);
+            User user = _userRepo.FindByID(userID);
             if (user != null && sv.isCorrectUser(User.Identity.Name, user))
             {
-                return View(user);
+                ChangePasswordModel cpm = new ChangePasswordModel();
+                cpm.UserID = user.ID;
+                
+                return View(cpm);
             }
             return HttpNotFound();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ChangePassword(Guid id, string oldpassword, string newpassword, string confirmpassword)
+        public ActionResult ChangePassword(ChangePasswordModel changePasswordModel)
         {
-            User user = _userRepo.FindByID(id);
+            User user = _userRepo.FindByID(changePasswordModel.UserID);
 
             if (user != null && sv.isCorrectUser(User.Identity.Name, user))
             {
-                if (sv.isPasswordConfirmed(newpassword, confirmpassword) && sv.isOldPasswordCorrect(oldpassword, user))
+                if (ModelState.IsValid && sv.isOldPasswordCorrect(changePasswordModel.OldPassword, user))
                 {
-                    user.Password = DevOne.Security.Cryptography.BCrypt.BCryptHelper.HashPassword(newpassword, user.Salt);
+                    user.Password = DevOne.Security.Cryptography.BCrypt.BCryptHelper.HashPassword(changePasswordModel.NewPassword, user.Salt);
                     _userRepo.Update(user);
                     return RedirectToAction("Message", new { msg = "Tjoho! Du har byt lösenord. Ditt gamla lösenord gäller inte längre." });
                 }
-                else
-                {
-                    ViewBag.msg = "Ditt gamla lösenord stämmer inte. Eller så matchar inte det nya varandra.";
-                }
             }
-            return View(user);
+            return View(changePasswordModel);
         }
 
         public ActionResult Message(string msg = null)

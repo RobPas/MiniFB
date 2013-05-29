@@ -58,7 +58,7 @@
             @Html.ValidationMessageFor(model => model.Sex)
         </div>
         <div class="spacer"></div>
-        <div>@Html.ActionLink("Byt lösenord", "ChangePassword", new { id = Model.ID }, new { @class = "btn" })</div>
+        <div>@Html.ActionLink("Byt lösenord", "ChangePassword", new { userID = Model.ID }, new { @class = "btn" })</div>
 
         <div id="profile-save-cancel-buttons">
             @Html.ActionLink("Tillbaka", "Index",null, new { @class = "btn" })

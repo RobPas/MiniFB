@@ -17,14 +17,14 @@ namespace MiniFB.Controllers
     public class ProfileController : Controller
     {
         private IRepository<User> _userRepo;
-        private IRepository<NewsFeedItem> _newsFeedItemRepo;
         private IRepository<Image> _imageRepo;
+        private SettingsValidator sv;
 
         public ProfileController()
         {
             _userRepo = new Repository<User>();
-            _newsFeedItemRepo = new Repository<NewsFeedItem>();
             _imageRepo = new Repository<Image>();
+            sv = new SettingsValidator();
         }
 
         public ProfileController(IRepository<User> userRepo)
@@ -39,17 +39,14 @@ namespace MiniFB.Controllers
             {
                 if(User.Identity.Name != null)
                 {
-                    List<NewsFeedItem> _newsfeeditems = _newsFeedItemRepo.FindAll().Include(n => n.User).Where(n => n.User.UserName == User.Identity.Name).ToList();
-
                     User user = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault();
-                    user.NewsFeedItems = _newsfeeditems;
                     
                     return View(user);
                 }
             }
             else
             {
-                User user = _userRepo.FindAll().Where(u => u.UserName == username).Include(u => u.NewsFeedItems).FirstOrDefault();
+                User user = _userRepo.FindAll().Where(u => u.UserName == username).FirstOrDefault();
                 return View(user);
             }
             return HttpNotFound();
@@ -69,16 +66,43 @@ namespace MiniFB.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(User user)
         {
-            SettingsValidator sv = new SettingsValidator();
-
-
-
             if (ModelState.IsValid && sv.isValidSex(user.Sex))
             {
-
-                user.teststring = "TEST";
                 _userRepo.Update(user);
                 return RedirectToAction("Index");
+            }
+            return View(user);
+        }
+        
+
+        public ActionResult ChangePassword(Guid id)
+        {
+            User user = _userRepo.FindByID(id);
+            if (user != null && sv.isCorrectUser(User.Identity.Name, user))
+            {
+                return View(user);
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword(Guid id, string oldpassword, string newpassword, string confirmpassword)
+        {
+            User user = _userRepo.FindByID(id);
+
+            if (user != null && sv.isCorrectUser(User.Identity.Name, user))
+            {
+                if (sv.isPasswordConfirmed(newpassword, confirmpassword) && sv.isOldPasswordCorrect(oldpassword, user))
+                {
+                    user.Password = DevOne.Security.Cryptography.BCrypt.BCryptHelper.HashPassword(newpassword, user.Salt);
+                    _userRepo.Update(user);
+                    return RedirectToAction("Message", new { msg = "Tjoho! Du har byt lösenord. Ditt gamla lösenord gäller inte längre." });
+                }
+                else
+                {
+                    ViewBag.msg = "Ditt gamla lösenord stämmer inte. Eller så matchar inte det nya varandra.";
+                }
             }
             return View(user);
         }
@@ -124,5 +148,12 @@ namespace MiniFB.Controllers
 
             return File(@"c:\images\" + image.FileName, image.FileType);            
         }
+
+        public ActionResult Message(string msg = null)
+        {
+            ViewBag.msg = msg;
+            return View();
+        }
+
     }
 }

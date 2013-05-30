@@ -12,7 +12,7 @@ namespace MiniFB.Models.Contexts
     public class MiniFBContext : DbContext
     {
         public MiniFBContext()
-            : base("name = MiniFBContext")
+            : base("MiniFBContext")
         {
 
         }
@@ -21,7 +21,5 @@ namespace MiniFB.Models.Contexts
 
         public DbSet<NewsFeedItem> NewsFeedItem { get; set; }
 
-
-        
     }
 }

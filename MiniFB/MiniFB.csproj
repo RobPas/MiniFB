@@ -194,14 +194,11 @@
     <Compile Include="Controllers\NewsFeedItemController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
-    <Compile Include="Controllers\RegistreringController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Contexts\InitSecurityDb.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Contexts\MiniFBContext.cs" />
@@ -327,9 +324,6 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
-    <None Include="Scripts\jquery-1.7.1.intellisense.js" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.js" />
     <Content Include="Scripts\jquery-ui-1.8.20.min.js" />
@@ -342,13 +336,11 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
-    <Content Include="Scripts\changepwval.js" />
     <Content Include="Scripts\newsfeed\main.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -394,7 +386,6 @@
     <Content Include="Views\NewsFeed\Index.cshtml" />
     <Content Include="Views\NewsFeedItem\Create.cshtml" />
     <Content Include="Views\Shared\_NewsFeedItems.cshtml" />
-    <Content Include="Views\Registrering\Index.cshtml" />
     <Content Include="Views\Chat\Random.cshtml" />
     <Content Include="Views\Emails\RegEmail.cshtml" />
     <Content Include="Views\Emails\_ViewStart.cshtml" />
@@ -408,6 +399,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Filters\" />
     <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>

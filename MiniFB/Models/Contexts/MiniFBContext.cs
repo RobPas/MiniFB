@@ -21,9 +21,7 @@ namespace MiniFB.Models.Contexts
 
         public DbSet<NewsFeedItem> NewsFeedItem { get; set; }
 
-        public DbSet<Image> Images { get; set; }
+ 		public DbSet<Image> Images { get; set; }
 
-
-        
     }
 }

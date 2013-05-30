@@ -46,9 +46,9 @@ namespace MiniFB.Models.Entities
             {
                 if (this.IsUsingGravatar)
                 {
-                    string md5hash = Encryptor.MD5Hash(this.Email);
+                    string md5hash = Encryptor.MD5Hash(this.Email.Trim().ToLower());
 
-                    return "http://gravatar.com/avatar/" + md5hash + "?s=300";
+                    return String.Format("http://gravatar.com/avatar/{0}?s=300", md5hash);
                 }
 
                 return "http://placehold.it/300";

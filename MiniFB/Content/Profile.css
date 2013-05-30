@@ -91,3 +91,7 @@
     margin-left: 10px;
     margin-right: 10px;
 }
+
+#profile-img-wrapper [type="checkbox"] {
+margin-top: -2px;
+}

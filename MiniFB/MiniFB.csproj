@@ -204,10 +204,13 @@
     <Compile Include="Models\Contexts\MiniFBContext.cs" />
     <Compile Include="Models\Encryptor.cs" />
     <Compile Include="Models\Entities\chatMessage.cs" />
+    <Compile Include="Models\Entities\FileStringResult.cs" />
+    <Compile Include="Models\Entities\Image.cs" />
     <Compile Include="Models\Entities\ChangePasswordModel.cs" />
     <Compile Include="Models\Entities\NewsFeedComment.cs" />
     <Compile Include="Models\Entities\NewsFeedItem.cs" />
     <Compile Include="Models\Entities\RegisterUser.cs" />
+    <Compile Include="Models\Entities\UploadFileModel.cs" />
     <Compile Include="Models\Entities\User.cs" />
     <Compile Include="Models\Membership\CustomMembershipProvider.cs" />
     <Compile Include="Models\Repositories\AppUserRepository.cs" />
@@ -401,6 +404,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
     <Folder Include="Repository\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

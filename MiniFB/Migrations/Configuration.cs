@@ -34,9 +34,9 @@ namespace MiniFB.Migrations
             
             context.NewsFeedItem.AddOrUpdate(r => r.ID,
                new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 1, Content = "This is my status...", Created = DateTime.Now, Modified = DateTime.Now.AddDays(1), User = User_3 },
-               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 2, Content = "Video...", Created = DateTime.Now, Modified = DateTime.Now.AddDays(15), User = User_1 },
-               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 3, Content = "http://google.com", Created = DateTime.Now, Modified = DateTime.Now.AddDays(25), User = User_2 },
-               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 4, Content = "/image.jpg", Created = DateTime.Now, Modified = DateTime.Now.AddDays(4), User = User_1 }
+               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 3, Content = "Video...", Created = DateTime.Now, Modified = DateTime.Now.AddDays(15), User = User_1 },
+               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 4, Content = "http://google.com", Created = DateTime.Now, Modified = DateTime.Now.AddDays(25), User = User_2 },
+               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 2, Content = "/image.jpg", Created = DateTime.Now, Modified = DateTime.Now.AddDays(4), User = User_1 }
              );  
 
 

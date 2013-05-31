@@ -70,7 +70,6 @@ namespace MiniFB.Models.Entities
                 int _age = DateTime.Now.Year - BirthDate.Year;
                 return _age; 
             }
-            
         }
     }    
 

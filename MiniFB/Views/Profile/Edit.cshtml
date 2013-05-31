@@ -66,6 +66,13 @@
             <input type="submit" class="btn btn-success" value="Spara inställningar" />            
         </div>
     </div>
+    
+    <div>
+            Använd Gravatar?
+            
+            @Html.EditorFor(m => m.IsUsingGravatar)
+            
+        </div>
 }    
     <div id="profile-img-wrapper" class="span6">
         <div id="profile-img-preview">
@@ -92,10 +99,7 @@
 
 	        <input class="btn" type="submit" value="Upload" />
         </form>
-        <div>
-            Använd Gravatar?
-            @Html.EditorFor(model => model.IsUsingGravatar)
-        </div>
+        
         
     </div>
 
@@ -108,7 +112,7 @@
 
 @section Scripts {
     <!-- Detta är ett test script och det skall läggas i en sepparat .js senare! -->
-    @Scripts.Render("~/bundles/jquery")
+    
     <script>
         $(document).ready(function () {
             

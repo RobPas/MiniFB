@@ -198,6 +198,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201305300830028_InitialCreate.cs" />
+    <Compile Include="Migrations\201305300830028_InitialCreate.Designer.cs">
+      <DependentUpon>201305300830028_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305300910599_DataURLProp_On_NewsFeedItem.cs" />
+    <Compile Include="Migrations\201305300910599_DataURLProp_On_NewsFeedItem.Designer.cs">
+      <DependentUpon>201305300910599_DataURLProp_On_NewsFeedItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -408,6 +416,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201305300830028_InitialCreate.resx">
+      <DependentUpon>201305300830028_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305300910599_DataURLProp_On_NewsFeedItem.resx">
+      <DependentUpon>201305300910599_DataURLProp_On_NewsFeedItem.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

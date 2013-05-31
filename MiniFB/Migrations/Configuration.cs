@@ -1,16 +1,16 @@
 namespace MiniFB.Migrations
 {
-    using MiniFB.Models.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+using MiniFB.Models.Entities;
 
     internal sealed class Configuration : DbMigrationsConfiguration<MiniFB.Models.Contexts.MiniFBContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(MiniFB.Models.Contexts.MiniFBContext context) 
@@ -26,20 +26,16 @@ namespace MiniFB.Migrations
             User User_2 = new User { ID = ID_2, UserName = "arnold", IsUsingGravatar = true, Password = pw, Salt = salt, IsAdmin = false, BirthDate = DateTime.Parse("1990-05-04"), FirstName = "Arnold", LastName = "Olsson", Email = "arnold@live.se", Sex = "Man", IsConfirmed = true };
             User User_3 = new User { ID = ID_3, UserName = "urban", IsUsingGravatar = true, Password = pw, Salt = salt, IsAdmin = false, BirthDate = DateTime.Parse("1983-01-06"), FirstName = "Urban", LastName = "Explorer", Email = "No email", Sex = "Kvinna", IsConfirmed = true };
 
-            context.Users.AddOrUpdate(r => r.UserName,
-                User_1,
+            context.Users.AddOrUpdate(User_1,
                 User_2,
                 User_3
             );
             
-            context.NewsFeedItem.AddOrUpdate(r => r.ID,
-               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 1, Content = "This is my status...", Created = DateTime.Now, Modified = DateTime.Now.AddDays(1), User = User_3 },
+            context.NewsFeedItem.AddOrUpdate(new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 1, Content = "This is my status...", Created = DateTime.Now, Modified = DateTime.Now.AddDays(1), User = User_3 },
                new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 3, Content = "Video...", Created = DateTime.Now, Modified = DateTime.Now.AddDays(15), User = User_1 },
                new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 4, Content = "http://google.com", Created = DateTime.Now, Modified = DateTime.Now.AddDays(25), User = User_2 },
                new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 2, Content = "/image.jpg", Created = DateTime.Now, Modified = DateTime.Now.AddDays(4), User = User_1 }
              );  
-
-
 
         }
     }

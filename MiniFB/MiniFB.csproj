@@ -206,6 +206,10 @@
     <Compile Include="Migrations\201305300910599_DataURLProp_On_NewsFeedItem.Designer.cs">
       <DependentUpon>201305300910599_DataURLProp_On_NewsFeedItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201305310819453_AddSecretQuestion.cs" />
+    <Compile Include="Migrations\201305310819453_AddSecretQuestion.Designer.cs">
+      <DependentUpon>201305310819453_AddSecretQuestion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -423,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201305300910599_DataURLProp_On_NewsFeedItem.resx">
       <DependentUpon>201305300910599_DataURLProp_On_NewsFeedItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305310819453_AddSecretQuestion.resx">
+      <DependentUpon>201305310819453_AddSecretQuestion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -78,9 +78,12 @@ namespace MiniFB.Models.Entities
             }
         }
 
+        public string DataURL { get; set; }
+
         [DataType(DataType.MultilineText)]
         [StringLength(250)]
         [Display(Name="Beskrivning")]
+        [Required]
         public string Content { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:D}")]

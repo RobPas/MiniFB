@@ -94,5 +94,6 @@ namespace MiniFB.Models.Entities
         public DateTime Modified { get; set; }
 
         public virtual List<NewsFeedComment> Comments { get; set; }
+        
     }
 }

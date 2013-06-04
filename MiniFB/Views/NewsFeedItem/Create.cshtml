@@ -40,12 +40,15 @@
             <div class="image-preview">
                 <img src="http://placehold.it/480x240" alt="">
             </div>
-            
+        }
+
+        @if (ViewBag.type != 1) 
+        {
             <div class="editor-label">
-                @Html.Label("ImageURL", "Bild URL")
+                @Html.LabelFor(m => m.DataURL, Model.GetItemTypeStr + " URL")
             </div>
             <div class="editor-field">
-                @Html.Editor("ImageUrl")
+                @Html.EditorFor(m => m.DataURL)
             </div>
         }
 

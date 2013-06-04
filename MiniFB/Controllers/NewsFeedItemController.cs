@@ -39,12 +39,15 @@ namespace MiniFB.Controllers
 
         public ActionResult Create(int ? ItemType = -1)
         {
+            NewsFeedItem n = new NewsFeedItem();
+            n.ItemType = (int)ItemType;
+
             ViewBag.type = ItemType;
 
             if (ItemType <= 0 || ItemType > 4)
                 return RedirectToAction("Index", "NewsFeed");
 
-            return View();                
+            return View(n);
         }
 
         //

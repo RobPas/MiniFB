@@ -28,13 +28,20 @@ MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Ide
                             @Html.MenuLink("RandomChat", "Random", "Chat")
                         <li class="divider-vertical"></li>
                             @Html.MenuLink("Chat", "Index", "Chat")
-                    </ul>    
-                    <form class="navbar-search pull-left">
+                    </ul>
+                    <div class="pull-left">
+                        @using (Ajax.BeginForm("Search", "User", new AjaxOptions { HttpMethod = "GET" }))
+                                {
+                                    <input type="text" name="q" />
+                                    <input type="submit" value="Search"/>
+                                }
+                        </div>
+                    @*<form class="navbar-search pull-left">
                         <div class="input-prepend">
                             <input type="text" placeholder="Search" id="prependedInput">
                             <i class="icon-search add-on"></i>
                         </div>
-                    </form>
+                    </form>*@
                     <ul class="nav pull-right right-nav">
                         <li class="divider-vertical"></li>
                         <li class="profile-link">@Html.ActionLink(User.Identity.Name, "Index", "Profile", routeValues: null, htmlAttributes: new { @class = "username", title = "Din profil."})</li>  

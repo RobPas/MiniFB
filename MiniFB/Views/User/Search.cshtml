@@ -1,0 +1,9 @@
+﻿@model List<MiniFB.Models.Entities.User>
+
+<h2>Search</h2>
+@foreach (var user in Model)
+{
+    <div><img src="@user.ProfileImageUrl" /></div>
+    <p>@user.LastName, @user.FirstName</p>
+    
+}

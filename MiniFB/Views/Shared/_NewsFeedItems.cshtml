@@ -8,13 +8,17 @@
 <div class="newsfeed-items media">
     <img class="pull-left media-object" src="http://placehold.it/60x60" />
     <div class="media-body">
-    <b>
-       @if (item.User != null )
-       {
-           @Html.ActionLink(item.User.UserName, "Index", "Profile", new { username = item.User.UserName }, null)
-       }:
-    </b>
-    @Html.DisplayFor(modelItem => item.Content) 
+        <div>
+            <b>
+               @if (item.User != null )
+               {
+                   @Html.ActionLink(item.User.UserName, "Index", "Profile", new { username = item.User.UserName }, null)
+               }
+            </b>
+        </div>
+        <div>
+        @Html.DisplayFor(modelItem => item.Content) 
+        </div>
     </div>
     <small class="muted">
         @if (item.ItemType == 1)

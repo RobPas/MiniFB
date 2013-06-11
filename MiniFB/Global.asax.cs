@@ -12,6 +12,7 @@ using MiniFB.Models.Contexts;
 using WebMatrix.WebData;
 using System.Data.Entity.Infrastructure;
 using System.Web.Security;
+using Microsoft.AspNet.SignalR;
 
 namespace MiniFB
 {
@@ -22,6 +23,9 @@ namespace MiniFB
     {
         protected void Application_Start()
         {
+
+            RouteTable.Routes.MapHubs();
+            
 
 
             AreaRegistration.RegisterAllAreas();

@@ -85,11 +85,10 @@ namespace MiniFB.Controllers
 
 
 
-        public ActionResult SignalRChat(string id = "guest")
+        public ActionResult SignalRChat()
         {
             
-
-            return View((object)id);
+            return View();
         }
 
     }

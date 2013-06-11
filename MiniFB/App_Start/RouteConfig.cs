@@ -15,6 +15,7 @@ namespace MiniFB
         {
 
            //RouteTable.Routes.MapConnection<ChatConnection>("chat", "chat/{*operation}");
+            
 
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 

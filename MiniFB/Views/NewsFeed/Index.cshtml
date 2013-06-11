@@ -5,8 +5,9 @@
     MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault();
 }
 
-<link href="~/Content/newsfeed.css" rel="stylesheet" />
-<script src="~/Scripts/newsfeed/main.js"></script>
+@section styles {
+<link href="~/Content/Newsfeed.css" rel="stylesheet" />
+}
 
 <div class="row-fluid">
     <div class="span3 newsfeed-left-column">

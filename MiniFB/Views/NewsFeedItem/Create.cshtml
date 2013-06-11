@@ -11,23 +11,25 @@
     @Html.ValidationSummary(true)
 
     <fieldset>
+        <legend>
         @switch((int)ViewBag.type)
         {
             case 1:
-                <legend>Status</legend>
+                @:Status
                 break;
             case 2:
-                <legend>Bild</legend>
+                @:Bild
                 break;
             case 3:
-                <legend>Video</legend>
+                @:Video
                 break;
             case 4: 
-                <legend>Länk</legend>
+                @:Länk
                 break;
             default:
                 break;
         }
+        </legend>
 
         <div class="editor-field">
             <input type="hidden" name="ItemType" value="@ViewBag.type" />
@@ -45,10 +47,10 @@
         @if (ViewBag.type != 1) 
         {
             <div class="editor-label">
-                @Html.LabelFor(m => m.DataURL, Model.GetItemTypeStr + " URL")
+                @Html.LabelFor(m => m.Data, Model.GetItemTypeStr)
             </div>
             <div class="editor-field">
-                @Html.EditorFor(m => m.DataURL)
+                @Html.EditorFor(m => m.Data)
             </div>
         }
 

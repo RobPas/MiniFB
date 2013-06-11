@@ -28,7 +28,7 @@ namespace MiniFB.Controllers
 
         public ViewResult Search(string q)
         {
-            var results = _userRepo.FindAll(u => u.UserName.Contains(q)).ToList();
+            var results = _userRepo.FindAll(u => u.FirstName.ToLower().Contains(q.ToLower())).ToList();
             return View(results);
         }
 

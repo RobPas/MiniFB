@@ -6,7 +6,8 @@
 
 @foreach (var item in Model) {
 <div class="newsfeed-items media">
-    <img class="pull-left media-object" src="http://placehold.it/60x60" />
+    <img class="pull-left media-object" src="@item.User.ProfileImageUrl" width="80" height="80" />
+    
     <div class="media-body">
         <div>
             <b>

@@ -14,7 +14,8 @@
         <div class="profile-options-newsfeed">
             <div class="media profile-header">
                 <a class="pull-left" href="@Url.Action("Index", "Profile")">
-                    <img src="http://placehold.it/50x50" class="media-object">
+                    @*<img src="http://placehold.it/50x50" class="media-object">*@
+                    <img class="pull-left media-object" src="@user.ProfileImageUrl" width="80" height="80" />
                 </a>
                 <div class="media-body profile-link">
                     <h4 class="media-heading">@Html.ActionLink(User.Identity.Name, "Index", "Profile", routeValues: null, htmlAttributes: new { title = "Gå till din profil"})</h4>

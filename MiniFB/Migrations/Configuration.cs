@@ -31,10 +31,11 @@ using MiniFB.Models.Entities;
                 User_3
             );
             
-            context.NewsFeedItem.AddOrUpdate(new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 1, Content = "This is my status...", Created = DateTime.Now, Modified = DateTime.Now.AddDays(1), User = User_3 },
-               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 3, Content = "Video...", Created = DateTime.Now, Modified = DateTime.Now.AddDays(15), User = User_1 },
-               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 4, Content = "http://google.com", Created = DateTime.Now, Modified = DateTime.Now.AddDays(25), User = User_2 },
-               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 2, Content = "/image.jpg", Created = DateTime.Now, Modified = DateTime.Now.AddDays(4), User = User_1 }
+            context.NewsFeedItem.AddOrUpdate(
+               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 1, Content = "This is my status...", Created = DateTime.Now, Modified = DateTime.Now.AddDays(1), User = User_3 },
+               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 3, Content = "Video...", Created = DateTime.Now, Modified = DateTime.Now.AddDays(15), User = User_1, Data = "https://www.youtube-nocookie.com/embed/BTDib1Q_gX8" },
+               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 4, Content = "The Search Engine", Created = DateTime.Now, Modified = DateTime.Now.AddDays(25), User = User_2, Data = "http://google.com" },
+               new NewsFeedItem { ID = Guid.NewGuid(), ItemType = 2, Content = "En bild...", Created = DateTime.Now, Modified = DateTime.Now.AddDays(4), User = User_1, Data = "/Content/images/goat-serious.jpg" }
              );  
 
         }

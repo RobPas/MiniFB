@@ -1,0 +1,32 @@
+﻿@model string
+
+<input type="hidden" id="chatName" value="@Model" />
+<input type="text" id="chatBox" />
+<a href="#" id="chatBoxSubmit" >Submit</a>
+<ul id="chatArea" class="chat">
+</ul>
+
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/jquery.signalR-0.5.3.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/signalr/hubs")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            var hub = $.connection.chatHub, $chatBoxSubmit = $("#chatBoxSubmit"),
+                $chatBox = $("#chatBox"), $chatArea = $("#chatArea"),
+                $chatName = $("#chatName").val();
+
+            $.extend(hub, {
+                chatLineAdded: function (cid, name, str) {
+                    $chatArea.prepend("<li><span>" + name + ": </span>" + str + "</li>");
+                }
+            });
+
+            $.connection.hub.start().done(function () {
+                $chatBoxSubmit.click(function () {
+                    hub.addChatLine($chatName, $chatBox.val());
+                    return false;
+                });
+            });
+        });
+    </script>
+}

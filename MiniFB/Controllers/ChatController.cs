@@ -82,5 +82,15 @@ namespace MiniFB.Controllers
 
             return Json("ok");
         }
+
+
+
+        public ActionResult SignalRChat(string id = "guest")
+        {
+            
+
+            return View((object)id);
+        }
+
     }
 }

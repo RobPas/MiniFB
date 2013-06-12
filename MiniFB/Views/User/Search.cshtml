@@ -1,0 +1,9 @@
+﻿@model List<MiniFB.Models.Entities.User>
+
+<h2>Search</h2>
+@foreach (var user in Model)
+{
+    <div><img src="@user.ProfileImageUrl" width="100" height="100" /></div>
+    <p>@Html.ActionLink(user.UserName, "Index", "Profile", new { username = user.UserName }, null) - 
+    @user.LastName, @user.FirstName</p>
+}

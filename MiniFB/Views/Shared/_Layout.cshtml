@@ -11,7 +11,8 @@
         <link href="~/Content/font-awesome-ie7.css" rel="stylesheet" />
         <link href="~/Content/font-awesome.css" rel="stylesheet" />
         <link href="~/Content/Base.css" rel="stylesheet" />
-        
+        <link href="~/Content/Theme.css" rel="stylesheet" />
+        @RenderSection("styles", required: false)
     </head>
     <body>
         @*<div class="navbar fixed-top">
@@ -86,10 +87,9 @@
             </div>
         </footer>
 
-        @*Scripts.Render("~/bundles/jquery")
-        Scripts.Render("~/bundles/jqueryui")
-        Scripts.Render("~/bundles/bootstrap/js")*@
-         @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/bootstrap/js")
         @RenderSection("scripts", required: false)
 
         @*<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>

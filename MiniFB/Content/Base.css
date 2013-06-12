@@ -15,17 +15,6 @@
     margin-right: 0px;
 }
 
-.navbar-inner
-{
-    background-image: -moz-linear-gradient(top, transparent, transparent);
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(transparent));
-    background-image: -webkit-linear-gradient(top, transparent, transparent);
-    background-image: -o-linear-gradient(top, transparent, transparent);
-    background-image: linear-gradient(to bottom, transparent, transparent);
-    background-color: #006400;
-
-}
-
 .navbar .nav
 {
     float: none;
@@ -39,69 +28,11 @@
     z-index: 1030;
 }
 
-.navbar .brand
-{
-    color: #FFFFFF;
-}
-
-.navbar .nav li a
-{
-    color: #D4D4D4;
-    text-shadow: none;
-}
-
-.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus
-{
-    color: #D4D4D4;
-    text-shadow: none;
-    background-color: #00A100;
-}
-
-.navbar .nav li a:hover
-{
-    color: #FFFFFF;
-}
-
-.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus a:hover
-{
-    color: #FFFFFF;
-}
-
-.nav-collapse .nav > li > a:hover, .nav-collapse .nav > li > a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus
-{
-    background-color: #00A100;
-}
-
-.navbar .divider-vertical
-{
-    border-right: 1px solid #D4D4D4;
-    border-left: 1px solid #D4D4D4;
-}
-
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus 
-{
-    background-color: #00A100;
-    background-image: none;
-    filter: none;
-}
-
-.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle
-{
-    background-color: #00A100;
-    color: #FFFFFF;
-}
-
 .navbar-search .input-prepend input
 {
     -webkit-border-radius: 4px 0 0 4px;
     -moz-border-radius: 4px 0 0 4px;
     border-radius: 4px 0 0 4px;
-}
-
-.navbar-search .input-prepend i
-{
-    background-color: #FFFFFF;
-    border-left: none;
 }
 
 .navbar-search .input-prepend
@@ -120,23 +51,12 @@
 .nav.pull-right .dropdown-menu li.loggedIn
 {
     font-size: 15px;
-    background-color: #D4D4D4;
     display: block;
     padding: 3px 20px;
     clear: both;
     font-weight: normal;
     line-height: 20px;
     white-space: nowrap;
-}
-
-.nav.pull-right .dropdown-menu li a
-{
-    color: #000;
-}
-
-.nav.pull-right .dropdown-menu li a:hover
-{
-    color: #FFFFFF;
 }
 
 .dropdown-menu li a
@@ -155,57 +75,9 @@
     margin-top: 1.45px;
 }
 
-.dropdown-menu li a:hover i
-{
-    color: #FFFFFF;
-}
-
-.dropdown-menu li a:hover
-{
-    text-decoration: none;
-}
-
 .dropdown-menu ul li
 {
     list-style: none;
-}
-
-.dropdown a.dropdown-toggle i
-{
-    color: #D4D4D4;
-}
-
-.dropdown a.dropdown-toggle:hover i
-{
-    color: #FFFFFF;
-}
-
-.dropdown a.dropdown-toggle:focus i
-{
-    color: #FFFFFF;
-}
-
-.dropdown.open a.dropdown-toggle i
-{
-    color: #FFFFFF;
-}
-
-.navbar .nav li.dropdown > .dropdown-toggle .caret
-{
-    border-top-color: #D4D4D4;
-    border-bottom-color: #D4D4D4;
-}
-
-.navbar .nav li.dropdown > a:hover .caret, .navbar .nav li.dropdown > a:focus .caret
-{
-    border-top-color: #FFFFFF;
-    border-bottom-color: #FFFFFF;
-}
-
-.navbar .nav li.dropdown.open > .dropdown-toggle .caret, .navbar .nav li.dropdown.active > .dropdown-toggle .caret, .navbar .nav li.dropdown.open.active > .dropdown-toggle .caret
-{
-    border-top-color: #FFFFFF;
-    border-bottom-color: #FFFFFF;
 }
 
 
@@ -241,8 +113,6 @@ footer
 {
     margin-left: 0px;
     margin-right: 0px;
-    background-color: #006400;
-    color: #FFFFFF;
 }
 
 .fixed-bottom
@@ -254,7 +124,6 @@ footer
 
 .trademark
 {
-    color: #D4D4D4;
     margin: 10px 0 10px 0;
     display: inline;
     position:absolute;
@@ -368,8 +237,6 @@ li.twitter-like
 {
     height: 38px;
     width: 200px;
-    background-color: #D4D4D4;
-    border: 1px solid #000;
     display: inline;
     position: absolute;
     right: 0;
@@ -378,13 +245,11 @@ li.twitter-like
 
 .chat-footer:hover
 {
-    background-color: #B4B4B4;
     cursor: pointer;
 }
 
 .chat-footer:focus
 {
-    background-color: #B4B4B4;
     cursor: pointer;
 }
 
@@ -401,7 +266,6 @@ li.twitter-like
 .chat-footer h4
 {
     text-align: center;
-    color: #000;
     font-size: 14px;
 }
 
@@ -409,21 +273,16 @@ li.twitter-like
 {
     width: 100%;
     text-align: center;
-    background-color: #D4D4D4;
-    color: #000;
-    border-bottom: 1px solid #000;
     height: auto;
 }
 
 .chat-header:hover
 {
-    background-color: #B4B4B4;
     cursor: pointer;
 }
 
 .chat-header:focus
 {
-    background-color: #B4B4B4;
     cursor: pointer;
 }
 
@@ -432,9 +291,6 @@ li.twitter-like
     display: none;
     height: 200px;
     width: 200px;
-    background-color: #F1F1F1;
-    color: #000;
-    border: 1px solid #000;
     position:absolute;
     right: 0;
     bottom: 38px;

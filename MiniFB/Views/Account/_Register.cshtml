@@ -1,20 +1,13 @@
 ﻿@model MiniFB.Models.RegisterModel
-@{
-    ViewBag.Title = "Register";
-}
 
-<hgroup class="title">
-    <h1>@ViewBag.Title.</h1>
-    <h2>Create a new account.</h2>
-</hgroup>
-
+<h3>Registrera dig!</h3>
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
 
     <fieldset>
-        <legend>Registration Form</legend>
-        <ol>
+        <legend></legend>
+        <ol class="registerform-table">
             <li>
                 @Html.LabelFor(m => m.UserName)
                 @Html.TextBoxFor(m => m.UserName)
@@ -32,10 +25,9 @@
                 @Html.TextBoxFor(m => m.Email)
             </li>
         </ol>
-        <input type="submit" value="Register" />
+        <div class="form-btns">
+            <input type="submit" value="Register" class="btn" />
+        </div>
     </fieldset>
 }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

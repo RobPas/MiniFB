@@ -4,47 +4,15 @@
 
     <div class="row-fluid">
         <div class="span6 thumbnails">
+            @*login form*@
             <div class="thumbnail loginform-thumbnail">
-                <section id="loginForm">
-                @using (Html.BeginForm("Login", "Account")) {
-                    @Html.AntiForgeryToken()
-                    @Html.ValidationSummary(true)
-
-                    <fieldset>
-                        <legend>Logga in med dina befintliga användaruppgifter</legend>
-                        <ol class="registerform-table">
-                            <li class="registerform-list">
-                                @Html.LabelFor(m => m.UserName)
-                                @Html.TextBoxFor(m => m.UserName)
-                                @Html.ValidationMessageFor(m => m.UserName)
-                            </li>
-                            <li class="registerform-list">
-                                @Html.LabelFor(m => m.Password)
-                                @Html.PasswordFor(m => m.Password)
-                                @Html.ValidationMessageFor(m => m.Password)
-                            </li>
-                            <li class="registerform-list">
-                                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "checkbox" })
-                                @Html.LabelFor(m => m.RememberMe, new { @class = "checkbox-label" })
-                            </li>
-                        </ol>
-                        <div class="form-btns">
-                            <button class="btn RegBtn">@Html.ActionLink("Registera dig", "Register", "Account")</button>
-                            <input type="submit" value="Logga in" class="btn btn-success LogIn" />
-                        </div>
-
-                    </fieldset>
-                }
-                </section>
-
-                @*<section class="social" id="socialLoginForm">
-                    <h2>Use another service to log in.</h2>
-                    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-                </section>*@
-
-                @*@section Scripts {
-                    @Scripts.Render("~/bundles/jqueryval")
-                }*@
+                
+                <div class="form-btns">
+                            <button class="btn loginLink">@Html.ActionLink("Logga in", "Index", "Home")</button>
+                            <button class="btn regLink">@Html.ActionLink("Registera dig", "Index", "Home")</button>
+                 </div>
+                <div id="membership-panel"></div>
+                @*login form slut*@
             </div>
         </div>
         <div class="span6">
@@ -66,3 +34,66 @@
                 </a>
             </div>
     </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+<script type="text/javascript">
+
+    $(function () {
+        bindMembershipLinks();
+        loadMembershipView("/Account/_Login");
+            
+    });
+
+    function bindMembershipLinks() {
+        $(".loginLink").click(function () {
+            loadMembershipView("/Account/_Login");
+            return false;
+        });
+
+        $(".regLink").click(function () {
+            loadMembershipView("/Account/_Register");
+            return false;
+        });
+    }
+
+    function loadMembershipView(url) {
+        $.get(url, function (data) {
+            $("#membership-panel").html(data);
+            prepareLoadedForm();
+            bindMembershipLinks();
+        });
+    }
+
+    function prepareLoadedForm() {
+        var $form = $("#membership-panel").find("form");
+        if ($form.exist()) {
+            $form.unbind();
+            $form.data("validator", null);
+            $.validator.unobtrusive.parse(document);
+            //bindFormEvent($form);
+        }
+    }
+    //function bindFormEvent($form) {
+    //    $form.submit(function (e) {
+    //        e.preventDefault();
+
+    //        if ($(this).valid()) {
+    //            var formObject = $(this).serializeObject();
+    //            var url = $(this).attr('action');
+    //            $.post(url, $(this).serializeObject(),
+    //                function (data) {
+    //                    if (data.Success == true) {
+    //                        alert('Success');
+    //                    } else {
+    //                        alert('Error');
+    //                    }
+    //                });
+    //        }
+    //    });
+    //}
+
+</script>
+    }

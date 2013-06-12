@@ -6,50 +6,71 @@
 
 @foreach (var item in Model) {
 <div class="newsfeed-items media">
-    <img class="pull-left media-object" src="http://placehold.it/60x60">
+    <img class="pull-left media-object" src="@item.User.ProfileImageUrl" width="80" height="80" />
+    
     <div class="media-body">
         <div>
             <b>
-               @if (item.User != null )
-               {
-                   @Html.ActionLink(item.User.UserName, "Index", "Profile", new { username = item.User.UserName }, null)
-               }
+                @if (item.User != null )
+                {
+                    @Html.ActionLink(item.User.UserName, "Index", "Profile", new { username = item.User.UserName }, null)
+                }
             </b>
         </div>
-        <div>
-        @Html.DisplayFor(modelItem => item.Content) 
-        </div>
-    </div>
-    <small class="muted">
-        @if (item.ItemType == 1)
+        
+        @if (item.ItemType == 2) 
         {
-        <span class="label status">
-            @Html.DisplayFor(modelItem => item.GetItemTypeStr)
-        </span>
+            <div class="media-image">
+                <img src="@Html.DisplayFor(modelItem => item.Data)" alt="" />
+            </div>
         }
-
-        @if (item.ItemType == 2)
+        @if (item.ItemType == 3) 
         {
-        <span class="label image">
-            @Html.DisplayFor(modelItem => item.GetItemTypeStr)
-        </span>
+            <div class="media-video">
+            <iframe src="@Html.DisplayFor(modelItem => item.Data)" frameborder="0" allowfullscreen></iframe>
+            </div>
         }
-
-        @if (item.ItemType == 3)
-        {
-        <span class="label video">
-            @Html.DisplayFor(modelItem => item.GetItemTypeStr)
-        </span>
-        }
-
         @if (item.ItemType == 4)
         {
-        <span class="label link">
-            @Html.DisplayFor(modelItem => item.GetItemTypeStr)
-        </span>
-        }    
-        Skapad: @Html.DisplayFor(modelItem => item.Created) Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)
-    </small>
+            <div class="media-link">
+                <a href="@Html.DisplayFor(modelItem => item.Data)">@Html.DisplayFor(modelItem => item.Data)</a>
+            </div>
+        }
+        <div>
+            @Html.DisplayFor(modelItem => item.Content) 
+        </div>
+		<button class="btn btn-small icon-thumbs-up"></button>
+        <small class="muted">
+            @if (item.ItemType == 1)
+            {
+            <span class="label status">
+                @Html.DisplayFor(modelItem => item.GetItemTypeStr)
+            </span>
+            }
+
+            @if (item.ItemType == 2)
+            {
+            <span class="label image">
+                @Html.DisplayFor(modelItem => item.GetItemTypeStr)
+            </span>
+            }
+
+            @if (item.ItemType == 3)
+            {
+            <span class="label video">
+                @Html.DisplayFor(modelItem => item.GetItemTypeStr)
+            </span>
+            }
+
+            @if (item.ItemType == 4)
+            {
+            <span class="label link">
+                @Html.DisplayFor(modelItem => item.GetItemTypeStr)
+            </span>
+            }    
+            Skapad: @Html.DisplayFor(modelItem => item.Created) Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)
+        </small>
+    </div>
 </div>
 <hr />
 }

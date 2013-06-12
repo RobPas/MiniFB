@@ -1,0 +1,203 @@
+﻿/* navbar theme rules */
+
+.navbar-inner
+{
+    background-image: -moz-linear-gradient(top, transparent, transparent);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(transparent), to(transparent));
+    background-image: -webkit-linear-gradient(top, transparent, transparent);
+    background-image: -o-linear-gradient(top, transparent, transparent);
+    background-image: linear-gradient(to bottom, transparent, transparent);
+    background-color: #4A708B;
+}
+
+.navbar .brand
+{
+    color: #FFFFFF;
+}
+
+.navbar .nav li a
+{
+    color: #D4D4D4;
+    text-shadow: none;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus
+{
+    color: #D4D4D4;
+    text-shadow: none;
+    background-color: #38B0DE;
+}
+
+.navbar .nav li a:hover
+{
+    color: #FFFFFF;
+}
+
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus a:hover
+{
+    color: #FFFFFF;
+}
+
+.nav-collapse .nav > li > a:hover, .nav-collapse .nav > li > a:focus, .nav-collapse .dropdown-menu a:hover, .nav-collapse .dropdown-menu a:focus
+{
+    background-color: #38B0DE;
+}
+
+.navbar .divider-vertical
+{
+    border-right: 1px solid #D4D4D4;
+    border-left: 1px solid #D4D4D4;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus 
+{
+    background-color: #38B0DE;
+    background-image: none;
+    filter: none;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle
+{
+    background-color: #38B0DE;
+    color: #FFFFFF;
+}
+
+.navbar-search .input-prepend i
+{
+    background-color: #FFFFFF;
+    border-left: none;
+}
+
+.nav.pull-right .dropdown-menu li.loggedIn
+{
+    background-color: #D4D4D4;
+}
+
+.nav.pull-right .dropdown-menu li a
+{
+    color: #000;
+}
+
+.nav.pull-right .dropdown-menu li a:hover
+{
+    color: #FFFFFF;
+}
+
+.dropdown-menu li a:hover i
+{
+    color: #FFFFFF;
+}
+
+.dropdown-menu li a:hover
+{
+    text-decoration: none;
+}
+
+.dropdown a.dropdown-toggle i
+{
+    color: #D4D4D4;
+}
+
+.dropdown a.dropdown-toggle:hover i
+{
+    color: #FFFFFF;
+}
+
+.dropdown a.dropdown-toggle:focus i
+{
+    color: #FFFFFF;
+}
+
+.dropdown.open a.dropdown-toggle i
+{
+    color: #FFFFFF;
+}
+
+.navbar .nav li.dropdown > .dropdown-toggle .caret
+{
+    border-top-color: #D4D4D4;
+    border-bottom-color: #D4D4D4;
+}
+
+.navbar .nav li.dropdown > a:hover .caret, .navbar .nav li.dropdown > a:focus .caret
+{
+    border-top-color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle .caret, .navbar .nav li.dropdown.active > .dropdown-toggle .caret, .navbar .nav li.dropdown.open.active > .dropdown-toggle .caret
+{
+    border-top-color: #FFFFFF;
+    border-bottom-color: #FFFFFF;
+}
+
+
+/* footer theme rules */
+
+footer
+{
+    background-color: #4A708B;
+    color: #FFFFFF;
+}
+
+.trademark
+{
+    color: #D4D4D4;
+}
+
+
+/* chat themes rules */
+
+.chat-footer
+{
+    background-color: #D4D4D4;
+    border: 1px solid #000;
+}
+
+.chat-footer:hover
+{
+    background-color: #B4B4B4;
+}
+
+.chat-footer:focus
+{
+    background-color: #B4B4B4;
+}
+
+.chat-footer h4
+{
+    color: #000;
+}
+
+.chat-header
+{
+    background-color: #D4D4D4;
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
+.chat-header:hover
+{
+    background-color: #B4B4B4;
+}
+
+.chat-header:focus
+{
+    background-color: #B4B4B4;
+}
+
+.chat-window
+{
+    background-color: #F1F1F1;
+    color: #000;
+    border: 1px solid #000;
+}
+
+
+
+
+
+/* 
+   #38B0DE - ljus
+   #4A708B - mörk
+*/

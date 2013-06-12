@@ -3,7 +3,7 @@ namespace MiniFB.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class First : DbMigration
     {
         public override void Up()
         {
@@ -17,6 +17,8 @@ namespace MiniFB.Migrations
                         ConfirmationToken = c.String(),
                         IsAdmin = c.Boolean(nullable: false),
                         IsConfirmed = c.Boolean(nullable: false),
+                        UserSecretQuestion = c.String(),
+                        UserSecretAnswer = c.String(),
                         UserName = c.String(),
                         FirstName = c.String(),
                         LastName = c.String(),
@@ -34,7 +36,8 @@ namespace MiniFB.Migrations
                         ID = c.Guid(nullable: false),
                         UserID = c.Guid(nullable: false),
                         ItemType = c.Int(nullable: false),
-                        Content = c.String(maxLength: 250),
+                        Data = c.String(),
+                        Content = c.String(nullable: false, maxLength: 250),
                         Created = c.DateTime(nullable: false),
                         Modified = c.DateTime(nullable: false),
                     })

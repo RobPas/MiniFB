@@ -5,13 +5,13 @@ namespace MiniFB.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class RenamedDataURLToData : IMigrationMetadata
+    public sealed partial class First : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RenamedDataURLToData));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(First));
         
         string IMigrationMetadata.Id
         {
-            get { return "201306110922374_RenamedDataURLToData"; }
+            get { return "201306121149157_First"; }
         }
         
         string IMigrationMetadata.Source

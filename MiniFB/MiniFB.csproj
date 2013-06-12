@@ -221,21 +221,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201305300830028_InitialCreate.cs" />
-    <Compile Include="Migrations\201305300830028_InitialCreate.Designer.cs">
-      <DependentUpon>201305300830028_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305300910599_DataURLProp_On_NewsFeedItem.cs" />
-    <Compile Include="Migrations\201305300910599_DataURLProp_On_NewsFeedItem.Designer.cs">
-      <DependentUpon>201305300910599_DataURLProp_On_NewsFeedItem.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305310819453_AddSecretQuestion.cs" />
-    <Compile Include="Migrations\201305310819453_AddSecretQuestion.Designer.cs">
-      <DependentUpon>201305310819453_AddSecretQuestion.cs</DependentUpon>
-	</Compile>
-    <Compile Include="Migrations\201306110922374_RenamedDataURLToData.cs" />
-    <Compile Include="Migrations\201306110922374_RenamedDataURLToData.Designer.cs">
-      <DependentUpon>201306110922374_RenamedDataURLToData.cs</DependentUpon>
+    <Compile Include="Migrations\201306121149157_First.cs" />
+    <Compile Include="Migrations\201306121149157_First.Designer.cs">
+      <DependentUpon>201306121149157_First.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
@@ -457,17 +445,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201305300830028_InitialCreate.resx">
-      <DependentUpon>201305300830028_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305300910599_DataURLProp_On_NewsFeedItem.resx">
-      <DependentUpon>201305300910599_DataURLProp_On_NewsFeedItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305310819453_AddSecretQuestion.resx">
-      <DependentUpon>201305310819453_AddSecretQuestion.cs</DependentUpon>
-	</EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306110922374_RenamedDataURLToData.resx">
-      <DependentUpon>201306110922374_RenamedDataURLToData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306121149157_First.resx">
+      <DependentUpon>201306121149157_First.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

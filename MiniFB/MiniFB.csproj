@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201305300910599_DataURLProp_On_NewsFeedItem.Designer.cs">
       <DependentUpon>201305300910599_DataURLProp_On_NewsFeedItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201306110922374_RenamedDataURLToData.cs" />
+    <Compile Include="Migrations\201306110922374_RenamedDataURLToData.Designer.cs">
+      <DependentUpon>201306110922374_RenamedDataURLToData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -425,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201305300910599_DataURLProp_On_NewsFeedItem.resx">
       <DependentUpon>201305300910599_DataURLProp_On_NewsFeedItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306110922374_RenamedDataURLToData.resx">
+      <DependentUpon>201306110922374_RenamedDataURLToData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

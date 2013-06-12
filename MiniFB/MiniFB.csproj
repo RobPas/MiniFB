@@ -232,6 +232,9 @@
     <Compile Include="Migrations\201305310819453_AddSecretQuestion.cs" />
     <Compile Include="Migrations\201305310819453_AddSecretQuestion.Designer.cs">
       <DependentUpon>201305310819453_AddSecretQuestion.cs</DependentUpon>
+    <Compile Include="Migrations\201306110922374_RenamedDataURLToData.cs" />
+    <Compile Include="Migrations\201306110922374_RenamedDataURLToData.Designer.cs">
+      <DependentUpon>201306110922374_RenamedDataURLToData.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
@@ -461,6 +464,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201305310819453_AddSecretQuestion.resx">
       <DependentUpon>201305310819453_AddSecretQuestion.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306110922374_RenamedDataURLToData.resx">
+      <DependentUpon>201306110922374_RenamedDataURLToData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

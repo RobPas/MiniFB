@@ -9,12 +9,12 @@
 </div>
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jquery")
+   
     <script src="~/Scripts/jquery.signalR-1.1.2.min.js"></script>
-    <script src="signalr/hubs"></script>S
+    <script src="/signalr/hubs"></script>
 
     <script type="text/javascript">
-        $(function () {
+        $(document).ready(function() {
             // Declare a proxy to reference the hub.
             var chat = $.connection.chatHub;
             alert(chat);

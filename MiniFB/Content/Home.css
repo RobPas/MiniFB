@@ -76,3 +76,17 @@ input.checkbox
     display: inline;
     margin-left: 15px;
 }
+
+
+/* carousel rules */
+
+#myCarousel .carousel-inner .item img
+{
+    margin: 0 auto;
+    display: block;
+}
+
+#myCarousel .carousel-indicators li
+{
+    background-color: #D4D4D4;
+}

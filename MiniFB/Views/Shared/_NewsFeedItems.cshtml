@@ -39,6 +39,17 @@
         <div>
             @Html.DisplayFor(modelItem => item.Content) 
         </div>
+        <div class="btn-group">
+          <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown" >
+              <i class="icon-wrench"></i><em>  </em>
+              <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+                <li><a href="#">Edit</a></li>     
+                <li><a href="#">Delete</a></li>
+                <li><a href="#">Report</a></li>
+          </ul>
+        </div>
 		<button class="btn btn-small icon-thumbs-up"></button>
         <small class="muted">
             @if (item.ItemType == 1)
@@ -71,6 +82,8 @@
             Skapad: @Html.DisplayFor(modelItem => item.Created) Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)
         </small>
     </div>
+
+    
 </div>
 <hr />
 }

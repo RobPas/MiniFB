@@ -7,8 +7,19 @@
 @foreach (var item in Model) {
 <div class="newsfeed-items media">
     <img class="pull-left media-object" src="@item.User.ProfileImageUrl" width="80" height="80" />
+    <div class="btn-group pull-right">
+        <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-wrench"></i><em>  </em>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Edit</a></li>     
+            <li><a href="#">Delete</a></li>
+            <li><a href="#">Report</a></li>
+        </ul>
+    </div>
     
-    <div class="media-body">
+    <div class="media-body status-div">
         <div>
             <b>
                 @if (item.User != null )
@@ -38,17 +49,6 @@
         }
         <div>
             @Html.DisplayFor(modelItem => item.Content) 
-        </div>
-        <div class="btn-group">
-          <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown" >
-              <i class="icon-wrench"></i><em>  </em>
-              <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu">
-                <li><a href="#">Edit</a></li>     
-                <li><a href="#">Delete</a></li>
-                <li><a href="#">Report</a></li>
-          </ul>
         </div>
         <button title="Kommentera" class="comment-button btn btn-small icon-pencil"></button>
 		<button title="Gilla" class="btn btn-small icon-thumbs-up"></button>

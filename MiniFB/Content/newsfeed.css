@@ -49,6 +49,11 @@ background: #EA7902;
     margin-top: 40px;
 }
 
+.newsfeed-items.media, .media-body.status-div
+{
+    overflow: inherit;
+}
+
 
 /* Left space profile options */
 

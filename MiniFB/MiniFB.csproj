@@ -432,7 +432,6 @@
     <Content Include="Views\Chat\ChatWindowDropdownPartial.cshtml" />
     <Content Include="Views\Profile\ChangePassword.cshtml" />
     <Content Include="Views\Profile\Message.cshtml" />
-    <Content Include="Views\Chat\SignalRChat.cshtml" />
     <Content Include="Views\User\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>

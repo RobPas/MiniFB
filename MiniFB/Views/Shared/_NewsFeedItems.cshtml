@@ -6,28 +6,32 @@
 
 @foreach (var item in Model) {
 <div class="newsfeed-items media">
-    <img class="pull-left media-object" src="@item.User.ProfileImageUrl" width="80" height="80" />
-    <div class="btn-group pull-right">
-        <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
-            <i class="icon-wrench"></i><em>  </em>
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-            <li><a href="#">Edit</a></li>     
-            <li><a href="#">Delete</a></li>
-            <li><a href="#">Report</a></li>
-        </ul>
-    </div>
-    
-    <div class="media-body status-div">
-        <div>
+    <div><img class="pull-left media-object" src="@item.User.ProfileImageUrl" width="80" height="80" /></div>
+    <div class="status-info">
+        <div class="newsfeeed-status-header">
             <b>
                 @if (item.User != null )
                 {
                     @Html.ActionLink(item.User.UserName, "Index", "Profile", new { username = item.User.UserName }, null)
                 }
             </b>
+            <div class="btn-group pull-right">
+                <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="icon-wrench"></i><em>  </em>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Edit</a></li>     
+                    <li><a href="#">Delete</a></li>
+                    <li><a href="#">Report</a></li>
+                </ul>
+            </div>
         </div>
+        <div class="created"><small class="muted">Skapad: @Html.DisplayFor(modelItem => item.Created)</small></div> 
+        <div class="updated"><small class="muted">Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)</small></div>
+    </div>
+
+    <div class="media-body status-div">
         
         @if (item.ItemType == 2) 
         {
@@ -51,7 +55,6 @@
             @Html.DisplayFor(modelItem => item.Content) 
         </div>
 		<button class="btn btn-small icon-thumbs-up"></button>
-        <small class="muted">
             @if (item.ItemType == 1)
             {
             <span class="label status">
@@ -79,10 +82,7 @@
                 @Html.DisplayFor(modelItem => item.GetItemTypeStr)
             </span>
             }    
-            Skapad: @Html.DisplayFor(modelItem => item.Created) Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)
-        </small>
     </div>
-
     
 </div>
 <hr />

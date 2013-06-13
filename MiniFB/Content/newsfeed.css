@@ -54,6 +54,36 @@ background: #EA7902;
     overflow: inherit;
 }
 
+.updated
+{
+    
+}
+
+.created
+{
+    margin-top: 18px;
+}
+
+.newsfeed-items.media .btn-group.pull-right
+{
+    display: inline;
+}
+
+.newsfeeed-status-header
+{
+    display: inline;
+}
+
+.status-info
+{
+    margin-left: 10px;
+}
+
+.status-div
+{
+    margin-top: 20px;
+}
+
 
 /* Left space profile options */
 

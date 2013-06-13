@@ -28,7 +28,8 @@
         </div>
     </div>
     
-    <div class="span6 newsfeed-middle-column">
+    <div class="span9 newsfeed-middle-column">
+        <div class="span8">
 
         @using (Html.BeginForm(null, null, FormMethod.Get, new { @class = "btn-group newsfeed-sorting", @data_toggle = "buttons-radio" }))
         {
@@ -56,10 +57,11 @@
         <div class="newsfeed-container">
         @Html.Partial("_NewsFeedItems", Model)
         </div>
-
+        </div>
+        <div class="span4"></div>
     </div>
-    <div class="span3 newsfeed-right-column">
-    </div>
+    @*<div class="span3 newsfeed-right-column">
+    </div>*@
 </div>
 
 @section scripts {

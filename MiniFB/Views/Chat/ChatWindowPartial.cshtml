@@ -1,24 +1,61 @@
 ﻿@if (Request.IsAuthenticated)
 {
-<div class="chat-footer pull-right">
-    <h4>Chatt</h4>
-</div>
-<div class="chat-window pull-right">
-    <div class="chat-header">
-        Chatt
+    <div class="chat-footer pull-right">
+        <h4>Chatt</h4>
     </div>
-    <div class="chat-content">
-        <p>jdnvdnv</p>
-        <p>jnvdjkvn</p>
-        <p>sadsd</p>
-        <p>lljlghöjjafnkiuev akjkcvjdnvkd kjnajkndvnjjkdnvjkvdan</p>
-        <p>djvdnvdkvndkjvdkjvnnkdnvkjvjdknvndvnkjnvdkndvjdvnknv</p>
-        <p>lljlghöj</p>
-        <p>bhsvtg</p>
-        <p><a href="http://www.google.se">http://www.google.se</a></p> 
+    <div class="chat-window pull-right">
+        <div class="chat-header">
+            Chatt
+        </div>
+
+        <div id="chatMessages" class="chat-content">
+            <ul id="discussion"></ul>
+        </div>
+
+        <div id="chatBox">
+            <div>
+                <input type="text" id="message" />
+                <input class="btn" type="button" id="sendmessage" value="Skicka" />
+                <input type="hidden" id="displayname" value="@User.Identity.Name" />
+            </div>
+        </div>
+
     </div>
-</div>
 }
 else
 {
+    <p>Logga in för att chatta!</p>
 }
+
+
+<style>
+   
+    #chatMessages {
+        width: 250px;
+        background-color: #e0e0e0;
+        height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 10px 0px;
+        margin: 10px;
+    }
+
+    #message {
+        display:block;
+        float:left;
+        margin: 0px 5px 10px 10px;
+        width:164px;
+    }
+
+    #sendmessage {
+        display:block;
+        float:left;
+    }
+
+
+    #discussion li {
+        list-style: none;
+        margin-left: -15px;
+    }
+</style>
+

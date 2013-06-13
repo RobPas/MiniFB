@@ -290,8 +290,6 @@ li.twitter-like
 .chat-window
 {
     display: none;
-    height: 200px;
-    width: 200px;
     position:absolute;
     right: 0;
     bottom: 38px;
@@ -307,7 +305,7 @@ li.twitter-like
     max-width: 100%;
 }
 
-.chat-content p
+.chat-content ul li
 {
     margin-right: 10px;
     overflow: hidden;

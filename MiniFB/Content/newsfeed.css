@@ -49,6 +49,11 @@ background: #EA7902;
     margin-top: 40px;
 }
 
+.media, .media-body
+{
+    overflow: inherit;
+}
+
 
 /* Left space profile options */
 

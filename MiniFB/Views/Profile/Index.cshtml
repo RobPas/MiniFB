@@ -6,7 +6,7 @@
     ViewBag.Title = Model.UserName + " - MiniFB";
 }
 
-<h2>@Html.DisplayFor(model => model.UserName)'s profilsida</h2>
+<h2 id="profile-header">@Html.DisplayFor(model => model.UserName)'s profilsida</h2>
 <hr />
 <div class="row-fluid">
     <div class="span3">
@@ -52,7 +52,7 @@
 
 
     <div class="span9">
-        <h3 class="latest-activity">@Html.DisplayFor(model => model.UserName)'s senaste aktiviteter</h3>
+        <h3 id="latest-activity">@Html.DisplayFor(model => model.UserName)'s senaste aktiviteter</h3>
         <hr />
 
         <div>

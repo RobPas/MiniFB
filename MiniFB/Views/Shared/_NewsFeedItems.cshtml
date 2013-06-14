@@ -83,6 +83,11 @@
             Skapad: @Html.DisplayFor(modelItem => item.Created) Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)
         </small>
     </div>
+    <div class="comment-form" style="display:none;">
+        <input style="margin-top: 10px;" type="text" name="post-comment-text" value="" placeholder="Kommentera..." />
+        <input class="btn" type="submit" name="post-comment-submit" value="Skicka" />
+        <input type="hidden" name="post-comment-guid" value="@item.ID" />
+    </div>
 
     
 </div>

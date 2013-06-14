@@ -105,7 +105,7 @@
 
         $(document).ready(function () {
             $(".comment-button").click(function () {
-                $(this).parent().after("<div><input style='margin:5px;' type='text' placeholder='kommentera...'/><button style='margin:5px;' class='btn btn-small'>Skicka</button></div>");
+                $(".comment-form").toggle();
             });
         });
 

@@ -263,6 +263,7 @@
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\images\goat-serious.jpg" />
+    <Content Include="Content\images\groovepaper.png" />
     <Content Include="Content\images\sex_female_32.png" />
     <Content Include="Content\images\sex_male_32.png" />
     <Content Include="Content\PagedList.css" />

@@ -1,5 +1,5 @@
 ﻿/* Rules for the content from all the views, first line is for navbar-fixed-top */
-
+body {background-image:url(images/groovepaper.png);}
 .content-wrapper.main-content.clear-fix
 {
     margin-top: 70px;

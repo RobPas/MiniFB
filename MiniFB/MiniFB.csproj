@@ -221,9 +221,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306121149157_First.cs" />
-    <Compile Include="Migrations\201306121149157_First.Designer.cs">
-      <DependentUpon>201306121149157_First.cs</DependentUpon>
+    <Compile Include="Migrations\201306141514437_first.cs" />
+    <Compile Include="Migrations\201306141514437_first.Designer.cs">
+      <DependentUpon>201306141514437_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306141541084_second.cs" />
+    <Compile Include="Migrations\201306141541084_second.Designer.cs">
+      <DependentUpon>201306141541084_second.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
@@ -445,8 +449,11 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201306121149157_First.resx">
-      <DependentUpon>201306121149157_First.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306141514437_first.resx">
+      <DependentUpon>201306141514437_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306141541084_second.resx">
+      <DependentUpon>201306141541084_second.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

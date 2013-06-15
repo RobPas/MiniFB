@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MiniFB.Hubs
 {
-    class ChatHub : Hub
+    public class ChatHub : Hub
     {
         
         public void Distribute(string name, string message)

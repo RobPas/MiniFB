@@ -7,8 +7,19 @@
 @foreach (var item in Model) {
 <div class="newsfeed-items media">
     <img class="pull-left media-object" src="@item.User.ProfileImageUrl" width="80" height="80" />
+    <div class="btn-group pull-right">
+        <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-wrench"></i><em>  </em>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Edit</a></li>     
+            <li><a href="#">Delete</a></li>
+            <li><a href="#">Report</a></li>
+        </ul>
+    </div>
     
-    <div class="media-body">
+    <div class="media-body status-div">
         <div>
             <b>
                 @if (item.User != null )
@@ -39,8 +50,8 @@
         <div>
             @Html.DisplayFor(modelItem => item.Content) 
         </div>
-		<button class="btn btn-small icon-thumbs-up"></button>
-
+        <button title="Kommentera" class="comment-button btn btn-small icon-pencil"></button>
+		<button title="Gilla" class="btn btn-small icon-thumbs-up"></button>
         <small class="muted">
             @if (item.ItemType == 1)
             {
@@ -72,6 +83,28 @@
             Skapad: @Html.DisplayFor(modelItem => item.Created) Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)
         </small>
     </div>
+    <div class="comment-wrapper" id="comments-@item.ID">
+        <ul>
+         @if (item.Comments != null)
+         {
+             foreach (var comment in item.Comments.OrderBy(u => u.Created))
+             {
+                 <li><strong>@comment.CommentWriter:</strong> @comment.Message</li>
+             }
+         }
+         
+        </ul>
+    </div>
+    <div class="comment-form" style="display:none;">
+        <form action="/NewsFeedItem/AddComment" method="post">
+            <input style="margin-top: 10px;" type="text" name="commenttext" value="" placeholder="Kommentera..." />
+            <input class="btn submit-comment" type="submit" name="post-comment-submit" value="Skicka" />
+            <input type="hidden" id="newsfeedid" name="newsfeedid" value="@item.ID" />
+        </form>
+    </div>
 </div>
 <hr />
 }
+
+
+

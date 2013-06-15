@@ -1,24 +1,24 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - MiniFB</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/bootstrap/css")
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-        <link href="~/Content/font-awesome-ie7.css" rel="stylesheet" />
-        <link href="~/Content/font-awesome.css" rel="stylesheet" />
-        <link href="~/Content/Base.css" rel="stylesheet" />
-        <link href="~/Content/Theme.css" rel="stylesheet" />
-        @RenderSection("styles", required: false)
-    </head>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - MiniFB</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/bootstrap/css")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/font-awesome-ie7.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/Base.css" rel="stylesheet" />
+    <link href="~/Content/Theme.css" rel="stylesheet" />
+    @RenderSection("styles", required: false)
+</head>
 
-    
-    <body>
 
-        @*<div class="navbar fixed-top">
+<body>
+
+    @*<div class="navbar fixed-top">
             <div class="navbar-inner">
                 <div class="container-fluid">
                     <a class="brand" href="/">Mini FB</a>
@@ -46,34 +46,34 @@
             </div>
         </div>*@
 
-        @Html.Partial("_LoginPartial")
+    @Html.Partial("_LoginPartial")
 
-        <div class="container-fluid">
-            <div style="display:none;">@RenderSection("featured", required: false)</div>
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
-        </div>
-        <footer class="fixed-bottom">
-            <div class="container-fluid" id="footerlinks">
-                <div class="row-fluid">
-                    <p class="trademark pull-left">&copy; @DateTime.Now.Year - MiniFB</p>
+    <div class="container-fluid">
+        <div style="display: none;">@RenderSection("featured", required: false)</div>
+        <section class="content-wrapper main-content clear-fix">
+            @RenderBody()
+        </section>
+    </div>
+    <footer class="fixed-bottom">
+        <div class="container-fluid" id="footerlinks">
+            <div class="row-fluid">
+                <p class="trademark pull-left">&copy; @DateTime.Now.Year - MiniFB</p>
 
-                    @* ParialView for chat*@
-                    @Html.Partial("~/Views/chat/ChatWindowPartial.cshtml")
+                @* ParialView for chat*@
+                @Html.Partial("~/Views/chat/ChatWindowPartial.cshtml")
 
-                    <div class="footerlinks-table">
-                        <ul id="footerlinks-list">
-                            <li>Link 1</li>
-                            <li>Link 2</li>
-                            <li>Link 3</li>
-                            <li>Link 4</li>
-                            <li>Link 5</li>
-                        </ul>
-                    </div>
-                    
+                <div class="footerlinks-table">
+                    <ul id="footerlinks-list">
+                        <li>Link 1</li>
+                        <li>Link 2</li>
+                        <li>Link 3</li>
+                        <li>Link 4</li>
+                        <li>Link 5</li>
+                    </ul>
                 </div>
-                @*<div class="pull-right social-buttons">
+
+            </div>
+            @*<div class="pull-right social-buttons">
                     <ul class="like-buttons">
                         <li class="fb-like">
                             <div id="fb-root"></div>
@@ -87,22 +87,70 @@
                         </li>
                     </ul>
                 </div>*@
-            </div>
-        </footer>
+        </div>
+    </footer>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/jqueryui")
-        @Scripts.Render("~/bundles/bootstrap/js")
-        @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/bootstrap/js")
+    @RenderSection("scripts", required: false)
 
-        @*<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    @*<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
         <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } }(document, "script", "twitter-wjs");</script>
         <script>(function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/sv_SE/all.js#xfbml=1"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));</script>*@
 
-        <script src="~/Scripts/chat/chatWindow.js"></script>
-@*        <script>
+    
+
+    <script>
+
+        $(document).ready(function () {
+            $(".comment-button").click(function () {
+                $(".comment-form").toggle();
+            });
+
+            $(".submit-comment").click(function (e) {
+                e.preventDefault();
+                SendComment($(this).prev().val(), "@User.Identity.Name", $(this).next().val());
+                
+            });
+
+            var SendComment = function (message, writer, newsfeeditemguid) {
+
+                $.ajax("/NewsFeedItem/AddComment/", {
+
+                    type: 'POST',
+
+                    data: { newsfeedid: newsfeeditemguid, commenttext: message },
+
+                    success: function () {
+                        $("#comments-" + newsfeeditemguid+" ul").append("<li><strong>@User.Identity.Name:</strong> " + message + "</li>");
+                    },
+                    error: function () {
+                        
+                    },
+                    beforeSend: function () {
+                        
+                    },
+                    complete: function () {
+                        
+                    }
+                });
+            }
+
+
+        });
+
+    </script>
+
+    <script src="~/Scripts/jquery.signalR-1.1.2.min.js"></script>
+    <script src="/signalr/hubs" type="text/javascript"></script>
+    <script src="~/Scripts/chat/chatWindow.js"></script>
+    
+
+
+    @*        <script>
             $('.search-query').typeahead() 
         </script>*@
 
-    </body>
+</body>
 </html>

@@ -10,9 +10,8 @@ namespace MiniFB.Models.Entities
     public class NewsFeedComment : IEntity
     {
         public Guid ID { get; set; }
-        public User User { get; set; }
-        public Guid UserID { get; set; }
-        public NewsFeedItem NewsFeedItem { get; set; }
+        public string CommentWriter { get; set; }
+        public Guid NewsFeedItemGuid { get; set; }
         public string Message { get; set; }
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }

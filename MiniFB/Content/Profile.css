@@ -1,4 +1,16 @@
-﻿#profile-img-buttons {
+﻿#profile-header
+{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+#latest-activity
+{
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+
+#profile-img-buttons {
     margin: 20px;
 }
 
@@ -40,13 +52,6 @@
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: #F5F5F5;
-}
-
-.latest-activity
-{
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 0px;
 }
 
 .profile-image-div img

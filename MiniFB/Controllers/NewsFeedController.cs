@@ -66,5 +66,11 @@ namespace MiniFB.Controllers
             else
                 return View(_newsFeedItemRepo.FindAll().OrderByDescending(t => t.Modified).Where(n => n.ItemType == filterType).ToList());
         }
+
+        [HttpPost]
+        public void Like(string UserName, Guid ID) { 
+        
+
+        }
     }
 }

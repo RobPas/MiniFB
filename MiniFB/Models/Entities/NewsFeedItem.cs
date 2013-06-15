@@ -28,6 +28,8 @@ namespace MiniFB.Models.Entities
         public virtual User User { get; set; }
         public virtual Guid UserID { get; set; }
 
+        public List<User> Likers { get; set; }
+
         [Required]
         public int ItemType 
         {

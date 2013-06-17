@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201306110922374_RenamedDataURLToData.Designer.cs">
       <DependentUpon>201306110922374_RenamedDataURLToData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201306111404060_UserPropOnImageModel.cs" />
+    <Compile Include="Migrations\201306111404060_UserPropOnImageModel.Designer.cs">
+      <DependentUpon>201306111404060_UserPropOnImageModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -411,6 +415,8 @@
     <Content Include="Views\Chat\ChatWindowDropdownPartial.cshtml" />
     <Content Include="Views\Profile\ChangePassword.cshtml" />
     <Content Include="Views\Profile\Message.cshtml" />
+    <Content Include="Views\Upload\Index.cshtml" />
+    <Content Include="Views\Upload\Gallery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -430,6 +436,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201306110922374_RenamedDataURLToData.resx">
       <DependentUpon>201306110922374_RenamedDataURLToData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306111404060_UserPropOnImageModel.resx">
+      <DependentUpon>201306111404060_UserPropOnImageModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

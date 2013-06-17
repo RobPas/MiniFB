@@ -102,41 +102,4 @@ namespace MiniFB.Models.Entities
 
         public virtual List<NewsFeedComment> Comments { get; set; }
     }
-
-    public class YouTubeVideo
-    {
-        public string ID { get; set; }
-    }
-
-    public class NewsFeedItemData
-    {
-        private string _dataStr;
-        private int _itemType;
-
-        public virtual NewsFeedItem NewsFeedItem { get; set; }
-        public virtual Guid NewsFeedItemID { get; set; }
-
-        public NewsFeedItemData(string dataStr, int itemType) 
-        {
-            if (dataStr == null) 
-            {
-                throw new Exception("You have to provide a value");
-            }
-
-            _dataStr = dataStr;
-            _itemType = itemType;
-        }
-
-        public string DataStr
-        {
-            get
-            {
-                return _dataStr;
-            }
-            set 
-            {
-                this.DataStr = value;
-            }
-        }
-    }
 }

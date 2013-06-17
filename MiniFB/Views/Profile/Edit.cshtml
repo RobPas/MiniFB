@@ -85,13 +85,6 @@
     
             <p class="btn btn-danger">Ta bort bilden</p>
         </div>*@
-        <form action="/profile/upload"  method="post" enctype="multipart/form-data">
-            @Html.HiddenFor(u => u.UserID)
-	        <label for="photo">Bild:</label>
-	        <input type="file" name="photo" id="photo" />
-
-	        <input class="btn" type="submit" value="Upload" />
-        </form>
         <div>
             Använd Gravatar?
             @Html.EditorFor(model => model.IsUsingGravatar)

@@ -1,0 +1,15 @@
+﻿@model MiniFB.Models.Entities.User
+
+@{
+    ViewBag.Title = "Ladda upp bild";
+}
+
+<h1>Ladda upp bild</h1>
+
+<form action="/Upload"  method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(u => u.ID)
+	<label for="photo">Bild:</label>
+	<input type="file" name="photo" id="photo" />
+
+	<input class="btn" type="submit" value="Upload" />
+</form>

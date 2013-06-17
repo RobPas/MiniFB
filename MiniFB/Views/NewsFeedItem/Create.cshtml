@@ -6,6 +6,14 @@
 
 <h2>@ViewBag.Title</h2>
 
+<form action="/Upload"  method="post" enctype="multipart/form-data">
+    @Html.HiddenFor(n => n.UserID)
+	<label for="photo">Bild:</label>
+	<input type="file" name="photo" id="photo" />
+
+	<input class="btn" type="submit" value="Upload" />
+</form>
+
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)

@@ -54,6 +54,15 @@ width:15%;
 margin-bottom: 1em;
 }
 
+.newsfeed-create {
+float: left;
+margin-right: 2em;
+}
+
+.newsfeed-create-label {
+margin-right: 1em;
+}
+
 .newsfeed-sorting {
 margin-left: 5px;
 margin-bottom: 10px;

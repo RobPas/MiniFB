@@ -101,46 +101,8 @@
 
     
 
-    <script>
-
-        $(document).ready(function () {
-            $(".comment-button").click(function () {
-                $(".comment-form").toggle();
-            });
-
-            $(".submit-comment").click(function (e) {
-                e.preventDefault();
-                SendComment($(this).prev().val(), "@User.Identity.Name", $(this).next().val());
-                
-            });
-
-            var SendComment = function (message, writer, newsfeeditemguid) {
-
-                $.ajax("/NewsFeedItem/AddComment/", {
-
-                    type: 'POST',
-
-                    data: { newsfeedid: newsfeeditemguid, commenttext: message },
-
-                    success: function () {
-                        $("#comments-" + newsfeeditemguid+" ul").append("<li><strong>@User.Identity.Name:</strong> " + message + "</li>");
-                    },
-                    error: function () {
-                        
-                    },
-                    beforeSend: function () {
-                        
-                    },
-                    complete: function () {
-                        
-                    }
-                });
-            }
-
-
-        });
-
-    </script>
+    <script src="~/Scripts/newsfeed/Comment.js"></script>
+    
 
     <script src="~/Scripts/jquery.signalR-1.1.2.min.js"></script>
     <script src="/signalr/hubs" type="text/javascript"></script>

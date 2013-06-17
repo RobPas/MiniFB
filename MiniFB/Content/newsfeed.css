@@ -1,4 +1,42 @@
-﻿.media-video {
+﻿/* Comments field */
+.comment-wrapper {
+    margin-left:90px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.comment-form {
+    margin-left:90px;
+}
+
+.comment-wrapper ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+    background-color:#f1f1f1;
+}
+
+.comment-wrapper ul li{
+    border-top: 1px solid #fff;
+    padding: 5px 10px 5px 10px;
+}
+
+
+.showCommentsButton {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.submit-comment {
+width:15%;
+}
+
+.commenttext {
+    width:70%;
+}
+
+/* Comments field */
+.media-video {
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px; height: 0; overflow: hidden;

@@ -49,8 +49,9 @@
                     <a href="@Html.DisplayFor(modelItem => item.Data)">@Html.DisplayFor(modelItem => item.Data)</a>
                 </div>
             }
-        </div>
-        <div style="margin-top:20px;">
+        </div>  
+    </div>
+    <div style="margin-top:20px;">
             <button title="Kommentera" class="comment-button btn btn-small icon-pencil" onclick="ShowCommentForm('@item.ID')"></button>
 		    <button title="Gilla" class="btn btn-small icon-thumbs-up"></button>
 
@@ -82,7 +83,6 @@
             </span>
             }    
         </div>
-    </div>
     <div class="comment-wrapper" id="comments-@item.ID">
         <ul class="comments-list">
             <li class="muted pull-right">

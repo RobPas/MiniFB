@@ -1,0 +1,17 @@
+﻿@model MiniFB.Models.Entities.Image
+
+@{
+    ViewBag.Title = "Ta bort" + " " + Model.FileName + "?";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(i => i.ID)
+    
+    <button type="submit">Ta bort</button>
+}

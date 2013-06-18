@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNet.SignalR;
 using MiniFB.Models;
+using MiniFB.Models.Entities;
+using MiniFB.Models.Repositories;
+using MiniFB.Models.Repositories.Abstract;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +15,15 @@ namespace MiniFB.Hubs
 {
     public class ChatHub : Hub
     {
-        
+        private IRepository<User> _userRepo;
+        public ChatHub (){
+            _userRepo = new Repository<User>();
+        }
         public void Distribute(string name, string message)
         {
-            // Call the broadcastMessage method to update all clients.
-            Clients.All.broadcastMessage(name, message);
+            var user = _userRepo.FindAll(u => u.UserName == name).FirstOrDefault();
+
+            Clients.All.broadcastMessage(name, message, user.ProfileImageUrl, DateTime.Now.ToString("HH:mm:ss"));
         }
 
         public void Connect(string userName) { }

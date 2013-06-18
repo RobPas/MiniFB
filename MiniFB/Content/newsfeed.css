@@ -131,6 +131,21 @@ background: #EA7902;
     margin-top: 20px;
 }
 
+.newsfeed-items.media .btn-group.pull-right ul
+{
+    z-index: 1100;
+}
+
+.newsfeed-sorting.btn-group.open ul
+{
+    top: auto;
+}
+
+.newsfeed-items.media .btn-group
+{
+    float: right;
+}
+
 
 /* Left space profile options */
 
@@ -318,5 +333,13 @@ background: #EA7902;
     {
         margin-top: 10px;
         margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px)
+{
+    .media .pull-left, .media .pull-right
+    {
+         
     }
 }

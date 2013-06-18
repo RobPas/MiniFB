@@ -25,9 +25,7 @@ MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Ide
                     <hr class="divider-vertical-navbar" />
                     <ul class="nav left-nav">
                         <li class="divider-vertical"></li>
-                            @Html.MenuLink("RandomChat", "Random", "Chat")
-                        <li class="divider-vertical"></li>
-                            @Html.MenuLink("Chat", "Index", "Chat")
+                       
                     </ul>
                         @using (Ajax.BeginForm("Search", "User", null, new AjaxOptions { HttpMethod = "GET" }, new { @class = "navbar-search pull-left" }))
                         {

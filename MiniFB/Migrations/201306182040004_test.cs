@@ -3,14 +3,10 @@ namespace MiniFB.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class LikeEntity : DbMigration
+    public partial class test : DbMigration
     {
         public override void Up()
         {
-            DropForeignKey("dbo.Users", "NewsFeedItem_ID", "dbo.NewsFeedItems");
-            DropForeignKey("dbo.NewsFeedItems", "User_ID", "dbo.Users");
-            DropIndex("dbo.Users", new[] { "NewsFeedItem_ID" });
-            DropIndex("dbo.NewsFeedItems", new[] { "User_ID" });
             CreateTable(
                 "dbo.Likes",
                 c => new
@@ -23,21 +19,19 @@ namespace MiniFB.Migrations
                 .ForeignKey("dbo.NewsFeedItems", t => t.NewsFeedItemID, cascadeDelete: true)
                 .Index(t => t.NewsFeedItemID);
             
-            DropColumn("dbo.Users", "NewsFeedItem_ID");
-            DropColumn("dbo.NewsFeedItems", "User_ID");
+            AddColumn("dbo.Images", "UserID", c => c.Guid(nullable: false));
+            AddForeignKey("dbo.Images", "UserID", "dbo.Users", "ID", cascadeDelete: true);
+            CreateIndex("dbo.Images", "UserID");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.NewsFeedItems", "User_ID", c => c.Guid());
-            AddColumn("dbo.Users", "NewsFeedItem_ID", c => c.Guid());
+            DropIndex("dbo.Images", new[] { "UserID" });
             DropIndex("dbo.Likes", new[] { "NewsFeedItemID" });
+            DropForeignKey("dbo.Images", "UserID", "dbo.Users");
             DropForeignKey("dbo.Likes", "NewsFeedItemID", "dbo.NewsFeedItems");
+            DropColumn("dbo.Images", "UserID");
             DropTable("dbo.Likes");
-            CreateIndex("dbo.NewsFeedItems", "User_ID");
-            CreateIndex("dbo.Users", "NewsFeedItem_ID");
-            AddForeignKey("dbo.NewsFeedItems", "User_ID", "dbo.Users", "ID");
-            AddForeignKey("dbo.Users", "NewsFeedItem_ID", "dbo.NewsFeedItems", "ID");
         }
     }
 }

@@ -222,16 +222,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306180829421_first.cs" />
-    <Compile Include="Migrations\201306180829421_first.Designer.cs">
-      <DependentUpon>201306180829421_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201306181358187_LikeEntity.cs" />
-    <Compile Include="Migrations\201306181358187_LikeEntity.Designer.cs">
-      <DependentUpon>201306181358187_LikeEntity.cs</DependentUpon>
-    <Compile Include="Migrations\201306180935060_Initial.cs" />
-    <Compile Include="Migrations\201306180935060_Initial.Designer.cs">
-      <DependentUpon>201306180935060_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201306182040004_test.cs" />
+    <Compile Include="Migrations\201306182040004_test.Designer.cs">
+      <DependentUpon>201306182040004_test.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
@@ -460,13 +453,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201306180829421_first.resx">
-      <DependentUpon>201306180829421_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306181358187_LikeEntity.resx">
-      <DependentUpon>201306181358187_LikeEntity.cs</DependentUpon>
-    <EmbeddedResource Include="Migrations\201306180935060_Initial.resx">
-      <DependentUpon>201306180935060_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306182040004_test.resx">
+      <DependentUpon>201306182040004_test.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

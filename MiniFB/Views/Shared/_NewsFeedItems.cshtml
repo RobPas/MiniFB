@@ -34,7 +34,7 @@
 		<button data-user-id="@Html.DisplayFor(modelItem => item.UserID)" data-nfi-id="@Html.DisplayFor(modelItem => item.ID)" title="Gilla" class="btn btn-small icon-thumbs-up like-btn"></button>
         <small class="muted">
 
-			<div>
+			
             @if (item.ItemType == 1)
             {
             <span class="label status">
@@ -62,7 +62,7 @@
                 @Html.DisplayFor(modelItem => item.GetItemTypeStr)
             </span>
             }    
-        </div>
+        </small>
     </div>
     <div id="likeBox-@item.ID" class="likes">
         @if(item.Likes.Count == 0){

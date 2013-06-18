@@ -17,13 +17,11 @@ namespace MiniFB.Controllers
     public class ProfileController : Controller
     {
         private IRepository<User> _userRepo;
-        private IRepository<Image> _imageRepo;
         private SettingsValidator sv;
 
         public ProfileController()
         {
             _userRepo = new Repository<User>();
-            _imageRepo = new Repository<Image>();
             sv = new SettingsValidator();
         }
 
@@ -130,47 +128,6 @@ namespace MiniFB.Controllers
             return View(changePasswordModel);
         }
 
-        [HttpPost]
-        public ActionResult Upload(HttpPostedFileBase photo)
-        {
-            if (photo != null)
-            {
-                string path = @"C:\images\";
-
-                if (photo.ContentLength > 102400)
-                {
-                    ModelState.AddModelError("photo", "The size of the file should not exceed 10 KB");
-                    return RedirectToAction("Index");
-                }
-
-                var supportedTypes = new[] { "jpg", "jpeg", "png", "gif" };
-                var fileExt = System.IO.Path.GetExtension(photo.FileName).Substring(1);
-
-                if (!supportedTypes.Contains(fileExt))
-                {
-                    ModelState.AddModelError("photo", "Invalid type. Only the following types (jpg, jpeg, png) are supported.");
-                    return RedirectToAction("Index");
-                }
-
-                Image image = new Image();
-                image.ID = Guid.NewGuid();
-                image.FileType = "image/" + fileExt;
-                image.FileName = photo.FileName;
-                _imageRepo.Add(image);
-
-                photo.SaveAs(path + photo.FileName);
-                
-            }
-
-            return RedirectToAction("Index");
-        }
-
-        public FileResult ImageDisplayTest(Guid ID)
-        {
-            Image image = _imageRepo.FindByID(ID);
-
-            return File(@"c:\images\" + image.FileName, image.FileType);            
-        }
 
         public ActionResult Message(string msg = null)
         {

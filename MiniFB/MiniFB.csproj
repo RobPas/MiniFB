@@ -204,6 +204,7 @@
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BootstrapBundleConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Hubs\ChatHub.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -221,13 +222,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306141514437_first.cs" />
-    <Compile Include="Migrations\201306141514437_first.Designer.cs">
-      <DependentUpon>201306141514437_first.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201306141541084_second.cs" />
-    <Compile Include="Migrations\201306141541084_second.Designer.cs">
-      <DependentUpon>201306141541084_second.cs</DependentUpon>
+    <Compile Include="Migrations\201306180935060_Initial.cs" />
+    <Compile Include="Migrations\201306180935060_Initial.Designer.cs">
+      <DependentUpon>201306180935060_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
@@ -377,6 +374,7 @@
     <Content Include="Scripts\knockout-2.1.0.debug.js" />
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
+    <Content Include="Scripts\newsfeeditem\create.js" />
     <Content Include="Scripts\newsfeed\Comment.js" />
     <Content Include="Scripts\newsfeed\main.js" />
     <Content Include="Web.config">
@@ -438,11 +436,15 @@
     <Content Include="Views\Chat\ChatWindowDropdownPartial.cshtml" />
     <Content Include="Views\Profile\ChangePassword.cshtml" />
     <Content Include="Views\Profile\Message.cshtml" />
+    <Content Include="Views\Upload\Index.cshtml" />
     <Content Include="Views\User\Search.cshtml" />
+    <Content Include="Views\Gallery\Index.cshtml" />
+    <Content Include="Views\Gallery\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
+    <Folder Include="Images\Uploads\" />
     <Folder Include="Repository\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
@@ -450,11 +452,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201306141514437_first.resx">
-      <DependentUpon>201306141514437_first.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306141541084_second.resx">
-      <DependentUpon>201306141541084_second.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306180935060_Initial.resx">
+      <DependentUpon>201306180935060_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

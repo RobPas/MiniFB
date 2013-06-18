@@ -68,6 +68,7 @@ namespace MiniFB.Models.Entities
         public string Sex { get; set; }
 
         public virtual List<NewsFeedItem> NewsFeedItems { get; set; }
+        public virtual List<Image> Images { get; set; }
 
         public int Age {
             get {

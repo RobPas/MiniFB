@@ -13,6 +13,5 @@ namespace MiniFB.Models.Entities
         public string FileType { get; set; }
 
         public virtual Guid UserID { get; set; }
-        public virtual User User { get; set; }
     }
 }

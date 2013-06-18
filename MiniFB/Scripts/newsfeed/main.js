@@ -16,15 +16,6 @@
         };
     };
 
-    //var ajaxOptions = {
-    //    type: 'get',
-    //    success: function (d) {
-    //        $(status_el).text(text);
-
-    //        $(container).html(d);
-    //    }
-    //};
-
     $('.newsfeed-sorting .dropdown-menu a').on('click', function (e) {
         e.preventDefault();
         

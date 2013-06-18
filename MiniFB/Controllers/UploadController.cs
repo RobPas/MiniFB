@@ -38,11 +38,11 @@ namespace MiniFB.Controllers
         {
             if (photo != null)
             {
-                string path = @"C:\images\";
+                string path = @"~\Images\Uploads\";
 
-                if (photo.ContentLength > 102400)
+                if (photo.ContentLength > 204800)
                 {
-                    ModelState.AddModelError("photo", "The size of the file should not exceed 10 KB");
+                    ModelState.AddModelError("photo", "The size of the file should not exceed 200 KB");
                     return RedirectToAction("Index");
                 }
 
@@ -62,24 +62,12 @@ namespace MiniFB.Controllers
                 image.UserID = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault().ID;
                 _imageRepo.Add(image);
 
-                photo.SaveAs(path + photo.FileName);
+                var serverPath = Server.MapPath(path + photo.FileName);
+
+                photo.SaveAs(serverPath);
             }
 
-            return RedirectToAction("Gallery");
-        }
-
-        public ViewResult Gallery()
-        {
-            Guid UserID = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault().ID;
-
-            return View(_imageRepo.FindAll(i => i.UserID == UserID));
-        }
-
-        public FileResult ImageDisplay(Guid ID)
-        {
-            Image image = _imageRepo.FindByID(ID);
-
-            return File(@"c:\images\" + image.FileName, image.FileType);
+            return RedirectToAction("Index", "Gallery");
         }
     }
 }

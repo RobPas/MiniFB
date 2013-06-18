@@ -18,7 +18,6 @@
             <li><a href="#">Report</a></li>
         </ul>
     </div>
-    
     <div class="media-body status-div">
         <div>
             <b>
@@ -28,31 +27,33 @@
                 }
             </b>
         </div>
-        
-        @if (item.ItemType == 2) 
-        {
-            <div class="media-image">
-                <img src="@Html.DisplayFor(modelItem => item.Data)" alt="" />
-            </div>
-        }
-        @if (item.ItemType == 3) 
-        {
-            <div class="media-video">
-                <iframe src="@Html.DisplayFor(modelItem => item.Data)" frameborder="0" allowfullscreen></iframe>
-            </div>
-        }
-        @if (item.ItemType == 4)
-        {
-            <div class="media-link">
-                <a href="@Html.DisplayFor(modelItem => item.Data)">@Html.DisplayFor(modelItem => item.Data)</a>
-            </div>
-        }
         <div>
             @Html.DisplayFor(modelItem => item.Content) 
         </div>
-        <button title="Kommentera" class="comment-button btn btn-small icon-pencil" onclick="ShowCommentForm('@item.ID')"></button>
-		<button title="Gilla" class="btn btn-small icon-thumbs-up"></button>
-        
+        <div>
+            @if (item.ItemType == 2) 
+            {
+                <div class="media-image">
+                    <img src="@Html.DisplayFor(modelItem => item.Data)" alt="" />
+                </div>
+            }
+            @if (item.ItemType == 3) 
+            {
+                <div class="media-video">
+                    <iframe src="@Html.DisplayFor(modelItem => item.Data)" frameborder="0" allowfullscreen></iframe>
+                </div>
+            }
+            @if (item.ItemType == 4)
+            {
+                <div class="media-link">
+                    <a href="@Html.DisplayFor(modelItem => item.Data)">@Html.DisplayFor(modelItem => item.Data)</a>
+                </div>
+            }
+        </div>
+        <div style="margin-top:20px;">
+            <button title="Kommentera" class="comment-button btn btn-small icon-pencil" onclick="ShowCommentForm('@item.ID')"></button>
+		    <button title="Gilla" class="btn btn-small icon-thumbs-up"></button>
+
             @if (item.ItemType == 1)
             {
             <span class="label status">
@@ -80,20 +81,21 @@
                 @Html.DisplayFor(modelItem => item.GetItemTypeStr)
             </span>
             }    
-        <div>
-            <small class="muted">
-                Skapad: @Html.DisplayFor(modelItem => item.Created) Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)
-            </small>
         </div>
     </div>
     <div class="comment-wrapper" id="comments-@item.ID">
         <ul class="comments-list">
+            <li class="muted pull-right">
+                Skapad: @Html.DisplayFor(modelItem => item.Created)@* Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)*@
+            </li>
          @if (item.Comments != null)
          {
-             <li style="font-size:10px;">Ingen har gillat detta.</li>
+             <li>Ingen har gillat detta.</li>
              foreach (var comment in item.Comments.OrderBy(u => u.Created).Take(5))
              {
-                 <li><strong>@comment.CommentWriter:</strong> @comment.Message</li>
+                 <li>
+                    <strong>@comment.CommentWriter:</strong> @comment.Message
+                 </li>
              }
          }
         </ul>

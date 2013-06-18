@@ -28,6 +28,7 @@ MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Ide
                             @Html.MenuLink("RandomChat", "Random", "Chat")
                         <li class="divider-vertical"></li>
                             @Html.MenuLink("Chat", "Index", "Chat")
+                        <li><a href="@Url.Action("Index", "Upload")"><i class="icon-upload"></i> Ladda upp bild</a></li>
                     </ul>
                         @using (Ajax.BeginForm("Search", "User", null, new AjaxOptions { HttpMethod = "GET" }, new { @class = "navbar-search pull-left" }))
                         {

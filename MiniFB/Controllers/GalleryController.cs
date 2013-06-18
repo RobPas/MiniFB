@@ -37,7 +37,6 @@ namespace MiniFB.Controllers
             Image image = _imageRepo.FindByID(ID);
 
             return File(@"~\Images\Uploads\" + image.FileName, image.FileType);
-        
         }
 
         public ViewResult Delete(Guid ID)
@@ -48,10 +47,16 @@ namespace MiniFB.Controllers
         }
 
         [HttpPost]
-        public ActionResult Delete(Image image) 
+        public ActionResult Destroy(Guid ID) 
         {
-            System.IO.File.Delete(@"~\Images\Uploads\" + image);
-            return View();
+            Image image = _imageRepo.FindByID(ID);
+
+            _imageRepo.Delete(image);
+
+            string imageFilePath = Server.MapPath(@"~\Images\Uploads\" + image.FileName);
+            System.IO.File.Delete(imageFilePath);
+
+            return RedirectToAction("Index");
         }
     }
 }

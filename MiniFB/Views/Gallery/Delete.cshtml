@@ -6,7 +6,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Destroy", "Gallery")) 
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)

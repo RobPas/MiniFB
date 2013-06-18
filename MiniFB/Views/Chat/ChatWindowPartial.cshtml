@@ -5,10 +5,11 @@
     </div>
     <div class="chat-window pull-right">
         <div class="chat-header">
-            Chatt
+            Dölj
         </div>
 
         <div id="chatMessages" class="chat-content">
+            <i style="position:absolute;cursor:pointer;right: 22px;top: 25px;" class="icon-trash" id="remove-history" title="Ta bort historik"></i>
             <ul id="discussion"></ul>
         </div>
 
@@ -27,19 +28,19 @@
 <style>
    
     #chatMessages {
-        width: 250px;
+        width: auto;
         background-color: #e0e0e0;
         height: 200px;
         overflow-y: auto;
         overflow-x: hidden;
         padding: 10px 0px;
-        margin: 10px;
+        margin: 0px 0px 5px 0px;
     }
 
     #message {
         display:block;
         float:left;
-        margin: 0px 5px 10px 10px;
+        margin: 0px 5px 5px 5px;
         width:164px;
     }
 

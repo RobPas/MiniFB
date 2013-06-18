@@ -13,7 +13,6 @@ namespace MiniFB.Models.Entities
     public class NewsFeedItem : IEntity
     {
         private int _itemType;
-        private string _dataStr;
 
         public enum NewsFeedItemTypes
         {
@@ -81,10 +80,7 @@ namespace MiniFB.Models.Entities
             }
         }
 
-        //public NewsFeedItemData Data { get; set; }
         public string Data { get; set; }
-
-        //public string Data { get; set; }
 
         [DataType(DataType.MultilineText)]
         [StringLength(250)]
@@ -102,44 +98,6 @@ namespace MiniFB.Models.Entities
         [Display(Name="Modifierad")]
         public DateTime Modified { get; set; }
 
-        public virtual List<NewsFeedComment> Comments { get; set; }
-        
-    }
-
-    public class YouTubeVideo
-    {
-        public string ID { get; set; }
-    }
-
-    public class NewsFeedItemData
-    {
-        private string _dataStr;
-        private int _itemType;
-
-        public virtual NewsFeedItem NewsFeedItem { get; set; }
-        public virtual Guid NewsFeedItemID { get; set; }
-
-        public NewsFeedItemData(string dataStr, int itemType) 
-        {
-            if (dataStr == null) 
-            {
-                throw new Exception("You have to provide a value");
-            }
-
-            _dataStr = dataStr;
-            _itemType = itemType;
-        }
-
-        public string DataStr
-        {
-            get
-            {
-                return _dataStr;
-            }
-            set 
-            {
-                this.DataStr = value;
-            }
-        }
+        public virtual List<NewsFeedComment> Comments { get; set; }        
     }
 }

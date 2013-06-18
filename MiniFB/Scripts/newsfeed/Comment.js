@@ -1,5 +1,6 @@
 ﻿var ShowCommentForm = function (id) {
     $("#comment-form-" + id).toggle();
+    $("#commenttext-" + id).focus().click();
 }
 
 var showAllComments = function (id) {
@@ -15,7 +16,7 @@ var SendComment = function (writer, newsfeeditemguid) {
 
         var message = $("#commenttext-" + newsfeeditemguid).val();
 
-        $.ajax("/NewsFeedItem/AddComment/", {
+        $.ajax("/NewsFeedItem/AddComment", {
 
             type: 'POST',
 

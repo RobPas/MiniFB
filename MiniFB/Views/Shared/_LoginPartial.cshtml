@@ -11,7 +11,7 @@ MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Ide
     @Html.AntiForgeryToken()
     }
     <div id="main-wrapper"></div>
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
                 @Html.ActionLink("Mini FB", "Index", "Newsfeed", routeValues: null, htmlAttributes: new { @class = "brand"})
@@ -25,9 +25,7 @@ MiniFB.Models.Entities.User user = _userRepo.FindAll(u => u.UserName == User.Ide
                     <hr class="divider-vertical-navbar" />
                     <ul class="nav left-nav">
                         <li class="divider-vertical"></li>
-                            @Html.MenuLink("RandomChat", "Random", "Chat")
-                        <li class="divider-vertical"></li>
-                            @Html.MenuLink("Chat", "Index", "Chat")
+                        <li><a href="@Url.Action("Index", "Upload")"><i class="icon-upload"></i> Ladda upp bild</a></li>
                     </ul>
                         @using (Ajax.BeginForm("Search", "User", null, new AjaxOptions { HttpMethod = "GET" }, new { @class = "navbar-search pull-left" }))
                         {

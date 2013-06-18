@@ -72,8 +72,6 @@ namespace MiniFB.Controllers
 
             return View(newsfeeditem);
         }
-
-
         
         public JsonResult AddComment(Guid newsfeedid, string commenttext)
         {

@@ -14,8 +14,10 @@
         <div class="profile-options-newsfeed">
             <div class="media profile-header">
                 <a class="pull-left" href="@Url.Action("Index", "Profile")">
+                <div>
                     @*<img src="http://placehold.it/50x50" class="media-object">*@
                     <img class="pull-left media-object" src="@user.ProfileImageUrl" width="80" height="80" />
+                </div>
                 </a>
                 <div class="media-body profile-link">
                     <h4 class="media-heading">@Html.ActionLink(User.Identity.Name, "Index", "Profile", routeValues: null, htmlAttributes: new { title = "Gå till din profil"})</h4>
@@ -30,65 +32,66 @@
     
     <div class="span9 newsfeed-middle-column">
         <div class="span8">
+            <div class="newsfeed-sorting">
+                    <span class="newsfeed-create-label">Lägg till:</span>
+                <div>
+                    <a class="btn " href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 1 })"><i class="icon-comment"></i> Status</a>
+                    <a class="btn" href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 2 })"><i class="icon-picture"></i> Bild</a>
+                    <a class="btn" href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 3 })"><i class="icon-play"></i> Video</a>
+                    <a class="btn" href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 4 })"><i class="icon-bookmark"></i> Länk</a>
+                </div>
 
-        <div class="newsfeed-create">
-            <span class="newsfeed-create-label">Lägg till:</span>
-            <a class="btn " href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 1 })"><i class="icon-comment"></i> Status</a>
-            <a class="btn" href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 2 })"><i class="icon-picture"></i> Bild</a>
-            <a class="btn" href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 3 })"><i class="icon-play"></i> Video</a>
-            <a class="btn" href="@Url.Action("Create", "NewsFeedItem", new { ItemType = 4 })"><i class="icon-bookmark"></i> Länk</a>
-        </div>
-
-        <div class="newsfeed-sorting btn-group">
-            <button class="newsfeed-sorting-current btn disabled">
-                <span>Sortera</span>
-                <a href="/" class="icon-remove"></a>
-            </button>
-            <button class="btn dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">            
-            <li>
-                @if (ViewBag.active != null && ViewBag.active == 1)
-                {
-                    <a href="#"><strong>Status</strong></a>
-                }
-                else
-                {
-                    <a href="@Url.Action("Index", "NewsFeed", new { filter = "status" })">Status</a>
-                }
-            </li>
-            <li>
-                @if (ViewBag.active != null && ViewBag.active == 2)
-                {
-                    <a href="#"><strong>Bild</strong></a>
-                }
-                else 
-                {  
-                    <a href="@Url.Action("Index", "NewsFeed", new { filter = "image" })">Bild</a>
-                }
-            </li>
-            <li>
-                @if (ViewBag.active != null && ViewBag.active == 3)
-                {
-                    <a href="#"><strong>Video</strong></a>
-                }
-                else 
-                {
-                    <a href="@Url.Action("Index", "NewsFeed", new { filter = "video" })">Video</a>
-                }
-            </li>
-            <li>
-                @if (ViewBag.active != null && ViewBag.active == 4)
-                {
-                    <a href="#"><strong>Länk</strong></a>
-                }
-                else
-                {
-                    <a href="@Url.Action("Index", "NewsFeed", new { filter = "link" })">Länk</a>
-                }
-            </li>
-            </ul>
+            <div class="newsfeed-sorting btn-group">
+                <button class="newsfeed-sorting-current btn disabled">
+                    <span>Sortera</span>
+                    <a href="/" class="icon-remove"></a>
+                </button>
+                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">            
+                <li>
+                    @if (ViewBag.active != null && ViewBag.active == 1)
+                    {
+                        <a href="#"><strong>Status</strong></a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Index", "NewsFeed", new { filter = "status" })">Status</a>
+                    }
+                </li>
+                <li>
+                    @if (ViewBag.active != null && ViewBag.active == 2)
+                    {
+                        <a href="#"><strong>Bild</strong></a>
+                    }
+                    else 
+                    {  
+                        <a href="@Url.Action("Index", "NewsFeed", new { filter = "image" })">Bild</a>
+                    }
+                </li>
+                <li>
+                    @if (ViewBag.active != null && ViewBag.active == 3)
+                    {
+                        <a href="#"><strong>Video</strong></a>
+                    }
+                    else 
+                    {
+                        <a href="@Url.Action("Index", "NewsFeed", new { filter = "video" })">Video</a>
+                    }
+                </li>
+                <li>
+                    @if (ViewBag.active != null && ViewBag.active == 4)
+                    {
+                        <a href="#"><strong>Länk</strong></a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Index", "NewsFeed", new { filter = "link" })">Länk</a>
+                    }
+                </li>
+                </ul>
+            </div>
         </div>
         
         <hr />

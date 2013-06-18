@@ -1,0 +1,31 @@
+﻿@model IEnumerable<MiniFB.Models.Entities.Image>
+
+@{
+    ViewBag.Title = "Ditt Bildgalleri";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Ladda upp ny bild", "Index", "Upload")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <a href="@Url.Action("View", new { ID = item.ID })"><img width="256" src="@Url.Content("~/Images/Uploads/")@item.FileName" alt="" /></a>
+        </td>
+        <td>
+            @Html.ActionLink("Ta bort", "Delete", new { ID = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

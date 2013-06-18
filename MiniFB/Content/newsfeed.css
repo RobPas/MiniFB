@@ -152,6 +152,12 @@ background: #EA7902;
     float: right;
 }
 
+.newsfeed-items .dropdown-menu
+{
+    right: 0;
+    left: inherit;
+}
+
 
 /* Left space profile options */
 

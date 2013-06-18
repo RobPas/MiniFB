@@ -11,7 +11,7 @@ namespace MiniFB.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201306141514437_first"; }
+            get { return "201306180829421_first"; }
         }
         
         string IMigrationMetadata.Source

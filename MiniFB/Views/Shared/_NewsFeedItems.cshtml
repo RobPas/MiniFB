@@ -51,7 +51,7 @@
             @Html.DisplayFor(modelItem => item.Content) 
         </div>
         <button title="Kommentera" class="comment-button btn btn-small icon-pencil" onclick="ShowCommentForm('@item.ID')"></button>
-		<button title="Gilla" class="btn btn-small icon-thumbs-up"></button>
+		<button data-user-id="@Html.DisplayFor(modelItem => item.UserID)" data-nfi-id="@Html.DisplayFor(modelItem => item.ID)" title="Gilla" class="btn btn-small icon-thumbs-up like-btn"></button>
         <small class="muted">
             @if (item.ItemType == 1)
             {
@@ -83,11 +83,17 @@
             Skapad: @Html.DisplayFor(modelItem => item.Created) Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)
         </small>
     </div>
+    <div id="likeBox-@item.ID" class="likes">
+        @if(item.Likes.Count == 0){
+        <p>Ingen har gillat detta.</p>
+        }else{
+        <p> @item.Likes.Count har gillat detta</p>
+        }
+    </div>
     <div class="comment-wrapper" id="comments-@item.ID">
         <ul class="comments-list">
          @if (item.Comments != null)
          {
-             <li style="font-size:10px;">Ingen har gillat detta.</li>
              foreach (var comment in item.Comments.OrderBy(u => u.Created).Take(5))
              {
                  <li><strong>@comment.CommentWriter:</strong> @comment.Message</li>
@@ -119,6 +125,5 @@
 </div>
 <hr />
 }
-
 
 

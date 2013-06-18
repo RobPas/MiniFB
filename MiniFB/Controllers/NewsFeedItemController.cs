@@ -17,12 +17,14 @@ namespace MiniFB.Controllers
     {
         private IRepository<NewsFeedItem> _newsFeedItemRepo;
         private IRepository<User> _userRepo;
+        private IRepository<Like> _likesRepo;
         
 
         public NewsFeedItemController() 
         {
             _newsFeedItemRepo = new Repository<NewsFeedItem>();
             _userRepo = new Repository<User>();
+            _likesRepo = new Repository<Like>();
         }
 
         public NewsFeedItemController(IRepository<NewsFeedItem> newsFeedItemRepo)
@@ -82,6 +84,36 @@ namespace MiniFB.Controllers
 
             newsfeeditem.Comments.Add(nfc);
             _newsFeedItemRepo.Update(newsfeeditem);
+            return Json(new { result = "ok" });
+        }
+
+        [HttpPost]
+        public JsonResult Like(Guid ID)
+        {
+            var userID = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault().ID;
+            var newsfeeditem = _newsFeedItemRepo.FindAll(u => u.ID == ID).FirstOrDefault();
+            var likes = _likesRepo.FindAll(u => u.NewsFeedItemID == newsfeeditem.ID).ToList();
+            
+            bool alreadyLiked = false;
+            foreach(var item in likes)
+            {
+                if (item.UserID == userID)
+                {
+                    alreadyLiked = true;
+                    break;
+                }
+            }
+
+            if (!alreadyLiked)
+            {
+
+                Like like = new Like();
+                like.ID = Guid.NewGuid();
+                like.UserID = userID;
+                like.NewsFeedItemID = ID;
+                _likesRepo.Add(like);
+            }
+
             return Json(new { result = "ok" });
         }
     }

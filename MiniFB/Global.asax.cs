@@ -36,6 +36,8 @@ namespace MiniFB
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 
+            /* Denna behövs för att deploy ska fungera. Någonstans försöker koden skapa en Databas. Detta nollställer skiten. */
+            Database.SetInitializer<MiniFBContext>(null);
             //GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
         }
     }

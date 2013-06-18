@@ -4,7 +4,7 @@ namespace MiniFB.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-using MiniFB.Models.Entities;
+    using MiniFB.Models.Entities;
 
     internal sealed class Configuration : DbMigrationsConfiguration<MiniFB.Models.Contexts.MiniFBContext>
     {

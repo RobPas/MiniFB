@@ -6,32 +6,28 @@
 
 @foreach (var item in Model) {
 <div class="newsfeed-items media">
-    <div><img class="pull-left media-object" src="@item.User.ProfileImageUrl" width="80" height="80" /></div>
-    <div class="status-info">
-        <div class="newsfeeed-status-header">
+    <img class="pull-left media-object" src="@item.User.ProfileImageUrl" width="80" height="80" />
+    <div class="btn-group pull-right">
+        <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+            <i class="icon-wrench"></i><em>  </em>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Edit</a></li>     
+            <li><a href="#">Delete</a></li>
+            <li><a href="#">Report</a></li>
+        </ul>
+    </div>
+    
+    <div class="media-body status-div">
+        <div>
             <b>
                 @if (item.User != null )
                 {
                     @Html.ActionLink(item.User.UserName, "Index", "Profile", new { username = item.User.UserName }, null)
                 }
             </b>
-            <div class="btn-group pull-right">
-                <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="icon-wrench"></i><em>  </em>
-                    <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Edit</a></li>     
-                    <li><a href="#">Delete</a></li>
-                    <li><a href="#">Report</a></li>
-                </ul>
-            </div>
         </div>
-        <div class="created"><small class="muted">Skapad: @Html.DisplayFor(modelItem => item.Created)</small></div> 
-        <div class="updated"><small class="muted">Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)</small></div>
-    </div>
-
-    <div class="media-body status-div">
         
         @if (item.ItemType == 2) 
         {
@@ -54,7 +50,9 @@
         <div>
             @Html.DisplayFor(modelItem => item.Content) 
         </div>
-		<button class="btn btn-small icon-thumbs-up"></button>
+        <button title="Kommentera" class="comment-button btn btn-small icon-pencil" onclick="ShowCommentForm('@item.ID')"></button>
+		<button title="Gilla" class="btn btn-small icon-thumbs-up"></button>
+        <small class="muted">
             @if (item.ItemType == 1)
             {
             <span class="label status">
@@ -82,8 +80,45 @@
                 @Html.DisplayFor(modelItem => item.GetItemTypeStr)
             </span>
             }    
+            Skapad: @Html.DisplayFor(modelItem => item.Created) Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)
+        </small>
     </div>
-    
+    <div class="comment-wrapper" id="comments-@item.ID">
+        <ul class="comments-list">
+         @if (item.Comments != null)
+         {
+             <li style="font-size:10px;">Ingen har gillat detta.</li>
+             foreach (var comment in item.Comments.OrderBy(u => u.Created).Take(5))
+             {
+                 <li><strong>@comment.CommentWriter:</strong> @comment.Message</li>
+             }
+         }
+        </ul>
+
+        <ul id="comment-hidden-@item.ID" class="comments-list-hidden" style="display:none;">
+         @if (item.Comments != null)
+         {
+             foreach (var comment in item.Comments.OrderBy(u => u.Created).Skip(5))
+             {
+                 <li><strong>@comment.CommentWriter:</strong> @comment.Message</li>
+             }
+         }
+        </ul>
+        @if (item.Comments.Count > 5)
+        {
+                 <ul><li><a class="showCommentsButton" href="#"  onclick="showAllComments('@item.ID')">Visa fler kommentarer</a></li></ul>
+        }
+    </div>
+    <div class="comment-form" style="display:none;" id="comment-form-@item.ID">
+        <form action="/NewsFeedItem/AddComment" method="post">
+            <input style="margin-top: 10px;" type="text" class="commenttext" name="commenttext" id="commenttext-@item.ID" value="" placeholder="Kommentera..." />
+            <input class="btn submit-comment" type="submit" name="post-comment-submit" value="Skicka" onclick="SendComment('@User.Identity.Name', '@item.ID')" />
+            <input type="hidden" id="newsfeedid" name="newsfeedid" value="@item.ID" />
+        </form>
+    </div>
 </div>
 <hr />
 }
+
+
+

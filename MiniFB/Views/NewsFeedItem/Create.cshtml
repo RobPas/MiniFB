@@ -53,7 +53,7 @@
                 @Html.EditorFor(m => m.Data)
             </div>
             
-            <div id="video-preview" style="display:none;">
+            <div id="video-preview" class="hide">
                 <div>PREVIEW:</div>
                 
                 <iframe id="preview-iframe"  width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
@@ -83,36 +83,5 @@
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
 
-    <script>
-
-        $(document).ready(function () {
-
-            $("#Data").keyup(function () {
-                var url = $("#Data").val();
-
-                /* Kollar efter ett video id från en youtube url och plockar ut det. */
-                if (url.indexOf("youtube.com") !== -1) {
-                    var splited_url1 = url.toString().split('v=');
-                    if (splited_url1[1] != undefined) {
-                        var splited_url2 = splited_url1[1].split('#');
-                        var video_id = splited_url2[0].split('&');
-                        var newURL = "http://www.youtube.com/embed/" + video_id[0];
-
-
-                        $("#preview-iframe").attr("src", newURL);
-                        $("#video-preview").show();
-                        $("#Data").attr("data-video-url", newURL);
-                    } else {
-                        $("#video-preview").hide();
-                    }
-                } else {
-                    $("#img-pre").attr("src", url);
-                }
-                
-                
-            });
-
-        });
-        
-    </script>
+    <script src="@Url.Content("~/Scripts/newsfeeditem/create.js")"></script>
 }

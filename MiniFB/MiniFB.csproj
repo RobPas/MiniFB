@@ -222,9 +222,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306182040004_test.cs" />
-    <Compile Include="Migrations\201306182040004_test.Designer.cs">
-      <DependentUpon>201306182040004_test.cs</DependentUpon>
+    <Compile Include="Migrations\201306182051379_test1.cs" />
+    <Compile Include="Migrations\201306182051379_test1.Designer.cs">
+      <DependentUpon>201306182051379_test1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Helpers\HtmlHelpers.cs" />
@@ -453,8 +453,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201306182040004_test.resx">
-      <DependentUpon>201306182040004_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306182051379_test1.resx">
+      <DependentUpon>201306182051379_test1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

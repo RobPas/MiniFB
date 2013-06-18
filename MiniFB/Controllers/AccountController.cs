@@ -28,10 +28,10 @@ namespace MiniFB.Controllers
         // GET: /Account/Login
 
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public PartialViewResult _Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return PartialView();
         }
 
         //
@@ -40,7 +40,7 @@ namespace MiniFB.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
+        public ActionResult _Login(LoginModel model, string returnUrl)
         {
             if (ModelState.IsValid && _membership.ValidateUser(model.UserName, model.Password))
             {
@@ -67,9 +67,9 @@ namespace MiniFB.Controllers
         // GET: /Account/Register
 
         [AllowAnonymous]
-        public ActionResult Register()
+        public PartialViewResult _Register()
         {
-            return View();
+            return PartialView();
         }
 
         //
@@ -78,7 +78,7 @@ namespace MiniFB.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult _Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {

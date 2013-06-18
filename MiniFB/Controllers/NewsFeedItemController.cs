@@ -17,6 +17,7 @@ namespace MiniFB.Controllers
     {
         private IRepository<NewsFeedItem> _newsFeedItemRepo;
         private IRepository<User> _userRepo;
+        
 
         public NewsFeedItemController() 
         {
@@ -68,6 +69,18 @@ namespace MiniFB.Controllers
             }
 
             return View(newsfeeditem);
+        }
+        
+        public JsonResult AddComment(Guid newsfeedid, string commenttext)
+        {
+            var user = _userRepo.FindAll(u => u.UserName == User.Identity.Name).FirstOrDefault();
+            var newsfeeditem = _newsFeedItemRepo.FindAll(u => u.ID == newsfeedid).FirstOrDefault();
+
+            var nfc = new NewsFeedComment { ID = Guid.NewGuid(), Created = DateTime.Now, Modified = DateTime.Now, CommentWriter = User.Identity.Name, NewsFeedItemGuid = newsfeedid, Message = commenttext };
+
+            newsfeeditem.Comments.Add(nfc);
+            _newsFeedItemRepo.Update(newsfeeditem);
+            return Json(new { result = "ok" });
         }
     }
 }

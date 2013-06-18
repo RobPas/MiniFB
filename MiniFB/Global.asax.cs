@@ -12,6 +12,7 @@ using MiniFB.Models.Contexts;
 using WebMatrix.WebData;
 using System.Data.Entity.Infrastructure;
 using System.Web.Security;
+using Microsoft.AspNet.SignalR;
 
 namespace MiniFB
 {
@@ -23,6 +24,9 @@ namespace MiniFB
         protected void Application_Start()
         {
 
+            RouteTable.Routes.MapHubs();
+            
+
 
             AreaRegistration.RegisterAllAreas();
 
@@ -32,6 +36,8 @@ namespace MiniFB
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 
+            /* Denna behövs för att deploy ska fungera. Någonstans försöker koden skapa en Databas. Detta nollställer skiten. */
+            Database.SetInitializer<MiniFBContext>(null);
             //GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
         }
     }

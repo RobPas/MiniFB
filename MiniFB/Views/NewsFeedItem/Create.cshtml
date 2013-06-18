@@ -48,7 +48,7 @@
         {
             @:Förhandsvisning:
             <div class="image-preview">
-                <img src="http://placehold.it/480x240" alt="">
+                <img id="img-pre" width="480" class="img-polaroid" src="http://placehold.it/480x240" alt="">
             </div>
         }
 
@@ -60,7 +60,15 @@
             <div class="editor-field">
                 @Html.EditorFor(m => m.Data)
             </div>
+            
+            <div id="video-preview" class="hide">
+                <div>PREVIEW:</div>
+                
+                <iframe id="preview-iframe"  width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
         }
+
+        
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Content)
@@ -82,4 +90,6 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="@Url.Content("~/Scripts/newsfeeditem/create.js")"></script>
 }

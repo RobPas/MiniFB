@@ -1,4 +1,42 @@
-﻿.media-video {
+﻿/* Comments field */
+.comment-wrapper {
+    margin-left:90px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+.comment-form {
+    margin-left:90px;
+}
+
+.comment-wrapper ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+    background-color:#f1f1f1;
+}
+
+.comment-wrapper ul li{
+    border-top: 1px solid #fff;
+    padding: 5px 10px 5px 10px;
+}
+
+
+.showCommentsButton {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.submit-comment {
+width:15%;
+}
+
+.commenttext {
+    width:70%;
+}
+
+/* Comments field */
+.media-video {
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px; height: 0; overflow: hidden;
@@ -14,6 +52,15 @@
 
 .newsfeed-header {
 margin-bottom: 1em;
+}
+
+.newsfeed-create {
+float: left;
+margin-right: 2em;
+}
+
+.newsfeed-create-label {
+margin-right: 1em;
 }
 
 .newsfeed-sorting {
@@ -41,13 +88,17 @@ background: #EA7902;
 {
     margin-top: 40px;
     margin-bottom: 40px;
-    margin-left: 50px;
 }
 
 .newsfeed-items:first-child
 {
     margin-bottom: 40px;
     margin-top: 40px;
+}
+
+.newsfeed-items.media, .media-body.status-div
+{
+    overflow: inherit;
 }
 
 
@@ -149,5 +200,69 @@ background: #EA7902;
     .newsfeed-middle-column
     {
         margin-top: 20px;
+    }
+}
+
+
+/* media queries for newsfeed */
+
+@media (min-width: 771px) and (max-width: 979px)
+{
+    .row-fluid .span9.newsfeed-middle-column
+    {
+        width: 60%;
+    }
+    
+    .row-fluid .span3.newsfeed-left-column
+    {
+        width: 30%;
+    }
+
+    .profile-options-newsfeed
+    {
+        width: inherit;
+    }
+
+    .newsfeed-middle-column .span8
+    {
+        width: 100%;
+        clear: left;
+    }
+
+    .newsfeed-middle-column .span4
+    {
+        display: none;
+    }
+
+    .row-fluid .span9.newsfeed-middle-column .span8 .btn-group
+    {
+        display: inline;
+    }
+}
+
+@media (max-width: 770px)
+{
+    .row-fluid .span9.newsfeed-middle-column
+    {
+        clear: both;
+        width: 90%;
+    }
+    
+    .row-fluid .span3.newsfeed-left-column
+    {
+        display: none;
+    }
+
+    .newsfeed-middle-column .span4
+    {
+        display: none;
+    }
+}
+
+@media (min-width: 771px)
+{
+    .row-fluid .span9.newsfeed-middle-column .span8
+    {
+        margin-left: 50px;
     }
 }

@@ -26,6 +26,10 @@ namespace MiniFB.Models.Entities
 
         public bool IsConfirmed { get; set; }
 
+
+        public string UserSecretQuestion { get; set; }
+        public string UserSecretAnswer { get; set; }
+
 		[DisplayName("Användarnamn")]
         public string UserName { get; set; }
 
@@ -71,7 +75,6 @@ namespace MiniFB.Models.Entities
                 int _age = DateTime.Now.Year - BirthDate.Year;
                 return _age; 
             }
-            
         }
     }    
 
@@ -98,6 +101,23 @@ namespace MiniFB.Models.Entities
         [DisplayName("Kön")]
         public string Sex { get; set; }
 
+    }
+
+
+
+    public class ChangePasswordByEmailModel
+    {
+        public string Email { get; set; }
+    }
+
+    public class ForgotPasswordModel
+    {
+        public Guid UserID { get; set; }
+        public string UserSecretQuestion { get; set; }
+        public string UserSecretAnswer { get; set; }
+
+        public string NewPassword { get; set; }
+        public string ConfirmPassword { get; set; }
     }
     
 }

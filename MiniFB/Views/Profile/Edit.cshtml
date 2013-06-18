@@ -66,6 +66,13 @@
             <input type="submit" class="btn btn-success" value="Spara inställningar" />            
         </div>
     </div>
+    
+    <div>
+            Använd Gravatar?
+            
+            @Html.EditorFor(m => m.IsUsingGravatar)
+            
+        </div>
 }    
     <div id="profile-img-wrapper" class="span6">
         <div id="profile-img-preview">
@@ -85,10 +92,14 @@
     
             <p class="btn btn-danger">Ta bort bilden</p>
         </div>*@
-        <div>
-            Använd Gravatar?
-            @Html.EditorFor(model => model.IsUsingGravatar)
-        </div>
+        <form action="/profile/upload"  method="post" enctype="multipart/form-data">
+            @Html.HiddenFor(u => u.UserID)
+	        <label for="photo">Bild:</label>
+	        <input type="file" name="photo" id="photo" />
+
+	        <input class="btn" type="submit" value="Upload" />
+        </form>
+        
         
     </div>
 
@@ -101,7 +112,7 @@
 
 @section Scripts {
     <!-- Detta är ett test script och det skall läggas i en sepparat .js senare! -->
-    @Scripts.Render("~/bundles/jquery")
+    
     <script>
         $(document).ready(function () {
             

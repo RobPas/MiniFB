@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using MiniFB.Models;
+using Microsoft.AspNet.SignalR;
 
 namespace MiniFB
 {
@@ -11,6 +13,10 @@ namespace MiniFB
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+
+           //RouteTable.Routes.MapConnection<ChatConnection>("chat", "chat/{*operation}");
+            
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(

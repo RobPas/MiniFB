@@ -64,7 +64,7 @@ margin-right: 1em;
 }
 
 .newsfeed-sorting {
-margin-left: 5px;
+margin-left: 0px;
 margin-bottom: 10px;
 }
 
@@ -291,6 +291,13 @@ background: #EA7902;
     .content-wrapper.main-content.clear-fix
     {
         margin-top: 50px;
+        margin-bottom: 50px;
+    }
+
+    .span9.newsfeed-middle-column .span8 .newsfeed-sorting div
+    {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }
 

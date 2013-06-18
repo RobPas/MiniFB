@@ -109,15 +109,13 @@
         </ul>
         @if (item.Comments.Count > 5)
         {
-                 <ul><li><a class="showCommentsButton" href="#"  onclick="showAllComments('@item.ID')">Visa fler kommentarer</a></li></ul>
+                 <ul><li><a class="showCommentsButton" onclick="showAllComments('@item.ID')">Visa fler kommentarer</a></li></ul>
         }
     </div>
     <div class="comment-form" style="display:none;" id="comment-form-@item.ID">
-        <form action="/NewsFeedItem/AddComment" method="post">
-            <input style="margin-top: 10px;" type="text" class="commenttext" name="commenttext" id="commenttext-@item.ID" value="" placeholder="Kommentera..." />
-            <input class="btn submit-comment" type="submit" name="post-comment-submit" value="Skicka" onclick="SendComment('@User.Identity.Name', '@item.ID')" />
-            <input type="hidden" id="newsfeedid" name="newsfeedid" value="@item.ID" />
-        </form>
+       <input style="margin-top: 10px;" type="text" class="commenttext" name="commenttext" id="commenttext-@item.ID" value="" placeholder="Kommentera..." />
+       <input class="btn submit-comment" type="button" name="post-comment-submit" value="Skicka" onclick="SendComment('@User.Identity.Name', '@item.ID')" />
+       <input type="hidden" id="newsfeedid" name="newsfeedid" value="@item.ID" />
     </div>
 </div>
 <hr />

@@ -6,7 +6,7 @@
 
 @foreach (var item in Model) {
 <div class="newsfeed-items media">
-    <img class="pull-left media-object" src="@item.User.ProfileImageUrl" width="80" height="80" />
+    <img class="pull-left media-object" src="@item.User.ProfileImageUrl" />
     <div class="btn-group">
         <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
             <i class="icon-wrench"></i><em>  </em>
@@ -19,7 +19,7 @@
         </ul>
     </div>
     <div class="media-body status-div">
-        <div>
+        <div class="profile-name">
             <b>
                 @if (item.User != null )
                 {
@@ -27,10 +27,10 @@
                 }
             </b>
         </div>
-        <div>
+        <div class="item-content">
             @Html.DisplayFor(modelItem => item.Content) 
         </div>
-        <div>
+        <div class="item">
             @if (item.ItemType == 2) 
             {
                 <div class="media-image">
@@ -51,7 +51,7 @@
             }
         </div>  
     </div>
-    <div style="margin-top:20px;">
+    <div class="like-comment-buttons">
             <button title="Kommentera" class="comment-button btn btn-small icon-pencil" onclick="ShowCommentForm('@item.ID')"></button>
 		    <button data-user-id="@Html.DisplayFor(modelItem => item.UserID)" data-nfi-id="@Html.DisplayFor(modelItem => item.ID)" title="Gilla" class="btn btn-small icon-thumbs-up like-btn"></button>
 
@@ -122,8 +122,8 @@
                  <ul><li><a class="showCommentsButton" onclick="showAllComments('@item.ID')">Visa fler kommentarer</a></li></ul>
         }
     </div>
-    <div class="comment-form" style="display:none;" id="comment-form-@item.ID">
-       <input style="margin-top: 10px;" type="text" class="commenttext" name="commenttext" id="commenttext-@item.ID" value="" placeholder="Kommentera..." />
+    <div class="comment-form" id="comment-form-@item.ID">
+       <input type="text" class="commenttext" name="commenttext" id="commenttext-@item.ID" value="" placeholder="Kommentera..." />
        <input class="btn submit-comment" type="button" name="post-comment-submit" value="Skicka" onclick="SendComment('@User.Identity.Name', '@item.ID')" />
        <input type="hidden" id="newsfeedid" name="newsfeedid" value="@item.ID" />
     </div>

@@ -3,7 +3,7 @@
 <link href="~/Content/Home.css" rel="stylesheet" />
 
     <div class="row-fluid">
-        <div class="span6 thumbnails">
+        <div class="span5 thumbnails pull-left">
             @*login form*@
             <div class="thumbnail loginform-thumbnail">
                 
@@ -12,11 +12,12 @@
                             <button class="btn regLink">@Html.ActionLink("Registera dig", "Index", "Home")</button>
                  </div>
                 <div id="membership-panel"></div>
+
                 @*login form slut*@
             </div>
         </div>
-            <div class="span6 thumbnails">
-                <a href="#" class="thumbnail">
+            <div class="span5 thumbnails pull-right">
+                <div class="thumbnail carousel-thumbnail">
                     <div id="myCarousel" class="carousel slide">
                         <ol class="carousel-indicators">
                             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -52,7 +53,7 @@
                         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
                     </div>
                     <div style="clear:both;" ></div>
-                </a>
+                </div>
             </div>
     </div>
 

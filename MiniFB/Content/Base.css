@@ -238,7 +238,7 @@ li.twitter-like
 .chat-footer
 {
     height: 38px;
-    width: 200px;
+    width: 255px;
     display: inline;
     position: absolute;
     right: 0;
@@ -329,7 +329,7 @@ li.twitter-like
 
     .nav-collapse.collapse .nav.left-nav li:nth-child(4)
     {
-        display: none;
+        
     }
 }
  
@@ -343,7 +343,7 @@ li.twitter-like
 
     .nav-collapse.collapse .nav.left-nav li:nth-child(4)
     {
-        display: none;
+        
     }
 }
  

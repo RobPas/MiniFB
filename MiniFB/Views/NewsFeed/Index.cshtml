@@ -108,4 +108,21 @@
 
 @section scripts {
     @Scripts.Render("~/newsfeed/index")
+    <script src="~/Scripts/newsfeed/Comment.js"></script>
+
+    <script>
+        $('.like-btn').on('click', function () {
+            var nfid = $(this).data("nfi-id");
+            var ajaxOptions = {
+                type: 'post',
+                data: { ID: $(this).data("nfi-id"), UserID: $(this).data("user-id") },
+                success: function () {
+                    $("#likeBox-" + nfid).html("Du har gillat detta");
+                }
+            };
+
+            $.ajax("/NewsFeedItem/Like", ajaxOptions);
+        });
+    </script>
+
 }

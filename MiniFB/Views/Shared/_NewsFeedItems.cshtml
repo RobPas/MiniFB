@@ -53,8 +53,9 @@
     </div>
     <div class="like-comment-buttons">
             <button title="Kommentera" class="comment-button btn btn-small icon-pencil" onclick="ShowCommentForm('@item.ID')"></button>
-		    <button title="Gilla" class="btn btn-small icon-thumbs-up"></button>
+		    <button data-user-id="@Html.DisplayFor(modelItem => item.UserID)" data-nfi-id="@Html.DisplayFor(modelItem => item.ID)" title="Gilla" class="btn btn-small icon-thumbs-up like-btn"></button>
 
+			<small class="muted">
             @if (item.ItemType == 1)
             {
             <span class="label status">
@@ -82,15 +83,22 @@
                 @Html.DisplayFor(modelItem => item.GetItemTypeStr)
             </span>
             }    
-        </div>
+        </small>
     <div class="comment-wrapper" id="comments-@item.ID">
         <ul class="comments-list">
+            
             <li class="muted pull-right">
                 Skapad: @Html.DisplayFor(modelItem => item.Created)@* Uppdaterad: @Html.DisplayFor(modelItem => item.Modified)*@
             </li>
+            <li id="likeBox-@item.ID" class="likes" >
+                @if(item.Likes.Count == 0){
+                <text>Ingen har gillat detta.</text>
+                }else{
+                @item.Likes.Count <text>har gillat detta</text>
+                }
+            </li>
          @if (item.Comments != null)
          {
-             <li>Ingen har gillat detta.</li>
              foreach (var comment in item.Comments.OrderBy(u => u.Created).Take(5))
              {
                  <li>
@@ -120,8 +128,8 @@
        <input type="hidden" id="newsfeedid" name="newsfeedid" value="@item.ID" />
     </div>
 </div>
+    </div>
 <hr />
 }
-
 
 

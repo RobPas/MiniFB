@@ -3,7 +3,7 @@ namespace MiniFB.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class test1 : DbMigration
     {
         public override void Up()
         {
@@ -46,6 +46,18 @@ namespace MiniFB.Migrations
                 .Index(t => t.UserID);
             
             CreateTable(
+                "dbo.Likes",
+                c => new
+                    {
+                        ID = c.Guid(nullable: false),
+                        UserID = c.Guid(nullable: false),
+                        NewsFeedItemID = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => t.ID)
+                .ForeignKey("dbo.NewsFeedItems", t => t.NewsFeedItemID, cascadeDelete: true)
+                .Index(t => t.NewsFeedItemID);
+            
+            CreateTable(
                 "dbo.NewsFeedComments",
                 c => new
                     {
@@ -80,12 +92,15 @@ namespace MiniFB.Migrations
         {
             DropIndex("dbo.Images", new[] { "UserID" });
             DropIndex("dbo.NewsFeedComments", new[] { "NewsFeedItem_ID" });
+            DropIndex("dbo.Likes", new[] { "NewsFeedItemID" });
             DropIndex("dbo.NewsFeedItems", new[] { "UserID" });
             DropForeignKey("dbo.Images", "UserID", "dbo.Users");
             DropForeignKey("dbo.NewsFeedComments", "NewsFeedItem_ID", "dbo.NewsFeedItems");
+            DropForeignKey("dbo.Likes", "NewsFeedItemID", "dbo.NewsFeedItems");
             DropForeignKey("dbo.NewsFeedItems", "UserID", "dbo.Users");
             DropTable("dbo.Images");
             DropTable("dbo.NewsFeedComments");
+            DropTable("dbo.Likes");
             DropTable("dbo.NewsFeedItems");
             DropTable("dbo.Users");
         }

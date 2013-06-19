@@ -3,7 +3,7 @@ namespace MiniFB.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class test1 : DbMigration
+    public partial class first : DbMigration
     {
         public override void Up()
         {

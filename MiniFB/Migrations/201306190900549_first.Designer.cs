@@ -5,13 +5,13 @@ namespace MiniFB.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class test1 : IMigrationMetadata
+    public sealed partial class first : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(test1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(first));
         
         string IMigrationMetadata.Id
         {
-            get { return "201306182051379_test1"; }
+            get { return "201306190900549_first"; }
         }
         
         string IMigrationMetadata.Source
